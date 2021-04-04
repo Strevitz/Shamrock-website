@@ -4,12 +4,12 @@
   box-sizing: border-box;
 }
 :root {
-  --primaryColor: #af9a7d;
+  --primaryColor: #32c273;
   --mainWhite: #fff;
-  --offWhite: #f7f7f7;
-  --mainBlack: #1b4a80;
-  --mainGrey: #ececec;
-  --darkGrey: #cfcfcf;
+  --offWhite: #000000;
+  --mainBlack: #777676;
+  --mainGrey: #40d181;
+  --darkGrey: #eefff6;
   --mainTransition: all 0.3s linear;
   --mainSpacing: 3px;
   --lightShadow: 2px 5px 3px 0px #3f3f3f80;
@@ -57,7 +57,7 @@ h6 {
   display: inline-block;
   text-decoration: none;
   letter-spacing: var(--mainSpacing);
-  color: var(--mainBlack);
+  color: #fff;
   background: var(--primaryColor);
   padding: 0.4rem 0.9rem;
   border: 3px solid var(--primaryColor);
@@ -75,7 +75,8 @@ h6 {
 .loading {
   text-transform: capitalize;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
+  height: 2.6rem;
 }
 .error {
   text-align: center;
@@ -99,6 +100,7 @@ h6 {
   padding: 0.75rem 2rem;
   background: var(--offWhite);
   z-index: 1;
+  opacity: 0.88;
 }
 .nav-header {
   display: flex;
@@ -106,8 +108,9 @@ h6 {
 }
 
 .nav-header img {
-  width: 7rem;
+  width: 8rem;
   margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 
 .nav-btn {
@@ -139,10 +142,10 @@ h6 {
   display: block;
   text-decoration: none;
   padding: 1rem 0;
-  color: var(--mainBlack);
+  color: #d1d1d1;
   transition: var(--mainTransition);
-  text-align: center;
-  font-size: 1rem;
+  text-align: right;
+  font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: var(--mainSpacing);
 }
@@ -151,9 +154,9 @@ h6 {
 }
 
 .show-nav {
-  height: 230px;
+  height: 100vh;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 884px) {
   .nav-btn {
     display: none;
   }
@@ -176,15 +179,15 @@ h6 {
 /* Hero */
 .defaultHero,
 .roomsHero {
-  min-height: calc(100vh - 66px);
-  background: url("./images/IMG_20191117_113718.jpg") center/cover no-repeat;
+  min-height: 100vh;
+  background: url("./images/barber1.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .roomsHero {
   background-image: url("./images/IMG_20191117_135359.jpg");
-  min-height: 60vh;
+  min-height: 70vh;
 }
 /* End of Hero */
 /* Banner */
@@ -192,7 +195,7 @@ h6 {
   display: inline-block;
   background: rgba(0, 0, 0, 0.5);
   color: var(--mainWhite);
-  padding: 2rem 1rem;
+  padding: 2rem 4rem;
   text-align: center;
   text-transform: capitalize;
   letter-spacing: var(--mainSpacing);
@@ -215,7 +218,7 @@ h6 {
 }
 @media screen and (min-width: 576px) {
   .banner {
-    padding: 2rem 3rem;
+    padding: 2rem 2rem;
   }
   .banner h1 {
     font-size: 3rem;
@@ -549,6 +552,7 @@ footer {
 .about {
   margin-top: 30px;
   padding-right: 40px;
+  color: #d1d1d1;
 }
 
 .about {
@@ -561,6 +565,7 @@ footer {
   font-weight: bold;
   text-transform: uppercase;
   margin: 0;
+  color: #d1d1d1;
 }
 
 .links ul {
@@ -574,7 +579,7 @@ ul li {
 
 a {
   font-size: 14px;
-  color: var(--mainBlack);
+  color: #d1d1d1;
 }
 
 a:hover,
@@ -595,6 +600,7 @@ a:active {
 .copyright {
   text-align: center;
   margin-top: 90px;
+  color: #d1d1d1;
 }
 
 p {
@@ -636,7 +642,7 @@ p {
 
 .page {
   position: absolute;
-  top: 60px;
+  top: 0px;
   left: 0;
   right: 0;
 }

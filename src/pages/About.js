@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
-import { Link } from "react-router-dom";
+
 import Title from "../components/Title";
 import Footer from "../components/Footer";
 
@@ -9,11 +9,10 @@ const About = () => {
   return (
     <div className="page">
       <Hero hero="roomsHero">
-        <Banner title="About Us">
-          <Link to="/" className="btn-primary">
-            return home
-          </Link>
-        </Banner>
+        <Banner
+          title="Rezerwacje"
+          subtitle="Zarezerwuj najbliższy termin"
+        ></Banner>
       </Hero>
       <section className="services">
         <Title title="Why Propriété" />

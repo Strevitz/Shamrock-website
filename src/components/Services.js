@@ -1,38 +1,33 @@
 import React, { Component } from "react";
 import Title from "./Title";
-import {
-  FaPalette,
-  FaPersonBooth,
-  FaSearchLocation,
-  FaHeadphonesAlt,
-} from "react-icons/fa";
+import { FaCut, FaGamepad, FaSearchLocation, FaMugHot } from "react-icons/fa";
 
 export default class Services extends Component {
   state = {
     services: [
       {
-        icon: <FaPalette />,
-        title: "sophisticated design",
+        icon: <FaCut />,
+        title: "Pasja",
         info:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptatem eos alias molestias fuga expedita, aspernatur sint illo debitis aperiam.",
-      },
-      {
-        icon: <FaPersonBooth />,
-        title: "tailored to you",
-        info:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptatem eos alias molestias fuga expedita, aspernatur sint illo debitis aperiam.",
+          "Praca to dla nas styl życia, który praktykujemy od lat i cały czas podnosimy umiejętności dla Was. Specjalizujemy się w tradycyjnych cięciach jak i w modern barbering. Zapraszamy również na relaksujące golenie z gorącym ręcznikiem.",
       },
       {
         icon: <FaSearchLocation />,
-        title: "best locations",
+        title: "Lokalizacja",
         info:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptatem eos alias molestias fuga expedita, aspernatur sint illo debitis aperiam.",
+          "Shamrock Barber Shop zlokalizowany jest w samym sercu Warszawy przy ul. WIDOK 10 obok Rotundy. Wszystkie drogi prowadzą do nas!",
       },
       {
-        icon: <FaHeadphonesAlt />,
-        title: "personal service 24/7",
+        icon: <FaGamepad />,
+        title: "Czekając na serwis",
         info:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptatem eos alias molestias fuga expedita, aspernatur sint illo debitis aperiam.",
+          "Koniec z nudą podczas czekania na swoją kolej! W naszym shopie zagrasz w najnowsze gry wideo na streamingowej platformie Google Stadia. Możesz również zabrać znajomych i zagrać w gry planszowe w dostosowanej dla Was przestrzeni.",
+      },
+      {
+        icon: <FaMugHot />,
+        title: "Napoje",
+        info:
+          "Spragniony podczas wizyty w Shamrocku? Dla naszych gości podajemy pyszną kawę, whiskey i piwo bezalkoholowe dla zmotoryzowanych.",
       },
     ],
   };
@@ -40,7 +35,7 @@ export default class Services extends Component {
   render() {
     return (
       <section className="services">
-        <Title title="why we are a great choice?"></Title>
+        <Title title="O nas"></Title>
         <div className="services-center">
           {this.state.services.map((item, index) => {
             return (

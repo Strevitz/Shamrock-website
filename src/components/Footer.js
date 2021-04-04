@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/logo2.png";
-import iconTwitter from "../images/icon-twitter.svg";
+import logo from "../images/logo_green.png";
 import iconInstagram from "../images/icon-instagram.svg";
 import iconFacebook from "../images/icon-facebook.svg";
 
@@ -14,19 +13,13 @@ export default class Footer extends Component {
             <div className={"col-md-6 col-sm-12"}>
               <div className={"widget__item"}>
                 <div className={"logo"}>
-                  <Link to="/" title={"Home"}>
+                  <Link to="/" title={"Strona główna"}>
                     <img alt={"Logo"} src={logo} style={{ width: "10rem" }} />
                   </Link>
                 </div>
 
                 <div className={"about"}>
-                  <p>
-                    Whether you are a landlord looking for a let only, rent
-                    collection or full management service, Propriété will help
-                    you with your legal, statutory and financial obligations
-                    whilst finding the most suitable, fully referenced tenants
-                    for your property.
-                  </p>
+                  <p>ul. Widok 10, 00-023 Warszawa</p>
                 </div>
               </div>
             </div>
@@ -34,26 +27,31 @@ export default class Footer extends Component {
             <div className={"col-md-3 col-sm-12"}>
               <div className={"widget__item"}>
                 <div className={"links"}>
-                  <h4>Customer Service</h4>
+                  <h4>Obsługa Klienta</h4>
                   <ul>
                     <li>
-                      <Link to="/about" title={"About Us"}>
-                        About
+                      <Link to="/about" title={"Rezerwacje"}>
+                        Rezerwacje
                       </Link>
                     </li>
                     <li>
-                      <Link to="/contact" title={"Contact Us"}>
-                        Contact
+                      <Link to="/contact" title={"Kontakt"}>
+                        Kontakt
                       </Link>
                     </li>
                     <li>
-                      <Link to="/privacy" title={"Privacy Policy"}>
-                        Privacy Policy
+                      <Link to="/privacy" title={"Polityka Prywatności"}>
+                        Polityka Prywatności
                       </Link>
                     </li>
                     <li>
-                      <a href="8078078074" title={"Phone number"}>
-                        tel. 807-807-8074
+                      <a href="600090715" title={"Numer telefonu"}>
+                        tel. 600 090 715
+                      </a>
+                    </li>
+                    <li>
+                      <a href="8078078074" title={"e-mail"}>
+                        shamrock@email.com
                       </a>
                     </li>
                   </ul>
@@ -64,15 +62,6 @@ export default class Footer extends Component {
             <div className={"col-md-3 col-sm-12"}>
               <div className={"widget__item"}>
                 <div className={"social"}>
-                  <a
-                    href="https://twitter.com"
-                    target={"_blank"}
-                    rel="noopener noreferrer"
-                    title={"Twitter"}
-                  >
-                    <img alt={"Twitter"} src={iconTwitter} />
-                  </a>
-
                   <a
                     href="https://www.instagram.com"
                     target={"_blank"}
@@ -99,9 +88,9 @@ export default class Footer extends Component {
             <p>
               Copyright {new Date().getFullYear()}, {` `}{" "}
               <a href="https://strzewiczek.pl" title={"Propriété"}>
-                Propriété
+                Shamrock Barber Shop Arthur Strzewiczek
               </a>
-              . All rights reserved.
+              . Wszystkie prawa zastrzeżone.
             </p>
           </div>
         </div>

@@ -8,9 +8,12 @@ const Error = () => {
   return (
     <div className="page">
       <Hero>
-        <Banner title="404" subtitle="page not found">
+        <Banner
+          title="404"
+          subtitle="Podana strona nie istnieje, zrelaksuj się i zarezerwuj strzyżenie!"
+        >
           <Link to="/" className="btn-primary">
-            return home
+            powrót do strony głównej
           </Link>
         </Banner>
       </Hero>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../images/logo2.png";
+import logo from "../images/logo_white.png";
 //import { Slant as Hamburger } from "hamburger-react";
 import { HamburgerCollapse } from "react-animated-burgers";
 import { Link, NavLink } from "react-router-dom";
@@ -23,15 +23,15 @@ export default class Navbar extends Component {
         <div className="nav-center">
           <div className="nav-header">
             <Link to="/">
-              <img src={logo} alt="Propertie" />
+              <img src={logo} alt="Shamrock Barber Shop" />
             </Link>
             <button type="button" className="nav-btn">
               <HamburgerCollapse
                 isActive={this.state.isActive}
                 toggleButton={this.handleToggle}
                 buttonColor="transparent"
-                barColor="#af9a7d"
-                buttonWidth={22}
+                barColor="#fff"
+                buttonWidth={26}
               />
             </button>
           </div>
@@ -42,36 +42,54 @@ export default class Navbar extends Component {
               <NavLink
                 to="/"
                 exact
-                activeStyle={{ fontWeight: "bold", color: "#af9a7d" }}
+                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
               >
-                Home
+                Strona Główna
               </NavLink>
             </li>
             <li onClick={this.closeMenu}>
               <NavLink
                 to="/apartments"
                 exact
-                activeStyle={{ fontWeight: "bold", color: "#af9a7d" }}
+                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
               >
-                Apartments
+                Ekipa
               </NavLink>
             </li>
             <li onClick={this.closeMenu}>
               <NavLink
                 to="/about"
                 exact
-                activeStyle={{ fontWeight: "bold", color: "#af9a7d" }}
+                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
               >
-                About Propriété
+                Rezerwacje
+              </NavLink>
+            </li>
+            <li onClick={this.closeMenu}>
+              <NavLink
+                to="/media"
+                exact
+                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
+              >
+                Media
+              </NavLink>
+            </li>
+            <li onClick={this.closeMenu}>
+              <NavLink
+                to="/przyjaciele"
+                exact
+                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
+              >
+                Przyjaciele
               </NavLink>
             </li>
             <li onClick={this.closeMenu}>
               <NavLink
                 to="/contact"
                 exact
-                activeStyle={{ fontWeight: "bold", color: "#af9a7d" }}
+                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
               >
-                Contact
+                Kontakt
               </NavLink>
             </li>
           </ul>

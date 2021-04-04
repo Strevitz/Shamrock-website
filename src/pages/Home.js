@@ -11,11 +11,11 @@ const Home = () => {
     <div className="page">
       <Hero>
         <Banner
-          title="Find Your New Home"
-          subtitle="deluxe apartments starting at 3000 PLN"
+          title="Chcesz umówić wizytę?"
+          subtitle="Zadzwoń do nas 600 090 715"
         >
           <Link to="/apartments" className="btn-primary">
-            our apartments
+            albo rezerwuj online
           </Link>
         </Banner>
       </Hero>
