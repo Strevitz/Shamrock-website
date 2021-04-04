@@ -49,7 +49,7 @@ export default class Navbar extends Component {
             </li>
             <li onClick={this.closeMenu}>
               <NavLink
-                to="/apartments"
+                to="/ekipa"
                 exact
                 activeStyle={{ fontWeight: "bold", color: "#40d181" }}
               >
@@ -58,7 +58,7 @@ export default class Navbar extends Component {
             </li>
             <li onClick={this.closeMenu}>
               <NavLink
-                to="/about"
+                to="/rezerwacje"
                 exact
                 activeStyle={{ fontWeight: "bold", color: "#40d181" }}
               >
@@ -85,7 +85,7 @@ export default class Navbar extends Component {
             </li>
             <li onClick={this.closeMenu}>
               <NavLink
-                to="/contact"
+                to="/kontakt"
                 exact
                 activeStyle={{ fontWeight: "bold", color: "#40d181" }}
               >

@@ -15,7 +15,7 @@ const Home = () => {
           subtitle="Zadzwoń do nas 600 090 715"
         >
           <Link to="/apartments" className="btn-primary">
-            albo rezerwuj online
+            lub rezerwuj online
           </Link>
         </Banner>
       </Hero>

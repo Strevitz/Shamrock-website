@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Apartments from "./pages/Apartments";
 import About from "./pages/About";
+import Kontakt from "./pages/Kontakt";
 import SingleApartment from "./pages/SingleApartment";
 import Error from "./pages/404";
 import { Route, Switch } from "react-router-dom";
@@ -20,11 +21,12 @@ class App extends Component {
               <CSSTransition key={location.key} timeout={300} classNames="fade">
                 <Switch location={location}>
                   <Route exact path="/" component={Home} />
-                  <Route exact path="/apartments/" component={Apartments} />
-                  <Route exact path="/about/" component={About} />
+                  <Route exact path="/ekipa/" component={Apartments} />
+                  <Route exact path="/rezerwacje/" component={About} />
+                  <Route exact path="/kontakt/" component={Kontakt} />
                   <Route
                     exact
-                    path="/apartments/:slug"
+                    path="/ekipa/:slug"
                     component={SingleApartment}
                   />
                   <Route component={Error} />
