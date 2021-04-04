@@ -1,8 +1,6 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
-
-import Title from "../components/Title";
 import Footer from "../components/Footer";
 
 const About = () => {
@@ -20,6 +18,7 @@ const About = () => {
         <a href="+48600090715" title={"e-mail"}>
           adres e-mail: shamrock@email.com
         </a>
+        <br />
         <br />
         <br />
         <table id="pricelist">
@@ -59,39 +58,22 @@ const About = () => {
         <br />
         <p>ADRES</p>
         <br />
-      </section>
-      <section className="services">
-        <Title title="Who is Propriété" />
-        <p>
-          Statutory and financial obligations whilst finding the most suitable,
-          fully referenced tenants for your property. Whether you are a landlord
-          looking for a let only, rent collection or full management service,
-          Propriété will help you with your legal, statutory and financial
-          obligations whilst finding the most suitable, fully referenced tenants
-          for your property.
-        </p>
-      </section>
-      <section className="services">
-        <Title title="Propriété for you" />
-        <p>
-          Statutory and financial obligations whilst finding the most suitable,
-          fully referenced tenants for your property. Whether you are a landlord
-          looking for a let only, rent collection or full management service,
-          Propriété will help you with your legal, statutory and financial
-          obligations whilst finding the most suitable, fully referenced tenants
-          for your property.
-        </p>
+        <p>ul. Widok 10 (vis à vis PURO Hotel)</p>
+        <p>00-023 Warszawa</p>
         <br />
-        <br />
-        <p>
-          Statutory and financial obligations whilst finding the most suitable,
-          fully referenced tenants for your property. Whether you are a landlord
-          looking for a let only, rent collection or full management service,
-          Propriété will help you with your legal, statutory and financial
-          obligations whilst finding the most suitable, fully referenced tenants
-          for your property.
-        </p>
+        <iframe
+          title="map"
+          width="300"
+          height="300"
+          id="gmap_canvas"
+          src="https://maps.google.com/maps?q=widok%2010&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+        ></iframe>
       </section>
+
       <Footer />
     </div>
   );

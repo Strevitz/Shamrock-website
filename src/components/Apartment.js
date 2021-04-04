@@ -11,10 +11,9 @@ export default function Apartment({ room }) {
         <img src={images[0] || defaultImg} alt="single room" />
         <div className="price-top">
           <h6>{price} PLN</h6>
-          <p>per month</p>
         </div>
         <Link to={`/apartments/${slug}`} className="btn-primary room-link">
-          features
+          szczegóły
         </Link>
       </div>
       <p className="room-info">{name}</p>
