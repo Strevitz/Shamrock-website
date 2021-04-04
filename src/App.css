@@ -55,8 +55,9 @@ h6 {
 
 p,
 td,
-tr {
-  font-size: 0.9em !important;
+tr,
+a {
+  font-size: 1em !important;
 }
 
 .btn-primary {
