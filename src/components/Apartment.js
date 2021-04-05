@@ -12,7 +12,7 @@ export default function Apartment({ room }) {
         <div className="price-top">
           <h6>{price} PLN</h6>
         </div>
-        <Link to={`/apartments/${slug}`} className="btn-primary room-link">
+        <Link to={`/rezerwacje/${slug}`} className="btn-primary room-link">
           szczegóły
         </Link>
       </div>

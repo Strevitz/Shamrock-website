@@ -26,7 +26,7 @@ class App extends Component {
                   <Route exact path="/kontakt/" component={Kontakt} />
                   <Route
                     exact
-                    path="/ekipa/:slug"
+                    path="/rezerwacje/:slug"
                     component={SingleApartment}
                   />
                   <Route component={Error} />

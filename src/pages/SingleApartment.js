@@ -25,9 +25,12 @@ export default class SingleApartment extends Component {
     if (!room) {
       return (
         <div className="error">
-          <h3>no such room coluld be found...</h3>
-          <Link to="/apartments" className="btn-primary">
-            back to apartments
+          <h3>
+            strona ładuje się dłużej niż zwykle, zrelaksuj się i zarezerwuj
+            wizytę...
+          </h3>
+          <Link to="/rezerwacje" className="btn-primary">
+            rezerwuj teraz
           </Link>
         </div>
       );
@@ -35,12 +38,10 @@ export default class SingleApartment extends Component {
     const {
       name,
       description,
-      capacity,
+
       size,
       price,
-      extras,
-      parking,
-      pets,
+
       images,
     } = room;
 
@@ -50,8 +51,8 @@ export default class SingleApartment extends Component {
       <div className="page">
         <StyledHero img={mainImg || this.state.defaultBg}>
           <Banner title={`${name}`}>
-            <Link to="/apartments" className="btn-primary">
-              back to apartments
+            <Link to="/rezerwacje" className="btn-primary">
+              rezerwuj teraz
             </Link>
           </Banner>
         </StyledHero>
@@ -63,32 +64,17 @@ export default class SingleApartment extends Component {
           </div>
           <div className="single-room-info">
             <article className="desc">
-              <h3>details</h3>
+              <h3>szczegóły</h3>
               <p>{description}</p>
             </article>
             <article className="info">
-              <h3>info</h3>
-              <h6>price : {price}PLN</h6>
-              <h6>
-                size : {size}m<sup>2</sup>
-              </h6>
-              <h6>
-                max capacity :
-                {capacity > 1 ? ` ${capacity} people` : ` ${capacity} person`}
-              </h6>
-              <h6>{pets ? "pets allowed" : "no pets allowed"}</h6>
-              <h6>{parking && "free parking"}</h6>
+              <h3>informacje</h3>
+              <h6>cena : {price}PLN</h6>
+              <h6>czas : {size}min</h6>
             </article>
           </div>
         </section>
-        <section className="room-extras">
-          <h6>extras</h6>
-          <ul className="extras">
-            {extras.map((item, index) => {
-              return <li key={index}>- {item}</li>;
-            })}
-          </ul>
-        </section>
+
         <Footer />
       </div>
     );
