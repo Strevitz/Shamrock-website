@@ -21,12 +21,12 @@ const About = () => {
       </Hero>
       <section className="services3">
         <Title title="Współpracujemy z najlepszymi" />
-        <img className="friend" src={plant} alt="A Plant Company" />
         <img className="booksy" src={booksy} alt="A Plant Company" />
-        <img className="supply" src={supply} alt="A Plant Company" />
         <img className="jameson" src={jameson} alt="A Plant Company" />
         <img className="reuzel" src={reuzel} alt="A Plant Company" />
         <img className="uppercut" src={uppercut} alt="A Plant Company" />
+        <img className="supply" src={supply} alt="A Plant Company" />
+        <img className="friend" src={plant} alt="A Plant Company" />
       </section>
       <Footer />
     </div>

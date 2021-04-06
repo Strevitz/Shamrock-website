@@ -10,14 +10,12 @@ const About = () => {
         <Banner title="Kontakt" subtitle="Skontaktuj się z nami"></Banner>
       </Hero>
       <section className="services2">
-        <a href="+48600090715" title={"Numer telefonu"}>
-          tel. +48 600 090 715
-        </a>
+        <td>numer tel.: </td>
+        <a href="tel:+48600090715">+48 600 090 715</a>
         <br />
         <br />
-        <a href="+48600090715" title={"e-mail"}>
-          adres e-mail: shamrock@email.com
-        </a>
+        <td>adres e-mail: </td>
+        <a href="mailto:shamrock@gmail.com">shamrock@email.com</a>
         <br />
         <br />
         <br />
@@ -69,8 +67,6 @@ const About = () => {
           src="https://maps.google.com/maps?q=widok%2010&t=&z=15&ie=UTF8&iwloc=&output=embed"
           frameborder="0"
           scrolling="no"
-          marginheight="0"
-          marginwidth="0"
         ></iframe>
       </section>
 

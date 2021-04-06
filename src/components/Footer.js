@@ -45,12 +45,12 @@ export default class Footer extends Component {
                       </Link>
                     </li>
                     <li>
-                      <a href="600090715" title={"Numer telefonu"}>
+                      <a href="tel:+48600090715" title={"Numer telefonu"}>
                         tel. 600 090 715
                       </a>
                     </li>
                     <li>
-                      <a href="8078078074" title={"e-mail"}>
+                      <a href="mailto:shamrock@email.com" title={"e-mail"}>
                         shamrock@email.com
                       </a>
                     </li>
@@ -87,7 +87,10 @@ export default class Footer extends Component {
           <div className={"copyright"}>
             <p>
               Copyright {new Date().getFullYear()}, {` `}{" "}
-              <a href="https://strzewiczek.pl" title={"Propriété"}>
+              <a
+                href="https://strzewiczek.pl"
+                title={"Własność Arthur Strzewiczek"}
+              >
                 Shamrock Barber Shop Arthur Strzewiczek
               </a>
               . Wszystkie prawa zastrzeżone.
