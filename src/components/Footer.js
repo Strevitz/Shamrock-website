@@ -50,8 +50,8 @@ export default class Footer extends Component {
                       </a>
                     </li>
                     <li>
-                      <a href="mailto:shamrock@email.com" title={"e-mail"}>
-                        shamrock@email.com
+                      <a href="mailto:info@shamrockbarber.com" title={"e-mail"}>
+                        info@shamrockbarber.com
                       </a>
                     </li>
                   </ul>

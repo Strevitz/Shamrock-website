@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Apartments from "./pages/Apartments";
 import About from "./pages/About";
 import Friends from "./pages/Friends";
+import Media from "./pages/Media";
 import Kontakt from "./pages/Kontakt";
 import SingleApartment from "./pages/SingleApartment";
 import Error from "./pages/404";
@@ -24,6 +25,7 @@ class App extends Component {
                   <Route exact path="/" component={Home} />
                   <Route exact path="/ekipa/" component={Apartments} />
                   <Route exact path="/rezerwacje/" component={About} />
+                  <Route exact path="/media/" component={Media} />
                   <Route exact path="/przyjaciele/" component={Friends} />
                   <Route exact path="/kontakt/" component={Kontakt} />
                   <Route

@@ -15,7 +15,7 @@ const About = () => {
         <br />
         <br />
         <td>adres e-mail: </td>
-        <a href="mailto:shamrock@gmail.com">shamrock@email.com</a>
+        <a href="mailto:info@shamrockbarber.com">info@shamrockbarber.com</a>
         <br />
         <br />
         <br />
@@ -56,6 +56,7 @@ const About = () => {
         <br />
         <p>ADRES</p>
         <br />
+        <p>Shamrock Barber Shop</p>
         <p>ul. Widok 10 (vis à vis PURO Hotel)</p>
         <p>00-023 Warszawa</p>
         <br />

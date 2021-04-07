@@ -14,7 +14,11 @@ const Home = () => {
           title="Chcesz umówić wizytę?"
           subtitle="Zadzwoń do nas 600 090 715"
         >
-          <Link to="/rezerwacje" className="btn-primary">
+          <Link
+            to={{ pathname: "https://www.booksy.com" }}
+            target="_blank"
+            className="btn-primary"
+          >
             lub rezerwuj online
           </Link>
         </Banner>

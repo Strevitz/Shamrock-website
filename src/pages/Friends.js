@@ -7,6 +7,8 @@ import supply from "../images/supply.jpg";
 import jameson from "../images/jameson.png";
 import reuzel from "../images/reuzel.png";
 import uppercut from "../images/uppercut.png";
+import mk from "../images/mk.png";
+import okocim from "../images/okocim.png";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
 
@@ -27,6 +29,8 @@ const About = () => {
         <img className="uppercut" src={uppercut} alt="A Plant Company" />
         <img className="supply" src={supply} alt="A Plant Company" />
         <img className="friend" src={plant} alt="A Plant Company" />
+        <img className="okocim" src={okocim} alt="A Plant Company" />
+        <img className="mk" src={mk} alt="A Plant Company" />
       </section>
       <Footer />
     </div>

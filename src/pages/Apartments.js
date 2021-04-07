@@ -15,12 +15,20 @@ const Apartments = () => {
         <Title title="Współpracujemy z najlepszymi" />
         <div className="employee-box">
           <img className="avatar" src={avatar} alt="A Plant Company" />
-          <p className="employee">Arthur</p>
+          <p className="employee">Arthur - Barber</p>
         </div>
-
-        <img className="avatar" src={avatar} alt="A Plant Company" />
-        <img className="avatar" src={avatar} alt="A Plant Company" />
-        <img className="avatar" src={avatar} alt="A Plant Company" />
+        <div className="employee-box">
+          <img className="avatar" src={avatar} alt="A Plant Company" />
+          <p className="employee">Łukasz - Barber</p>
+        </div>
+        <div className="employee-box">
+          <img className="avatar" src={avatar} alt="A Plant Company" />
+          <p className="employee">Krzysiek - Barber</p>
+        </div>
+        <div className="employee-box">
+          <img className="avatar" src={avatar} alt="A Plant Company" />
+          <p className="employee">Amira - Manager</p>
+        </div>
       </section>
       <Footer />
     </div>

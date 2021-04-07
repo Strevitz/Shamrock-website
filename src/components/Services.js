@@ -9,7 +9,7 @@ export default class Services extends Component {
         icon: <FaCut />,
         title: "Pasja",
         info:
-          "Praca to dla nas styl życia, który praktykujemy od lat i cały czas podnosimy umiejętności dla Was. Specjalizujemy się w tradycyjnych cięciach jak i w modern barbering. Zapraszamy również na relaksujące golenie z gorącym ręcznikiem.",
+          "Praca to dla nas styl życia, który praktykujemy od lat i cały czas podnosimy umiejętności dla Ciebie. Specjalizujemy się w tradycyjnych cięciach jak i w modern barbering. Zapraszamy również na relaksujące golenie z gorącym ręcznikiem.",
       },
       {
         icon: <FaSearchLocation />,
