@@ -11,22 +11,7 @@ const Apartments = () => {
       <Hero hero="roomsHero">
         <Banner title="Ekipa" subtitle="Poznaj naszą ekipę"></Banner>
       </Hero>
-      <section className="services">
-        <Title title="Dołącz do Nas!" />
-        <p>
-          Jeśli jesteś pełnym zapału i pasji do zawodu Barberem, to właśnie
-          Ciebie szukamy!{" "}
-        </p>
-        <p>Nie czekaj i skontaktuj się z nami:</p>
-        <br />
-        <a
-          className="praca"
-          href="mailto:praca@shamrockbarber.com"
-          title={"e-mail"}
-        >
-          praca@shamrockbarber.com
-        </a>
-      </section>
+
       <section className="services3">
         <div className="employee-box">
           <img className="avatar" src={avatar} alt="A Plant Company" />
@@ -45,7 +30,22 @@ const Apartments = () => {
           <p className="employee">Amira - Manager</p>
         </div>
       </section>
-
+      <section className="services">
+        <Title title="Dołącz do Nas!" />
+        <p>
+          Jeśli jesteś pełnym zapału i pasji do zawodu Barberem, to właśnie
+          Ciebie szukamy!{" "}
+        </p>
+        <p>Nie czekaj i skontaktuj się z nami:</p>
+        <br />
+        <a
+          className="praca"
+          href="mailto:praca@shamrockbarber.com"
+          title={"e-mail"}
+        >
+          praca@shamrockbarber.com
+        </a>
+      </section>
       <Footer />
     </div>
   );
