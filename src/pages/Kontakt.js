@@ -8,10 +8,7 @@ const About = () => {
   return (
     <div className="page">
       <div>
-        <MessengerCustomerChat
-          pageId="<104481088421602>"
-          appId="<ShamrockWarszawa>"
-        />
+        <MessengerCustomerChat pageId="<104481088421602>" />
       </div>
       <Hero hero="roomsHero">
         <Banner title="Kontakt" subtitle="Skontaktuj się z nami"></Banner>
