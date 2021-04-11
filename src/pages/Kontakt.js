@@ -2,14 +2,10 @@ import React from "react";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
-import MessengerCustomerChat from "react-messenger-customer-chat";
 
 const About = () => {
   return (
     <div className="page">
-      <div>
-        <MessengerCustomerChat pageId="<104481088421602>" />
-      </div>
       <Hero hero="roomsHero">
         <Banner title="Kontakt" subtitle="Skontaktuj się z nami"></Banner>
       </Hero>
