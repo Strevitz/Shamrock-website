@@ -68,7 +68,7 @@ a {
 .avatar {
   width: 18rem;
   display: block;
-  margin: 10rem auto 2rem;
+  margin: 6rem auto 2rem;
   border-radius: 50%;
 }
 
@@ -148,7 +148,29 @@ a {
   margin-top: 1rem;
 }
 
+.btn-primary-insta {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: #fff;
+  background: var(--primaryColor);
+  padding: 0.4rem 0.9rem;
+  border: 3px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+
 .btn-primary:hover {
+  background: transparent;
+  color: var(--primaryColor);
+  border: 3px solid var(--primaryColor);
+  text-decoration: none;
+}
+
+.btn-primary-insta:hover {
   background: transparent;
   color: var(--primaryColor);
   border: 3px solid var(--primaryColor);
@@ -355,6 +377,9 @@ a {
   text-align: left;
 }
 .services2 a {
+  color: #32c273;
+}
+.praca {
   color: #32c273;
 }
 

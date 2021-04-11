@@ -30,17 +30,20 @@ export default class Footer extends Component {
                   <h4>Obsługa Klienta</h4>
                   <ul>
                     <li>
-                      <Link to="/about" title={"Rezerwacje"}>
+                      <Link to="/rezerwacje" title={"Rezerwacje"}>
                         Rezerwacje
                       </Link>
                     </li>
                     <li>
-                      <Link to="/contact" title={"Kontakt"}>
+                      <Link to="/kontakt" title={"Kontakt"}>
                         Kontakt
                       </Link>
                     </li>
                     <li>
-                      <Link to="/privacy" title={"Polityka Prywatności"}>
+                      <Link
+                        to="/polityka-prywatności"
+                        title={"Polityka Prywatności"}
+                      >
                         Polityka Prywatności
                       </Link>
                     </li>
@@ -86,12 +89,11 @@ export default class Footer extends Component {
 
           <div className={"copyright"}>
             <p>
-              Copyright {new Date().getFullYear()}, {` `}{" "}
-              <a
-                href="https://strzewiczek.pl"
-                title={"Własność Arthur Strzewiczek"}
-              >
-                Shamrock Barber Shop Arthur Strzewiczek
+              &copy; {new Date().getFullYear()} Emeralt Group {` `} <br />
+              <br />
+              <a href="https://strzewiczek.pl" title={"Własność Emeralt Group"}>
+                Shamrock Barber Shop i produkty Shamrock Barber Shop są
+                zarejestrowanymi znakami towarowymi firmy Emeralt Group
               </a>
               . Wszystkie prawa zastrzeżone.
             </p>

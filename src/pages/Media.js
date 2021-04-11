@@ -32,19 +32,33 @@ const Apartments = () => {
           </div>
         </div>
         <Link
-          to={{ pathname: "https://www.booksy.com" }}
+          to={{ pathname: "https://www.instagram.com/shamrock_barbershop/" }}
           target="_blank"
-          className="btn-primary"
+          className="btn-primary-insta"
         >
           @shamrock_barbershop
         </Link>
-        <Title title="Znajdź nas na Facebooku" />
+        <Title className="fbtitle" title="Znajdź nas na Facebooku" />
+        <div className="media-box">
+          <div className="employee-box">
+            <img className="mediapic" src={insta4} alt="A Plant Company" />
+          </div>
+          <div className="employee-box">
+            <img className="mediapic" src={insta3} alt="A Plant Company" />
+          </div>
+          <div className="employee-box">
+            <img className="mediapic" src={insta2} alt="A Plant Company" />
+          </div>
+          <div className="employee-box">
+            <img className="mediapic" src={insta1} alt="A Plant Company" />
+          </div>
+        </div>
         <Link
-          to={{ pathname: "https://www.booksy.com" }}
+          to={{ pathname: "https://www.facebook.com/ShamrockWarszawa/" }}
           target="_blank"
           className="btn-primary"
         >
-          @ShamrockWarszawa
+          @shamrockwarszawa
         </Link>
       </section>
       <Footer />

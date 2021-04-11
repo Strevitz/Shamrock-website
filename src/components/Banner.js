@@ -20,6 +20,8 @@ export default function Banner({ children, title, subtitle }) {
   return (
     <div className="banner">
       <span className="line-wrap">
+        <br />
+        <br />
         <h1 ref={(el) => (line1 = el)}>{title}</h1>
       </span>
       <div></div>
