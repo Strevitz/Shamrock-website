@@ -10,7 +10,7 @@ const About = () => {
       <div>
         <MessengerCustomerChat
           pageId="<104481088421602>"
-          appId="<YOUR_APP_ID>"
+          appId="<ShamrockWarszawa>"
         />
       </div>
       <Hero hero="roomsHero">
