@@ -16,6 +16,8 @@
   --darkShadow: 4px 10px 5px 0px #3f3f3f80;
 }
 /* globals */
+/* width */
+
 body {
   padding-top: 66px;
   color: var(--mainBlack);
@@ -309,7 +311,7 @@ a {
   letter-spacing: var(--mainSpacing);
 }
 .banner h1 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
 }
 .banner div {
   width: 10rem;
@@ -323,6 +325,14 @@ a {
 .banner p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
+}
+@media screen and (min-width: 300px) {
+  .banner {
+    padding: 2rem 2rem;
+  }
+  .banner h1 {
+    font-size: 2.2rem;
+  }
 }
 @media screen and (min-width: 576px) {
   .banner {
