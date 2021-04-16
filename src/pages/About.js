@@ -23,6 +23,7 @@ const About = () => {
         <br />
         <Link
           to={{ pathname: "tel:+48600090715" }}
+          target="_self"
           className="btn-primary-insta"
         >
           zadzwoń teraz
