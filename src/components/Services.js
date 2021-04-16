@@ -18,16 +18,16 @@ export default class Services extends Component {
           "Shamrock Barber Shop zlokalizowany jest w samym sercu Warszawy przy ul. WIDOK 10 obok Rotundy. Wszystkie drogi prowadzą do nas!",
       },
       {
-        icon: <FaGamepad />,
-        title: "Czekając na serwis",
-        info:
-          "Koniec z nudą podczas czekania na swoją kolej! W naszym shopie zagrasz w najnowsze gry wideo na streamingowej platformie Google Stadia. Możesz również zabrać znajomych i zagrać w gry planszowe w dostosowanej dla Was przestrzeni.",
-      },
-      {
         icon: <FaMugHot />,
         title: "Napoje",
         info:
           "Spragniony podczas wizyty w Shamrocku? Dla naszych gości podajemy pyszną kawę, whiskey i piwo bezalkoholowe dla zmotoryzowanych.",
+      },
+      {
+        icon: <FaGamepad />,
+        title: "Czekając na serwis",
+        info:
+          "Koniec z nudą podczas czekania na swoją kolej! W naszym shopie zagrasz w najnowsze gry wideo na streamingowej platformie Google Stadia.",
       },
     ],
   };

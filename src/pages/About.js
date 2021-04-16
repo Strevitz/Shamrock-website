@@ -15,29 +15,10 @@ const About = () => {
         ></Banner>
       </Hero>
       <section className="services">
-        <Title title="Why Propriété" />
+        <Title title="Rezerwuj telefonicznie!" />
         <p>
-          Whether you are a landlord looking for a let only, rent collection or
-          full management service, Propriété will help you with your legal,
-          statutory and financial obligations whilst finding the most suitable,
-          fully referenced tenants for your property.
-        </p>
-        <br />
-        <Link
-          to={{ pathname: "https://www.instagram.com/shamrock_barbershop/" }}
-          target="_blank"
-          className="btn-primary-insta"
-        >
-          rezerwuj online
-        </Link>
-        <br />
-        <p>
-          Statutory and financial obligations whilst finding the most suitable,
-          fully referenced tenants for your property. Whether you are a landlord
-          looking for a let only, rent collection or full management service,
-          Propriété will help you with your legal, statutory and financial
-          obligations whilst finding the most suitable, fully referenced tenants
-          for your property.
+          Jeśli chcesz abyśmy szybko zarezerwowali termin? Dzwoń śmiało, a
+          znajdziemy dogodny dla Ciebie termin.
         </p>
         <br />
         <Link
@@ -46,6 +27,17 @@ const About = () => {
           className="btn-primary-insta"
         >
           zadzwoń teraz
+        </Link>
+        <br />
+        <Title title="Rezerwuj online!" />
+        <p>Zarezerwuj u nas wizytę online poprzez BOOKSY.</p>
+        <br />
+        <Link
+          to={{ pathname: "https://www.instagram.com/shamrock_barbershop/" }}
+          target="_blank"
+          className="btn-primary-insta"
+        >
+          rezerwuj online
         </Link>
       </section>
 

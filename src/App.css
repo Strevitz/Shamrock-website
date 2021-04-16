@@ -62,6 +62,10 @@ a {
   font-size: 1em !important;
 }
 
+.sassy {
+  width: 13rem;
+}
+
 .mediapic {
   width: 20rem;
   border-radius: 0%;

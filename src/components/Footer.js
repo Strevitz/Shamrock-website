@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo_green.png";
+import sassy from "../images/sassy logo3.jpg";
 import iconInstagram from "../images/icon-instagram.svg";
 import iconFacebook from "../images/icon-facebook.svg";
 
@@ -66,7 +67,7 @@ export default class Footer extends Component {
               <div className={"widget__item"}>
                 <div className={"social"}>
                   <a
-                    href="https://www.instagram.com"
+                    href="https://www.instagram.com/shamrock_barbershop"
                     target={"_blank"}
                     rel="noopener noreferrer"
                     title={"Instagram"}
@@ -75,7 +76,7 @@ export default class Footer extends Component {
                   </a>
 
                   <a
-                    href="https://www.facebook.com"
+                    href="https://www.facebook.com/ShamrockWarszawa"
                     target={"_blank"}
                     rel="noopener noreferrer"
                     title={"Facebook"}
@@ -88,12 +89,17 @@ export default class Footer extends Component {
           </div>
 
           <div className={"copyright"}>
+            <img className="sassy" src={sassy} alt="A Plant Company" />
             <p>
-              &copy; {new Date().getFullYear()} Emeralt Group {` `} <br />
+              &copy; {new Date().getFullYear()} Sassy Company {` `} <br />
               <br />
-              <a href="https://strzewiczek.pl" title={"Własność Emeralt Group"}>
-                Shamrock Barber Shop i produkty Shamrock Barber Shop są
-                zarejestrowanymi znakami towarowymi firmy Emeralt Group
+              <a
+                href="mailto:sassycompany@gmail.com"
+                title={"Własność Sassy Company"}
+              >
+                Shamrock Barber Shop ® i produkty Shamrock Barber Shop ® są
+                zarejestrowanymi znakami towarowymi firmy Sassy Company Arthur
+                Oliver Strzewiczek
               </a>
               . Wszystkie prawa zastrzeżone.
             </p>
