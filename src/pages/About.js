@@ -17,12 +17,12 @@ const About = () => {
       <section className="services">
         <Title title="Rezerwuj telefonicznie!" />
         <p>
-          Jeśli chcesz abyśmy szybko zarezerwowali termin? Dzwoń śmiało, a
-          znajdziemy dogodny dla Ciebie termin.
+          Jeśli chcesz szybko zarezerwować wizytę? Dzwoń śmiało, a znajdziemy
+          dogodny dla Ciebie termin.
         </p>
         <br />
         <Link
-          to={{ pathname: "https://www.instagram.com/shamrock_barbershop/" }}
+          to={{ pathname: "tel:+48600090715" }}
           target="_blank"
           className="btn-primary-insta"
         >
@@ -33,7 +33,7 @@ const About = () => {
         <p>Zarezerwuj u nas wizytę online poprzez BOOKSY.</p>
         <br />
         <Link
-          to={{ pathname: "https://www.instagram.com/shamrock_barbershop/" }}
+          to={{ pathname: "https://www.booksy.com/" }}
           target="_blank"
           className="btn-primary-insta"
         >

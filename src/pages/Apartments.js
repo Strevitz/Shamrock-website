@@ -28,7 +28,7 @@ const Apartments = () => {
         </div>
         <div className="employee-box">
           <img className="avatar" src={stefan} alt="A Plant Company" />
-          <p className="employee">Stefan - Recepcjonista</p>
+          <p className="employee">Franek - Recepcjonista</p>
         </div>
       </section>
       <section className="services">
