@@ -15,7 +15,7 @@ const Home = () => {
           subtitle="Zadzwoń do nas 600 090 715"
         >
           <Link
-            to={{ pathname: "https://www.booksy.com" }}
+            to={{ pathname: "https://shamrockbarbershop.booksy.com" }}
             target="_blank"
             className="btn-primary"
           >

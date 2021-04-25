@@ -33,7 +33,7 @@ const About = () => {
         <p>Zarezerwuj u nas wizytę online poprzez BOOKSY.</p>
         <br />
         <Link
-          to={{ pathname: "https://www.booksy.com/" }}
+          to={{ pathname: "https://shamrockbarbershop.booksy.com/" }}
           target="_blank"
           className="btn-primary-insta"
         >
