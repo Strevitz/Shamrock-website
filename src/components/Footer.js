@@ -94,7 +94,7 @@ export default class Footer extends Component {
               &copy; {new Date().getFullYear()} Sassy Company {` `} <br />
               <br />
               <a
-                href="mailto:sassycompany@gmail.com"
+                href="mailto:contact@sassy.company"
                 title={"Własność Sassy Company"}
               >
                 Shamrock Barber Shop ® i produkty Shamrock Barber Shop ® są

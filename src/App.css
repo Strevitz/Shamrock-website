@@ -292,15 +292,27 @@ a {
 /* end of navbar */
 /* Hero */
 .defaultHero,
-.roomsHero {
+.roomsHero,
+.roomsHero2,
+.roomsHero3,
+.roomsHero4 {
   min-height: 100vh;
-  background: url("./images/barber1.jpg") center/cover no-repeat;
+  background: url("./images/hero.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.roomsHero {
-  background-image: url("./images/IMG_20191117_135359.jpg");
+.roomsHero3 {
+  background-image: url("./images/barber1.jpg");
+  min-height: 75vh;
+}
+
+.roomsHero2 {
+  background-image: url("./images/hero2.jpg");
+  min-height: 75vh;
+}
+.roomsHero4 {
+  background-image: url("./images/hero.jpg");
   min-height: 75vh;
 }
 /* End of Hero */

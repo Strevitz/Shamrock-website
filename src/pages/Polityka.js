@@ -29,8 +29,8 @@ const About = () => {
             Administratorem danych osobowych jest:{" "}
             <b>Sassy Company Arthur Oliver Strzewiczek</b> ul. Bolesława
             Chrobrego 40/28, 02-479 Warszawa. Adres kontaktowy poczty
-            elektronicznej operatora: <b>contact@sassycompany.com</b> Operator
-            jest Administratorem Twoich danych osobowych w odniesieniu do danych
+            elektronicznej operatora: <b>contact@sassy.company</b> Operator jest
+            Administratorem Twoich danych osobowych w odniesieniu do danych
             podanych dobrowolnie w Serwisie. Serwis wykorzystuje dane osobowe w
             następujących celach: Prowadzenie rozmów typu chat online
             Przygotowanie, pakowanie, wysyłka towarów Realizacja zamówionych

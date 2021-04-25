@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const Apartments = () => {
   return (
     <div className="page">
-      <Hero hero="roomsHero">
+      <Hero hero="roomsHero3">
         <Banner title="Media" subtitle="Poznaj nas od kuchni"></Banner>
       </Hero>
       <section className="services">

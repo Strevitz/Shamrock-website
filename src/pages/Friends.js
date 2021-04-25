@@ -15,7 +15,7 @@ import Footer from "../components/Footer";
 const About = () => {
   return (
     <div className="page">
-      <Hero hero="roomsHero">
+      <Hero hero="roomsHero2">
         <Banner
           title="Przyjaciele"
           subtitle="Ponieważ najlepiej wśród przyjaciół"

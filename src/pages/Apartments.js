@@ -3,13 +3,14 @@ import Hero from "../components/Hero";
 import Banner from "../components/Banner";
 import avatar from "../images/avatar.jpg";
 import stefan from "../images/stefan.jpg";
+import lukas from "../images/lukas.jpg";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
 
 const Apartments = () => {
   return (
     <div className="page">
-      <Hero hero="roomsHero">
+      <Hero hero="roomsHero3">
         <Banner title="Ekipa" subtitle="Poznaj naszą ekipę"></Banner>
       </Hero>
 
@@ -19,12 +20,12 @@ const Apartments = () => {
           <p className="employee">Arthur - Barber</p>
         </div>
         <div className="employee-box">
-          <img className="avatar" src={avatar} alt="A Plant Company" />
+          <img className="avatar" src={lukas} alt="A Plant Company" />
           <p className="employee">Łukasz - Barber</p>
         </div>
         <div className="employee-box">
           <img className="avatar" src={avatar} alt="A Plant Company" />
-          <p className="employee">Krzysiek - Barber</p>
+          <p className="employee">Amira - Manager</p>
         </div>
         <div className="employee-box">
           <img className="avatar" src={stefan} alt="A Plant Company" />
