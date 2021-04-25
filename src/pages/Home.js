@@ -15,8 +15,10 @@ const Home = () => {
           subtitle="Zadzwoń do nas 600 090 715"
         >
           <Link
-            to={{ pathname: "https://www.booksy.com" }}
-            target="_blank"
+            to={{
+              pathname:
+                "https://booksy.com/widget/code.js?id=89162&country=pl&lang=pl",
+            }}
             className="btn-primary"
           >
             lub rezerwuj online
