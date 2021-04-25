@@ -14,13 +14,7 @@ const Home = () => {
           title="Chcesz umówić wizytę?"
           subtitle="Zadzwoń do nas 600 090 715"
         >
-          <Link
-            to={{
-              pathname:
-                "https://booksy.com/widget/code.js?id=89162&country=pl&lang=pl",
-            }}
-            className="btn-primary"
-          >
+          <Link to={{ pathname: "https://booksy.com" }} className="btn-primary">
             lub rezerwuj online
           </Link>
         </Banner>
