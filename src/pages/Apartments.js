@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 const Apartments = () => {
   return (
     <div className="page">
-      <Hero hero="roomsHero3">
+      <Hero hero="roomsHero5">
         <Banner title="Ekipa" subtitle="Poznaj naszą ekipę"></Banner>
       </Hero>
 

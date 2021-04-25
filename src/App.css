@@ -295,7 +295,8 @@ a {
 .roomsHero,
 .roomsHero2,
 .roomsHero3,
-.roomsHero4 {
+.roomsHero4,
+.roomsHero5 {
   min-height: 100vh;
   background: url("./images/hero.jpg") center/cover no-repeat;
   display: flex;
@@ -313,6 +314,10 @@ a {
 }
 .roomsHero4 {
   background-image: url("./images/hero.jpg");
+  min-height: 75vh;
+}
+.roomsHero5 {
+  background-image: url("./images/hero5.jpg");
   min-height: 75vh;
 }
 /* End of Hero */
