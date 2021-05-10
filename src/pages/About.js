@@ -22,7 +22,7 @@ const About = () => {
         </p>
         <br />
         <Link
-          to={{ pathname: "tel:+48600090715" }}
+          to={{ pathname: "tel:+48884769758" }}
           target="_blank"
           className="btn-primary-insta"
         >

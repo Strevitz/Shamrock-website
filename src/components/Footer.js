@@ -49,8 +49,8 @@ export default class Footer extends Component {
                       </Link>
                     </li>
                     <li>
-                      <a href="tel:+48600090715" title={"Numer telefonu"}>
-                        tel. 600 090 715
+                      <a href="tel:+48884769758" title={"Numer telefonu"}>
+                        tel. 884 769 758
                       </a>
                     </li>
                     <li>

@@ -12,7 +12,7 @@ const Home = () => {
       <Hero>
         <Banner
           title="Chcesz umówić wizytę?"
-          subtitle="Zadzwoń do nas 600 090 715"
+          subtitle="Zadzwoń do nas 884 769 758"
         >
           <Link
             to={{ pathname: "https://shamrockbarbershop.booksy.com" }}

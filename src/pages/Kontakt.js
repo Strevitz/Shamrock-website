@@ -11,7 +11,7 @@ const About = () => {
       </Hero>
       <section className="services2">
         <td>numer tel.: </td>
-        <a href="tel:+48600090715">+48 600 090 715</a>
+        <a href="tel:+48884769758">+48 884 769 758</a>
         <br />
         <br />
         <td>adres e-mail: </td>
