@@ -295,10 +295,23 @@ a {
 .roomsHero,
 .roomsHero2,
 .roomsHero3,
-.roomsHero4,
 .roomsHero5 {
   min-height: 100vh;
   background: url("./images/hero2.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.roomsHero7 {
+  min-height: 75vh;
+  background: url("./images/hero7.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.roomsHero4 {
+  min-height: 75vh;
+  background: url("./images/hero4.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -312,10 +325,7 @@ a {
   background-image: url("./images/hero2.jpg");
   min-height: 75vh;
 }
-.roomsHero4 {
-  background-image: url("./images/hero.jpg");
-  min-height: 75vh;
-}
+
 .roomsHero5 {
   background-image: url("./images/hero5.jpg");
   min-height: 75vh;
