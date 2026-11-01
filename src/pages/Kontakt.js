@@ -25,27 +25,27 @@ const About = () => {
           <br />
           <tr>
             <td id="cell">Poniedziałek</td>
-            <td id="cell">12 - 20</td>
+            <td id="cell">9 - 21</td>
           </tr>
           <tr>
             <td id="cell">Wtorek</td>
-            <td id="cell">9 - 20</td>
+            <td id="cell">9 - 21</td>
           </tr>
           <tr>
             <td id="cell">Środa</td>
-            <td id="cell">9 - 20</td>
+            <td id="cell">9 - 21</td>
           </tr>
           <tr>
             <td id="cell">Czwartek</td>
-            <td id="cell">9 - 20</td>
+            <td id="cell">9 - 21</td>
           </tr>
           <tr>
             <td id="cell">Piątek</td>
-            <td id="cell">9 - 20</td>
+            <td id="cell">9 - 21</td>
           </tr>
           <tr>
             <td id="cell">Sobota</td>
-            <td id="cell">9 - 16</td>
+            <td id="cell">9 - 18</td>
           </tr>
           <tr>
             <td id="cell">Niedziela</td>
