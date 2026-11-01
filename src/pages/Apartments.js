@@ -1,10 +1,10 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
-import stefan from "../images/stefan.jpg";
-import artur from "../images/artur.jpg";
-import amira from "../images/amira.jpg";
-import lukas from "../images/lukas.jpg";
+import arthur from "../images/arthur.jpg";
+import tom from "../images/tom.jpg";
+import jamal from "../images/jamal.jpg";
+import andrzej from "../images/andrzej.jpg";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
 
@@ -17,20 +17,20 @@ const Apartments = () => {
 
       <section className="services3">
         <div className="employee-box">
-          <img className="avatar" src={artur} alt="A Plant Company" />
+          <img className="avatar" src={arthur} alt="Arthur - Barber" />
           <p className="employee">Arthur - Barber</p>
         </div>
         <div className="employee-box">
-          <img className="avatar" src={lukas} alt="A Plant Company" />
-          <p className="employee">Łukasz - Barber</p>
+          <img className="avatar" src={tom} alt="Tom Horn - Barber" />
+          <p className="employee">Tom Horn - Barber</p>
         </div>
         <div className="employee-box">
-          <img className="avatar" src={amira} alt="A Plant Company" />
-          <p className="employee">Amira - Manager</p>
+          <img className="avatar" src={jamal} alt="Jamal - Barber" />
+          <p className="employee">Jamal - Barber</p>
         </div>
         <div className="employee-box">
-          <img className="avatar" src={stefan} alt="A Plant Company" />
-          <p className="employee">Franek - Recepcjonista</p>
+          <img className="avatar" src={andrzej} alt="Andrzej - Barber" />
+          <p className="employee">Andrzej - Barber</p>
         </div>
       </section>
       <section className="services">
