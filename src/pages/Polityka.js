@@ -4,10 +4,12 @@ import Banner from "../components/Banner";
 
 import Title from "../components/Title";
 import Footer from "../components/Footer";
+import PageMeta from "../components/PageMeta";
 
 const About = () => {
   return (
     <div className="page">
+      <PageMeta title="Polityka prywatności" description="Polityka prywatności i plików cookies serwisu shamrockbarber.com." />
       <Hero hero="roomsHero">
         <Banner title="Polityka Prywatności"></Banner>
       </Hero>

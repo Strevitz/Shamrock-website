@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 import { RoomContext } from "../context";
 import StyledHero from "../components/StyledHero";
 import Footer from "../components/Footer";
+import PageMeta from "../components/PageMeta";
+import { BOOKSY_URL, PHONE_HREF, PHONE_DISPLAY, realSlug } from "../siteInfo";
 
 export default class SingleApartment extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {
-      slug: this.props.match.params.slug,
+      slug: realSlug(this.props.match.params.slug),
       defaultBg,
     };
   }
@@ -29,9 +30,9 @@ export default class SingleApartment extends Component {
             strona ładuje się dłużej niż zwykle, zrelaksuj się i zarezerwuj
             wizytę...
           </h3>
-          <Link to="/rezerwacje" className="btn-primary">
+          <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
             rezerwuj teraz
-          </Link>
+          </a>
         </div>
       );
     }
@@ -49,11 +50,20 @@ export default class SingleApartment extends Component {
 
     return (
       <div className="page">
+        <PageMeta
+          title={`${name} – ${price} zł`}
+          description={`${name} w Shamrock Barber Shop Warszawa (ul. Widok 10). Cena ${price} zł, czas ok. ${size} min. Zarezerwuj online przez Booksy.`}
+        />
         <StyledHero img={mainImg || this.state.defaultBg}>
-          <Banner title={`${name}`}>
-            <Link to="/rezerwacje" className="btn-primary">
-              rezerwuj teraz
-            </Link>
+          <Banner title={`${name}`} subtitle={`${price} zł · ${size} min`}>
+            <div className="hero-buttons">
+              <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                rezerwuj teraz
+              </a>
+              <a href={PHONE_HREF} className="btn-primary btn-outline">
+                zadzwoń {PHONE_DISPLAY}
+              </a>
+            </div>
           </Banner>
         </StyledHero>
         <section className="single-room">
@@ -71,6 +81,13 @@ export default class SingleApartment extends Component {
               <h3>informacje</h3>
               <h6>cena : {price}PLN</h6>
               <h6>czas : {size}min</h6>
+              <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                rezerwuj online
+              </a>
+              <br />
+              <Link to="/rezerwacje" className="see-all">
+                zobacz pełny cennik →
+              </Link>
             </article>
           </div>
         </section>
