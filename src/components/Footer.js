@@ -4,6 +4,24 @@ import logo from "../images/logo_green.png";
 import sassy from "../images/sassy logo3.jpg";
 import iconInstagram from "../images/icon-instagram.svg";
 import iconFacebook from "../images/icon-facebook.svg";
+import OpeningHours from "./OpeningHours";
+import {
+  OPENING_HOURS_SHORT,
+  ADDRESS_LINE,
+  MAPS_DIRECTIONS_URL,
+  BOOKSY_URL,
+  MESSENGER_URL,
+  PHONE_HREF,
+  PHONE_DISPLAY,
+  EMAIL,
+} from "../siteInfo";
+
+const resetCookies = () => {
+  try {
+    window.localStorage.removeItem("shamrock-cookie-consent");
+  } catch (e) {}
+  window.location.reload();
+};
 
 export default class Footer extends Component {
   render() {
@@ -20,7 +38,15 @@ export default class Footer extends Component {
                 </div>
 
                 <div className={"about"}>
-                  <p>ul. Widok 10, 00-023 Warszawa</p>
+                  <p>
+                    <a href={MAPS_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer">
+                      {ADDRESS_LINE}
+                    </a>
+                  </p>
+                  <OpeningHours list={OPENING_HOURS_SHORT} className="footer-hours" />
+                  <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary footer-book">
+                    rezerwuj online
+                  </a>
                 </div>
               </div>
             </div>
@@ -49,14 +75,24 @@ export default class Footer extends Component {
                       </Link>
                     </li>
                     <li>
-                      <a href="tel:+48884769758" title={"Numer telefonu"}>
-                        tel. 884 769 758
+                      <a href={PHONE_HREF} title={"Numer telefonu"}>
+                        tel. {PHONE_DISPLAY}
                       </a>
                     </li>
                     <li>
-                      <a href="mailto:info@shamrockbarber.com" title={"e-mail"}>
-                        info@shamrockbarber.com
+                      <a href={`mailto:${EMAIL}`} title={"e-mail"}>
+                        {EMAIL}
                       </a>
+                    </li>
+                    <li>
+                      <a href={MESSENGER_URL} target="_blank" rel="noopener noreferrer">
+                        Messenger
+                      </a>
+                    </li>
+                    <li>
+                      <button type="button" className="link-button" onClick={resetCookies}>
+                        Ustawienia cookies
+                      </button>
                     </li>
                   </ul>
                 </div>
@@ -89,7 +125,7 @@ export default class Footer extends Component {
           </div>
 
           <div className={"copyright"}>
-            <img className="sassy" src={sassy} alt="A Plant Company" />
+            <img className="sassy" src={sassy} alt="Sassy Company" />
             <p>
               &copy; {new Date().getFullYear()} Sassy Company {` `} <br />
               <br />

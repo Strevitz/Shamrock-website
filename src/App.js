@@ -11,6 +11,8 @@ import SingleApartment from "./pages/SingleApartment";
 import Error from "./pages/404";
 import { Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ActionBar from "./components/ActionBar";
+import CookieConsent from "./components/CookieConsent";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 class App extends Component {
@@ -45,6 +47,8 @@ class App extends Component {
             </TransitionGroup>
           )}
         />
+        <ActionBar />
+        <CookieConsent />
       </div>
     );
   }

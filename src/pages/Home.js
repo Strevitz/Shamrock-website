@@ -1,30 +1,40 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
-import { Link } from "react-router-dom";
 import Services from "../components/Services";
 import CurrentOffers from "../components/CurrentOffers";
+import News from "../components/News";
 import Footer from "../components/Footer";
+import PageMeta from "../components/PageMeta";
+import { PHONE_DISPLAY, PHONE_HREF, BOOKSY_URL } from "../siteInfo";
 
 const Home = () => {
   return (
     <div className="page">
+      <PageMeta />
       <Hero>
         <Banner
           title="Chcesz umówić wizytę?"
-          subtitle="Zadzwoń do nas 884 769 758"
+          subtitle="Wybierz wolny termin online albo zadzwoń – znajdziemy dla Ciebie miejsce."
         >
-          <Link
-            to={{ pathname: "https://shamrockbarbershop.booksy.com" }}
-            target="_blank"
-            className="btn-primary"
-          >
-            lub rezerwuj online
-          </Link>
+          <div className="hero-buttons">
+            <a
+              href={BOOKSY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              rezerwuj online
+            </a>
+            <a href={PHONE_HREF} className="btn-primary btn-outline">
+              zadzwoń {PHONE_DISPLAY}
+            </a>
+          </div>
         </Banner>
       </Hero>
       <Services />
       <CurrentOffers />
+      <News />
       <Footer />
     </div>
   );

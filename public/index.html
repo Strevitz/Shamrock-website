@@ -6,13 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
-      name="Shamrock Barber Shop Warszawa"
-      content="Najlepsze cięcia i klimat bostońskiego barbershopu w samym sercu Warszawy przy ul. Widok 10 obok Rotundy. Znajdziesz u nas klasyczne i nowoczesne męskie fryzury, kompleksową pielęgnacje brody oraz relaksujące golenie z gorącym ręcznikiem."
+      name="description"
+      content="Shamrock Barber Shop – barbershop w centrum Warszawy, ul. Widok 10 obok Rotundy. Strzyżenie męskie, broda, golenie brzytwą z gorącym ręcznikiem. Rezerwacja online przez Booksy lub tel. 884 769 758."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content="Shamrock Barber Shop" />
+    <meta property="og:title" content="Shamrock Barber Shop – barber Warszawa Centrum" />
     <meta
-      name="keywords"
-      content="shamrock, shamrock barber, barbershop, barbershop warszawa, barber warszawa, barbershop warsaw, barber centrum, barbershop centrum, fryzjer meski, barbershop near me, barber wola, barber ochota, fryzjer warszawa centrum, fryzjer warszawa śródmieście, fryzjer ochota, barber pruszków, strzyżenie męskie, strzyżenie, fryzjer warszawa, shop, fryzjer męski warszawa, fryzjer męski, fryzjer, fryzury męskie, fryzury, Warszawa, Śródmieście, broda, wąsy, zarost, golenie brzytwą warszawa, golenie brzytwą, golenie, rotunda, kosmetyki męskie warszawa, kosmetyki męskie, depilacja woskiem, depilacja"
+      property="og:description"
+      content="Klasyczne i nowoczesne męskie fryzury, broda i golenie brzytwą przy ul. Widok 10 obok Rotundy. Zarezerwuj online."
     />
+    <meta property="og:url" content="https://shamrockbarber.com/" />
+    <meta property="og:image" content="https://shamrockbarber.com/logo512.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BarberShop",
+        "name": "Shamrock Barber Shop",
+        "url": "https://shamrockbarber.com",
+        "image": "https://shamrockbarber.com/logo512.png",
+        "telephone": "+48884769758",
+        "email": "info@shamrockbarber.com",
+        "priceRange": "39–180 zł",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "ul. Widok 10",
+          "postalCode": "00-023",
+          "addressLocality": "Warszawa",
+          "addressCountry": "PL"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "21:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/shamrock_barbershop",
+          "https://www.facebook.com/ShamrockWarszawa",
+          "https://shamrockbarbershop.booksy.com"
+        ],
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "target": "https://shamrockbarbershop.booksy.com"
+        }
+      }
+    </script>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/shamrock logo.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -28,72 +76,10 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Męskie Fryzury - Shamrock Barber Shop</title>
+    <title>Shamrock Barber Shop – barber Warszawa Centrum, ul. Widok 10</title>
   </head>
   <body>
-    <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function () {
-        FB.init({
-          xfbml: true,
-          version: "v10.0",
-        });
-      };
-
-      (function (d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://connect.facebook.net/pl_PL/sdk/xfbml.customerchat.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, "script", "facebook-jssdk");
-    </script>
-
-    <!-- Facebook Pixel Code -->
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-      fbq("init", "361683365283084");
-      fbq("track", "PageView");
-    </script>
-    <noscript
-      ><img
-        height="1"
-        width="1"
-        style="display: none"
-        src="https://www.facebook.com/tr?id=361683365283084&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Facebook Pixel Code -->
-    <!-- Your Chat Plugin code -->
-    <div
-      class="fb-customerchat"
-      attribution="setup_tool"
-      page_id="104481088421602"
-    ></div>
+    <!-- Facebook Pixel ładuje się dopiero po zgodzie na cookies (src/components/CookieConsent.js). -->
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

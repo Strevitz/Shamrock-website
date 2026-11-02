@@ -2,12 +2,6 @@ import React, { Component } from "react";
 //import items from "./data";
 import client from "./Contentful";
 
-client
-  .getEntries({
-    content_type: "realEstate",
-  })
-  .then((response) => console.log(response.items));
-
 const RoomContext = React.createContext();
 
 class RoomProvider extends Component {

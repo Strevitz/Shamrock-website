@@ -7,11 +7,13 @@ import insta3 from "../images/insta3.jpg";
 import insta4 from "../images/insta4.jpg";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
+import PageMeta from "../components/PageMeta";
 import { Link } from "react-router-dom";
 
 const Apartments = () => {
   return (
     <div className="page">
+      <PageMeta title="Media" description="Zdjęcia i nowości z Shamrock Barber Shop – zobacz nas na Instagramie i Facebooku." />
       <Hero hero="roomsHero3">
         <Banner title="Media" subtitle="Poznaj nas od kuchni"></Banner>
       </Hero>
@@ -19,16 +21,16 @@ const Apartments = () => {
         <Title title="Znajdź nas na Instagramie" />
         <div className="media-box">
           <div className="employee-box">
-            <img className="mediapic" src={insta4} alt="A Plant Company" />
+            <img className="mediapic" src={insta4} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta3} alt="A Plant Company" />
+            <img className="mediapic" src={insta3} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta2} alt="A Plant Company" />
+            <img className="mediapic" src={insta2} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta1} alt="A Plant Company" />
+            <img className="mediapic" src={insta1} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
           </div>
         </div>
         <Link
@@ -41,16 +43,16 @@ const Apartments = () => {
         <Title className="fbtitle" title="Znajdź nas na Facebooku" />
         <div className="media-box">
           <div className="employee-box">
-            <img className="mediapic" src={insta4} alt="A Plant Company" />
+            <img className="mediapic" src={insta4} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta3} alt="A Plant Company" />
+            <img className="mediapic" src={insta3} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta2} alt="A Plant Company" />
+            <img className="mediapic" src={insta2} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta1} alt="A Plant Company" />
+            <img className="mediapic" src={insta1} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
           </div>
         </div>
         <Link

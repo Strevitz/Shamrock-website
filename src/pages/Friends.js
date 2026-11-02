@@ -11,10 +11,12 @@ import mk from "../images/mk.png";
 import okocim from "../images/okocim.png";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
+import PageMeta from "../components/PageMeta";
 
-const About = () => {
+const Friends = () => {
   return (
     <div className="page">
+      <PageMeta title="Przyjaciele" description="Marki i partnerzy, z którymi współpracuje Shamrock Barber Shop Warszawa." />
       <Hero hero="roomsHero2">
         <Banner
           title="Przyjaciele"
@@ -23,18 +25,18 @@ const About = () => {
       </Hero>
       <section className="services3">
         <Title title="Współpracujemy z najlepszymi" />
-        <img className="booksy" src={booksy} alt="A Plant Company" />
-        <img className="jameson" src={jameson} alt="A Plant Company" />
-        <img className="reuzel" src={reuzel} alt="A Plant Company" />
-        <img className="uppercut" src={uppercut} alt="A Plant Company" />
-        <img className="supply" src={supply} alt="A Plant Company" />
-        <img className="friend" src={plant} alt="A Plant Company" />
-        <img className="okocim" src={okocim} alt="A Plant Company" />
-        <img className="mk" src={mk} alt="A Plant Company" />
+        <img className="booksy" src={booksy} alt="Booksy – partner Shamrock Barber Shop" />
+        <img className="jameson" src={jameson} alt="Jameson – partner Shamrock Barber Shop" />
+        <img className="reuzel" src={reuzel} alt="Reuzel – partner Shamrock Barber Shop" />
+        <img className="uppercut" src={uppercut} alt="Uppercut Deluxe – partner Shamrock Barber Shop" />
+        <img className="supply" src={supply} alt="Supply – partner Shamrock Barber Shop" />
+        <img className="friend" src={plant} alt="A Plant Company – partner Shamrock Barber Shop" />
+        <img className="okocim" src={okocim} alt="Okocim – partner Shamrock Barber Shop" />
+        <img className="mk" src={mk} alt="MK – partner Shamrock Barber Shop" />
       </section>
       <Footer />
     </div>
   );
 };
 
-export default About;
+export default Friends;

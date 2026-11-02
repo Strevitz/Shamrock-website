@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Title from "./Title";
-import { FaCut, FaGamepad, FaSearchLocation, FaMugHot } from "react-icons/fa";
+import { FaCut, FaCalendarCheck, FaSearchLocation, FaMugHot } from "react-icons/fa";
 
 export default class Services extends Component {
   state = {
@@ -15,7 +15,7 @@ export default class Services extends Component {
         icon: <FaSearchLocation />,
         title: "Lokalizacja",
         info:
-          "Shamrock Barber Shop zlokalizowany jest w samym sercu Warszawy przy ul. WIDOK 10 obok Rotundy. Wszystkie drogi prowadzą do nas!",
+          "Shamrock Barber Shop zlokalizowany jest w samym sercu Warszawy przy ul. Widok 10, obok Rotundy i kilka minut od metra Centrum. Wszystkie drogi prowadzą do nas!",
       },
       {
         icon: <FaMugHot />,
@@ -24,10 +24,10 @@ export default class Services extends Component {
           "Spragniony podczas wizyty w Shamrocku? Dla naszych gości podajemy pyszną kawę, whiskey i piwo bezalkoholowe dla zmotoryzowanych.",
       },
       {
-        icon: <FaGamepad />,
-        title: "Czekając na serwis",
+        icon: <FaCalendarCheck />,
+        title: "Rezerwacja w minutę",
         info:
-          "Koniec z nudą podczas czekania na swoją kolej! W naszym shopie zagrasz w najnowsze gry wideo na streamingowej platformie Google Stadia.",
+          "Wolne terminy sprawdzisz online przez Booksy o każdej porze. Wolisz porozmawiać? Zadzwoń lub napisz na Messengerze – chętnie doradzimy.",
       },
     ],
   };
