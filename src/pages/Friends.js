@@ -12,27 +12,26 @@ import okocim from "../images/okocim.png";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
 import PageMeta from "../components/PageMeta";
+import { useLang } from "../i18n";
 
 const Friends = () => {
+  const { t } = useLang();
   return (
     <div className="page">
-      <PageMeta title="Przyjaciele" description="Marki i partnerzy, z którymi współpracuje Shamrock Barber Shop Warszawa." />
+      <PageMeta title={t.meta.friends[0]} description={t.meta.friends[1]} />
       <Hero hero="roomsHero2">
-        <Banner
-          title="Przyjaciele"
-          subtitle="Ponieważ najlepiej wśród przyjaciół"
-        ></Banner>
+        <Banner title={t.friends.title} subtitle={t.friends.subtitle}></Banner>
       </Hero>
       <section className="services3">
-        <Title title="Współpracujemy z najlepszymi" />
-        <img className="booksy" src={booksy} alt="Booksy – partner Shamrock Barber Shop" />
-        <img className="jameson" src={jameson} alt="Jameson – partner Shamrock Barber Shop" />
-        <img className="reuzel" src={reuzel} alt="Reuzel – partner Shamrock Barber Shop" />
-        <img className="uppercut" src={uppercut} alt="Uppercut Deluxe – partner Shamrock Barber Shop" />
-        <img className="supply" src={supply} alt="Supply – partner Shamrock Barber Shop" />
-        <img className="friend" src={plant} alt="A Plant Company – partner Shamrock Barber Shop" />
-        <img className="okocim" src={okocim} alt="Okocim – partner Shamrock Barber Shop" />
-        <img className="mk" src={mk} alt="MK – partner Shamrock Barber Shop" />
+        <Title title={t.friends.heading} />
+        <img className="booksy" src={booksy} alt={`Booksy – ${t.friends.alt}`} />
+        <img className="jameson" src={jameson} alt={`Jameson – ${t.friends.alt}`} />
+        <img className="reuzel" src={reuzel} alt={`Reuzel – ${t.friends.alt}`} />
+        <img className="uppercut" src={uppercut} alt={`Uppercut Deluxe – ${t.friends.alt}`} />
+        <img className="supply" src={supply} alt={`Supply – ${t.friends.alt}`} />
+        <img className="friend" src={plant} alt={`A Plant Company – ${t.friends.alt}`} />
+        <img className="okocim" src={okocim} alt={`Okocim – ${t.friends.alt}`} />
+        <img className="mk" src={mk} alt={`MK – ${t.friends.alt}`} />
       </section>
       <Footer />
     </div>

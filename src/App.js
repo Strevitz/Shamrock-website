@@ -25,20 +25,20 @@ class App extends Component {
             <TransitionGroup>
               <CSSTransition key={location.key} timeout={300} classNames="fade">
                 <Switch location={location}>
-                  <Route exact path="/" component={Home} />
-                  <Route exact path="/ekipa/" component={Apartments} />
-                  <Route exact path="/rezerwacje/" component={About} />
-                  <Route exact path="/media/" component={Media} />
-                  <Route exact path="/przyjaciele/" component={Friends} />
+                  <Route exact path={["/", "/en"]} component={Home} />
+                  <Route exact path={["/ekipa", "/en/team"]} component={Apartments} />
+                  <Route exact path={["/rezerwacje", "/en/booking"]} component={About} />
+                  <Route exact path={["/media", "/en/media"]} component={Media} />
+                  <Route exact path={["/przyjaciele", "/en/friends"]} component={Friends} />
                   <Route
                     exact
-                    path="/polityka-prywatności/"
+                    path={["/polityka-prywatności", "/en/privacy"]}
                     component={Polityka}
                   />
-                  <Route exact path="/kontakt/" component={Kontakt} />
+                  <Route exact path={["/kontakt", "/en/contact"]} component={Kontakt} />
                   <Route
                     exact
-                    path="/rezerwacje/:slug"
+                    path={["/rezerwacje/:slug", "/en/booking/:slug"]}
                     component={SingleApartment}
                   />
                   <Route component={Error} />

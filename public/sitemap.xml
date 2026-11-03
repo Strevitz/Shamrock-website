@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://shamrockbarber.com/</loc></url>
-  <url><loc>https://shamrockbarber.com/ekipa</loc></url>
-  <url><loc>https://shamrockbarber.com/rezerwacje</loc></url>
-  <url><loc>https://shamrockbarber.com/kontakt</loc></url>
-  <url><loc>https://shamrockbarber.com/media</loc></url>
-  <url><loc>https://shamrockbarber.com/przyjaciele</loc></url>
-  <url><loc>https://shamrockbarber.com/rezerwacje/strzy%C5%BCenie</loc></url>
-  <url><loc>https://shamrockbarber.com/rezerwacje/broda</loc></url>
-  <url><loc>https://shamrockbarber.com/rezerwacje/komplet</loc></url>
-  <url><loc>https://shamrockbarber.com/rezerwacje/strzy%C5%BCenie-maszynk%C4%85</loc></url>
-  <url><loc>https://shamrockbarber.com/rezerwacje/w%C4%85sy</loc></url>
-  <url><loc>https://shamrockbarber.com/rezerwacje/repigmentacja-brody</loc></url>
-  <url><loc>https://shamrockbarber.com/rezerwacje/ojciec-i-syn</loc></url>
-  <url><loc>https://shamrockbarber.com/rezerwacje/golenie-brzytwa</loc></url>
-  <url><loc>https://shamrockbarber.com/rezerwacje/maska</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://shamrockbarber.com/</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en"/></url>
+  <url><loc>https://shamrockbarber.com/en</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en"/></url>
+  <url><loc>https://shamrockbarber.com/ekipa</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/ekipa"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/team"/></url>
+  <url><loc>https://shamrockbarber.com/en/team</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/ekipa"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/team"/></url>
+  <url><loc>https://shamrockbarber.com/rezerwacje</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking"/></url>
+  <url><loc>https://shamrockbarber.com/en/booking</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking"/></url>
+  <url><loc>https://shamrockbarber.com/kontakt</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/kontakt"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/contact"/></url>
+  <url><loc>https://shamrockbarber.com/en/contact</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/kontakt"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/contact"/></url>
+  <url><loc>https://shamrockbarber.com/media</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/media"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/media"/></url>
+  <url><loc>https://shamrockbarber.com/en/media</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/media"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/media"/></url>
+  <url><loc>https://shamrockbarber.com/przyjaciele</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/przyjaciele"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/friends"/></url>
+  <url><loc>https://shamrockbarber.com/en/friends</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/przyjaciele"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/friends"/></url>
+  <url><loc>https://shamrockbarber.com/rezerwacje/strzy%C5%BCenie</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/strzy%C5%BCenie"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/haircut"/></url>
+  <url><loc>https://shamrockbarber.com/en/booking/haircut</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/strzy%C5%BCenie"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/haircut"/></url>
+  <url><loc>https://shamrockbarber.com/rezerwacje/broda</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/broda"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/beard-trim"/></url>
+  <url><loc>https://shamrockbarber.com/en/booking/beard-trim</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/broda"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/beard-trim"/></url>
+  <url><loc>https://shamrockbarber.com/rezerwacje/komplet</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/komplet"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/haircut-and-beard"/></url>
+  <url><loc>https://shamrockbarber.com/en/booking/haircut-and-beard</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/komplet"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/haircut-and-beard"/></url>
+  <url><loc>https://shamrockbarber.com/rezerwacje/strzy%C5%BCenie-maszynk%C4%85</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/strzy%C5%BCenie-maszynk%C4%85"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/clipper-cut"/></url>
+  <url><loc>https://shamrockbarber.com/en/booking/clipper-cut</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/strzy%C5%BCenie-maszynk%C4%85"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/clipper-cut"/></url>
+  <url><loc>https://shamrockbarber.com/rezerwacje/w%C4%85sy</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/w%C4%85sy"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/moustache"/></url>
+  <url><loc>https://shamrockbarber.com/en/booking/moustache</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/w%C4%85sy"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/moustache"/></url>
+  <url><loc>https://shamrockbarber.com/rezerwacje/repigmentacja-brody</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/repigmentacja-brody"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/beard-repigmentation"/></url>
+  <url><loc>https://shamrockbarber.com/en/booking/beard-repigmentation</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/repigmentacja-brody"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/beard-repigmentation"/></url>
+  <url><loc>https://shamrockbarber.com/rezerwacje/ojciec-i-syn</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/ojciec-i-syn"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/father-and-son"/></url>
+  <url><loc>https://shamrockbarber.com/en/booking/father-and-son</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/ojciec-i-syn"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/father-and-son"/></url>
+  <url><loc>https://shamrockbarber.com/rezerwacje/golenie-brzytwa</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/golenie-brzytwa"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/razor-shave"/></url>
+  <url><loc>https://shamrockbarber.com/en/booking/razor-shave</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/golenie-brzytwa"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/razor-shave"/></url>
+  <url><loc>https://shamrockbarber.com/rezerwacje/maska</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/maska"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/black-mask"/></url>
+  <url><loc>https://shamrockbarber.com/en/booking/black-mask</loc><xhtml:link rel="alternate" hreflang="pl" href="https://shamrockbarber.com/rezerwacje/maska"/><xhtml:link rel="alternate" hreflang="en" href="https://shamrockbarber.com/en/booking/black-mask"/></url>
 </urlset>

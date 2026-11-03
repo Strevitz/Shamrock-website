@@ -1,27 +1,49 @@
 import { useEffect } from "react";
+import { useLang, switchPath } from "../i18n";
 
-const DEFAULT_DESC =
-  "Shamrock Barber Shop – barbershop w centrum Warszawy, ul. Widok 10 obok Rotundy. Strzyżenie męskie, broda, golenie brzytwą z gorącym ręcznikiem. Rezerwacja online przez Booksy lub tel. 884 769 758.";
+const ORIGIN = "https://shamrockbarber.com";
+
+function setLink(rel, href, hreflang) {
+  const sel = hreflang
+    ? `link[rel="${rel}"][hreflang="${hreflang}"]`
+    : `link[rel="${rel}"]:not([hreflang])`;
+  let el = document.querySelector(sel);
+  if (!el) {
+    el = document.createElement("link");
+    el.setAttribute("rel", rel);
+    if (hreflang) el.setAttribute("hreflang", hreflang);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("href", href);
+}
+
+function setMeta(attr, key, content) {
+  let el = document.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+}
 
 export default function PageMeta({ title, description }) {
+  const { lang, t, location } = useLang();
   useEffect(() => {
-    document.title = title
-      ? `${title} | Shamrock Barber Shop Warszawa`
-      : "Shamrock Barber Shop – barber Warszawa Centrum, ul. Widok 10";
-    let tag = document.querySelector('meta[name="description"]');
-    if (!tag) {
-      tag = document.createElement("meta");
-      tag.setAttribute("name", "description");
-      document.head.appendChild(tag);
-    }
-    tag.setAttribute("content", description || DEFAULT_DESC);
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute("href", "https://shamrockbarber.com" + window.location.pathname);
-  }, [title, description]);
+    document.documentElement.setAttribute("lang", lang);
+    const desc = description || t.meta.desc;
+    document.title = title ? `${title} | ${t.meta.suffix}` : t.meta.siteTitle;
+    setMeta("name", "description", desc);
+    setMeta("property", "og:title", document.title);
+    setMeta("property", "og:description", desc);
+    setMeta("property", "og:locale", lang === "en" ? "en_GB" : "pl_PL");
+    const path = location.pathname;
+    const pl = switchPath(path, "pl");
+    const en = switchPath(path, "en");
+    setLink("canonical", ORIGIN + encodeURI(lang === "en" ? en : pl));
+    setLink("alternate", ORIGIN + encodeURI(pl), "pl");
+    setLink("alternate", ORIGIN + encodeURI(en), "en");
+    setLink("alternate", ORIGIN + encodeURI(pl), "x-default");
+  }, [title, description, lang, t, location.pathname]);
   return null;
 }

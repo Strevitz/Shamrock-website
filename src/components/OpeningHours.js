@@ -1,7 +1,9 @@
 import React from "react";
-import { OPENING_HOURS } from "../siteInfo";
+import { useLang } from "../i18n";
 
-export default function OpeningHours({ list = OPENING_HOURS, className = "hours-table" }) {
+export default function OpeningHours({ short = false, className = "hours-table" }) {
+  const { t } = useLang();
+  const list = short ? t.hoursShort : t.hours;
   return (
     <table className={className}>
       <tbody>

@@ -30,14 +30,3 @@ export const OPENING_HOURS_SHORT = [
   { day: "Niedziela", hours: "nieczynne" },
 ];
 
-// Ładniejsze adresy podstron usług. Klucz = nowy adres, wartość = slug w Contentful.
-// Stare adresy nadal działają.
-export const SLUG_ALIASES = {
-  "ojciec-i-syn": "apartment-neilson",
-  "golenie-brzytwa": "apartment-bedford",
-};
-export const prettySlug = (slug) => {
-  const found = Object.keys(SLUG_ALIASES).find((k) => SLUG_ALIASES[k] === slug);
-  return found || slug;
-};
-export const realSlug = (slug) => SLUG_ALIASES[slug] || slug;
