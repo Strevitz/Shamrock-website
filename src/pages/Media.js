@@ -9,28 +9,30 @@ import Title from "../components/Title";
 import Footer from "../components/Footer";
 import PageMeta from "../components/PageMeta";
 import { Link } from "react-router-dom";
+import { useLang } from "../i18n";
 
 const Apartments = () => {
+  const { t } = useLang();
   return (
     <div className="page">
-      <PageMeta title="Media" description="Zdjęcia i nowości z Shamrock Barber Shop – zobacz nas na Instagramie i Facebooku." />
+      <PageMeta title={t.meta.media[0]} description={t.meta.media[1]} />
       <Hero hero="roomsHero3">
-        <Banner title="Media" subtitle="Poznaj nas od kuchni"></Banner>
+        <Banner title={t.media.title} subtitle={t.media.subtitle}></Banner>
       </Hero>
       <section className="services">
-        <Title title="Znajdź nas na Instagramie" />
+        <Title title={t.media.insta} />
         <div className="media-box">
           <div className="employee-box">
-            <img className="mediapic" src={insta4} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
+            <img className="mediapic" src={insta4} alt={t.media.alt} />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta3} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
+            <img className="mediapic" src={insta3} alt={t.media.alt} />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta2} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
+            <img className="mediapic" src={insta2} alt={t.media.alt} />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta1} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
+            <img className="mediapic" src={insta1} alt={t.media.alt} />
           </div>
         </div>
         <Link
@@ -40,19 +42,19 @@ const Apartments = () => {
         >
           @shamrock_barbershop
         </Link>
-        <Title className="fbtitle" title="Znajdź nas na Facebooku" />
+        <Title className="fbtitle" title={t.media.fb} />
         <div className="media-box">
           <div className="employee-box">
-            <img className="mediapic" src={insta4} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
+            <img className="mediapic" src={insta4} alt={t.media.alt} />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta3} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
+            <img className="mediapic" src={insta3} alt={t.media.alt} />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta2} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
+            <img className="mediapic" src={insta2} alt={t.media.alt} />
           </div>
           <div className="employee-box">
-            <img className="mediapic" src={insta1} alt="Shamrock Barber Shop – zdjęcie z Instagrama" />
+            <img className="mediapic" src={insta1} alt={t.media.alt} />
           </div>
         </div>
         <Link

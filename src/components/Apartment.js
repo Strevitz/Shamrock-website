@@ -2,12 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import defaultImg from "../images/room-1.jpeg";
 import PropTypes from "prop-types";
-import { BOOKSY_URL, prettySlug } from "../siteInfo";
+import { BOOKSY_URL } from "../siteInfo";
+import { useLang, servicePath, localizeService } from "../i18n";
 
 // Karta usługi na stronie głównej.
 export default function Apartment({ room }) {
-  const { name, slug, images, price, size } = room;
-  const url = `/rezerwacje/${prettySlug(slug)}`;
+  const { lang, t } = useLang();
+  const { name, slug, images, price, size } = localizeService(room, lang);
+  const url = servicePath(slug, lang);
   return (
     <article className="room">
       <div className="img-container">
@@ -15,16 +17,12 @@ export default function Apartment({ room }) {
         <div className="price-top">
           <h6>{price} PLN</h6>
         </div>
-        <Link to={url} className="btn-primary room-link">
-          szczegóły
-        </Link>
+        <Link to={url} className="btn-primary room-link">{t.details}</Link>
       </div>
       <div className="room-info">
         <Link to={url} className="room-name">{name}</Link>
-        {size ? <span className="room-time">{size} min</span> : null}
-        <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="room-book">
-          rezerwuj
-        </a>
+        {size ? <span className="room-time">{size} {t.min}</span> : null}
+        <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="room-book">{t.book}</a>
       </div>
     </article>
   );

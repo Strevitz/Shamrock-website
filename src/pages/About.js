@@ -7,27 +7,23 @@ import PriceList from "../components/PriceList";
 import Faq from "../components/Faq";
 import PageMeta from "../components/PageMeta";
 import { PHONE_DISPLAY, PHONE_HREF, BOOKSY_URL, MESSENGER_URL } from "../siteInfo";
+import { useLang } from "../i18n";
 
-const About = () => {
+const Booking = () => {
+  const { lang, t } = useLang();
+  const b = t.bookingPage;
+  const phone = (lang === "en" ? "+48 " : "") + PHONE_DISPLAY;
   return (
     <div className="page">
-      <PageMeta
-        title="Rezerwacje i cennik"
-        description="Cennik Shamrock Barber Shop Warszawa: strzyżenie, broda, golenie brzytwą. Zarezerwuj wizytę online przez Booksy lub zadzwoń 884 769 758."
-      />
+      <PageMeta title={t.meta.booking[0]} description={t.meta.booking[1]} />
       <Hero hero="roomsHero7">
-        <Banner title="Rezerwacje" subtitle="Zarezerwuj najbliższy termin">
+        <Banner title={b.title} subtitle={b.subtitle}>
           <div className="hero-buttons">
-            <a
-              href={BOOKSY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              rezerwuj online
+            <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              {t.bookOnline}
             </a>
             <a href={PHONE_HREF} className="btn-primary btn-outline">
-              zadzwoń {PHONE_DISPLAY}
+              {t.call} {phone}
             </a>
           </div>
         </Banner>
@@ -35,30 +31,24 @@ const About = () => {
       <section className="services booking-options">
         <div className="booking-grid">
           <div className="booking-card">
-            <Title title="Online 24/7" />
-            <p>Wybierz usługę, barbera i godzinę w Booksy. Przypomnienie przyjdzie SMS-em.</p>
-            <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              rezerwuj w booksy
-            </a>
+            <Title title={b.online} />
+            <p>{b.onlineText}</p>
+            <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">{b.onlineBtn}</a>
           </div>
           <div className="booking-card">
-            <Title title="Telefonicznie" />
-            <p>Zadzwoń, a znajdziemy dogodny dla Ciebie termin.</p>
-            <a href={PHONE_HREF} className="btn-primary">
-              {PHONE_DISPLAY}
-            </a>
+            <Title title={b.phone} />
+            <p>{b.phoneText}</p>
+            <a href={PHONE_HREF} className="btn-primary">{phone}</a>
           </div>
           <div className="booking-card">
-            <Title title="Wiadomość" />
-            <p>Masz pytanie? Napisz do nas na Messengerze.</p>
-            <a href={MESSENGER_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              napisz do nas
-            </a>
+            <Title title={b.msg} />
+            <p>{b.msgText}</p>
+            <a href={MESSENGER_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">{b.msgBtn}</a>
           </div>
         </div>
       </section>
       <section className="services3 pricelist-section">
-        <Title title="Cennik" />
+        <Title title={b.priceList} />
         <PriceList />
       </section>
       <Faq />
@@ -67,4 +57,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Booking;

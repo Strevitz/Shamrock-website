@@ -4,18 +4,20 @@ import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import PageMeta from "../components/PageMeta";
+import { useLang } from "../i18n";
 
 const Error = () => {
+  const { t, to } = useLang();
   return (
     <div className="page">
-      <PageMeta title="Nie znaleziono strony" description="Ta strona nie istnieje. Wróć na stronę główną Shamrock Barber Shop." />
+      <PageMeta title={t.meta.notFound[0]} description={t.meta.notFound[1]} />
       <Hero>
         <Banner
           title="404"
-          subtitle="Podana strona nie istnieje, zrelaksuj się i zarezerwuj strzyżenie!"
+          subtitle={t.notFound.subtitle}
         >
-          <Link to="/" className="btn-primary">
-            powrót do strony głównej
+          <Link to={to("home")} className="btn-primary">
+            {t.notFound.back}
           </Link>
         </Banner>
       </Hero>

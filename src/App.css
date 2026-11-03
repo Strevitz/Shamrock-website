@@ -1231,3 +1231,51 @@ p {
 .banner div.hero-buttons .btn-primary {
   margin-top: 0.5rem;
 }
+
+/* przełącznik języka */
+.nav-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.lang-switch {
+  display: inline-block;
+  border: 2px solid var(--primaryColor);
+  color: #fff !important;
+  padding: 0.1rem 0.5rem !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-decoration: none !important;
+  line-height: 1.4;
+}
+.lang-switch:hover {
+  background: var(--primaryColor);
+}
+.lang-item {
+  display: none;
+}
+@media screen and (min-width: 935px) {
+  .lang-switch--mobile {
+    display: none;
+  }
+  .lang-item {
+    display: flex;
+    align-items: center;
+  }
+  .nav-links .lang-item a.lang-switch {
+    margin: 0 0 0 1rem;
+  }
+}
+.policy-note {
+  background: #fff;
+  border-left: 4px solid var(--primaryColor);
+  padding: 1.25rem;
+  margin: 0 auto 2rem;
+  width: 90%;
+  max-width: 900px;
+  text-align: left;
+}
+.policy-note a {
+  color: var(--primaryColor);
+}

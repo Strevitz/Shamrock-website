@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useLang } from "../i18n";
 
 const KEY = "shamrock-cookie-consent";
 const PIXEL_ID = "361683365283084";
@@ -30,6 +31,7 @@ function loadPixel() {
 
 // Baner zgody na pliki cookies – Facebook Pixel uruchamia się dopiero po akceptacji (RODO).
 export default function CookieConsent() {
+  const { t, to } = useLang();
   const [choice, setChoice] = useState(() => {
     try {
       return window.localStorage.getItem(KEY);
@@ -52,18 +54,16 @@ export default function CookieConsent() {
   if (choice) return null;
 
   return (
-    <div className="cookie-banner" role="dialog" aria-label="Zgoda na pliki cookies">
+    <div className="cookie-banner" role="dialog" aria-label={t.cookie.aria}>
       <p>
-        Używamy plików cookies, aby mierzyć skuteczność naszych reklam
-        (Facebook Pixel). Szczegóły w{" "}
-        <Link to="/polityka-prywatności">polityce prywatności</Link>.
+        {t.cookie.text} <Link to={to("privacy")}>{t.cookie.link}</Link>.
       </p>
       <div className="cookie-banner__buttons">
         <button type="button" className="cookie-btn cookie-btn--ghost" onClick={() => save("denied")}>
-          Tylko niezbędne
+          {t.cookie.deny}
         </button>
         <button type="button" className="cookie-btn" onClick={() => save("granted")}>
-          Akceptuję
+          {t.cookie.accept}
         </button>
       </div>
     </div>

@@ -9,52 +9,43 @@ import Title from "../components/Title";
 import Footer from "../components/Footer";
 import PageMeta from "../components/PageMeta";
 import { BOOKSY_URL } from "../siteInfo";
+import { useLang } from "../i18n";
 
-const Apartments = () => {
+// Ekipa – dodawaj/usuwaj osoby tutaj.
+const TEAM = [
+  { name: "Arthur", img: arthur },
+  { name: "Tom Horn", img: tom },
+  { name: "Jamal", img: jamal },
+  { name: "Andrzej", img: andrzej },
+];
+
+const Team = () => {
+  const { t } = useLang();
+  const tm = t.team;
   return (
     <div className="page">
-      <PageMeta title="Ekipa" description="Poznaj barberów Shamrock Barber Shop Warszawa i umów się online na wizytę." />
+      <PageMeta title={t.meta.team[0]} description={t.meta.team[1]} />
       <Hero hero="roomsHero5">
-        <Banner title="Ekipa" subtitle="Poznaj naszą ekipę"></Banner>
+        <Banner title={tm.title} subtitle={tm.subtitle}></Banner>
       </Hero>
-
       <section className="services3">
-        <div className="employee-box">
-          <img className="avatar" src={arthur} alt="Arthur - Barber" />
-          <p className="employee">Arthur - Barber</p>
-        </div>
-        <div className="employee-box">
-          <img className="avatar" src={tom} alt="Tom Horn - Barber" />
-          <p className="employee">Tom Horn - Barber</p>
-        </div>
-        <div className="employee-box">
-          <img className="avatar" src={jamal} alt="Jamal - Barber" />
-          <p className="employee">Jamal - Barber</p>
-        </div>
-        <div className="employee-box">
-          <img className="avatar" src={andrzej} alt="Andrzej - Barber" />
-          <p className="employee">Andrzej - Barber</p>
-        </div>
+        {TEAM.map((p) => (
+          <div className="employee-box" key={p.name}>
+            <img className="avatar" src={p.img} alt={`${p.name} - ${tm.role}`} />
+            <p className="employee">{p.name} - {tm.role}</p>
+          </div>
+        ))}
       </section>
       <section className="services3 team-cta">
-        <p>Wybierz swojego barbera w Booksy i zarezerwuj termin.</p>
-        <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
-          umów wizytę
-        </a>
+        <p>{tm.cta}</p>
+        <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">{tm.ctaBtn}</a>
       </section>
       <section className="services">
-        <Title title="Dołącz do Nas!" />
-        <p>
-          Jeśli jesteś pełnym zapału i pasji do zawodu Barberem, to właśnie
-          Ciebie szukamy!{" "}
-        </p>
-        <p>Nie czekaj i skontaktuj się z nami:</p>
+        <Title title={tm.join} />
+        <p>{tm.joinText}</p>
+        <p>{tm.joinContact}</p>
         <br />
-        <a
-          className="praca"
-          href="mailto:praca@shamrockbarber.com"
-          title={"e-mail"}
-        >
+        <a className="praca" href="mailto:praca@shamrockbarber.com" title={"e-mail"}>
           praca@shamrockbarber.com
         </a>
       </section>
@@ -63,4 +54,4 @@ const Apartments = () => {
   );
 };
 
-export default Apartments;
+export default Team;

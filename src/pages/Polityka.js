@@ -5,18 +5,37 @@ import Banner from "../components/Banner";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
 import PageMeta from "../components/PageMeta";
+import { useLang } from "../i18n";
 
 const About = () => {
+  const { lang, t } = useLang();
   return (
     <div className="page">
-      <PageMeta title="Polityka prywatności" description="Polityka prywatności i plików cookies serwisu shamrockbarber.com." />
+      <PageMeta title={t.meta.privacy[0]} description={t.meta.privacy[1]} />
       <Hero hero="roomsHero">
-        <Banner title="Polityka Prywatności"></Banner>
+        <Banner title={lang === "en" ? "Privacy Policy" : "Polityka Prywatności"}></Banner>
       </Hero>
       <section className="services">
         <Title title="Polityka prywatności i Plików Cookies" />
 
-        <article>
+        {lang === "en" && (
+          <article className="policy-note" lang="en">
+            <h3>Privacy policy – summary in English</h3>
+            <p>
+              This website is operated by Sassy Company Arthur Oliver Strzewiczek
+              (ul. Bolesława Chrobrego 40/28, 02-479 Warsaw, Poland), the data
+              controller. We use cookies to keep the site working and – only if
+              you accept them – the Facebook Pixel to measure our ads. You can
+              change your choice at any time with “Cookie settings” in the
+              footer. Online bookings are handled by Booksy under its own
+              privacy policy. For any privacy questions write to{" "}
+              <a href="mailto:contact@sassy.company">contact@sassy.company</a>.
+              The legally binding full policy is below in Polish.
+            </p>
+            <br />
+          </article>
+        )}
+        <article lang="pl">
           <h3>Polityka prywatności</h3>
           <p>
             Polityka prywatności opisuje zasady przetwarzania przez nas

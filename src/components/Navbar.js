@@ -1,100 +1,65 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import logo from "../images/logo_white.png";
-//import { Slant as Hamburger } from "hamburger-react";
 import { HamburgerCollapse } from "react-animated-burgers";
 import { Link, NavLink } from "react-router-dom";
+import { useLang, switchPath } from "../i18n";
 
-export default class Navbar extends Component {
-  state = {
-    isActive: false,
-  };
+const active = { fontWeight: "bold", color: "#40d181" };
+const KEYS = ["home", "team", "booking", "media", "friends", "contact"];
 
-  handleToggle = () => {
-    this.setState({ isActive: !this.state.isActive });
-  };
-
-  closeMenu = () => {
-    this.setState({ isActive: false });
-  };
-
-  render() {
-    return (
-      <nav className="navbar">
-        <div className="nav-center">
-          <div className="nav-header">
-            <Link to="/">
-              <img src={logo} alt="Shamrock Barber Shop" />
+export default function Navbar() {
+  const [isActive, setActive] = useState(false);
+  const { lang, t, to, location } = useLang();
+  const other = lang === "en" ? "pl" : "en";
+  const close = () => setActive(false);
+  return (
+    <nav className="navbar">
+      <div className="nav-center">
+        <div className="nav-header">
+          <Link to={to("home")}>
+            <img src={logo} alt="Shamrock Barber Shop" />
+          </Link>
+          <div className="nav-header-right">
+            <Link
+              to={switchPath(location.pathname, other)}
+              className="lang-switch lang-switch--mobile"
+              hrefLang={other}
+              title={t.langSwitchLabel}
+              onClick={close}
+            >
+              {t.langSwitch}
             </Link>
             <button type="button" className="nav-btn">
               <HamburgerCollapse
-                isActive={this.state.isActive}
-                toggleButton={this.handleToggle}
+                isActive={isActive}
+                toggleButton={() => setActive(!isActive)}
                 buttonColor="transparent"
                 barColor="#fff"
                 buttonWidth={26}
               />
             </button>
           </div>
-          <ul
-            className={this.state.isActive ? "nav-links show-nav" : "nav-links"}
-          >
-            <li onClick={this.closeMenu}>
-              <NavLink
-                to="/"
-                exact
-                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
-              >
-                Strona Główna
-              </NavLink>
-            </li>
-            <li onClick={this.closeMenu}>
-              <NavLink
-                to="/ekipa"
-                exact
-                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
-              >
-                Ekipa
-              </NavLink>
-            </li>
-            <li onClick={this.closeMenu}>
-              <NavLink
-                to="/rezerwacje"
-                exact
-                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
-              >
-                Rezerwacje
-              </NavLink>
-            </li>
-            <li onClick={this.closeMenu}>
-              <NavLink
-                to="/media"
-                exact
-                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
-              >
-                Media
-              </NavLink>
-            </li>
-            <li onClick={this.closeMenu}>
-              <NavLink
-                to="/przyjaciele"
-                exact
-                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
-              >
-                Przyjaciele
-              </NavLink>
-            </li>
-            <li onClick={this.closeMenu}>
-              <NavLink
-                to="/kontakt"
-                exact
-                activeStyle={{ fontWeight: "bold", color: "#40d181" }}
-              >
-                Kontakt
-              </NavLink>
-            </li>
-          </ul>
         </div>
-      </nav>
-    );
-  }
+        <ul className={isActive ? "nav-links show-nav" : "nav-links"}>
+          {KEYS.map((key) => (
+            <li key={key} onClick={close}>
+              <NavLink to={to(key)} exact activeStyle={active}>
+                {t.nav[key]}
+              </NavLink>
+            </li>
+          ))}
+          <li className="lang-item">
+            <Link
+              to={switchPath(location.pathname, other)}
+              className="lang-switch"
+              hrefLang={other}
+              title={t.langSwitchLabel}
+            >
+              {t.langSwitch}
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 }
