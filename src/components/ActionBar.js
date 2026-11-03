@@ -1,6 +1,6 @@
 import React from "react";
-import { FaPhoneAlt, FaCalendarCheck, FaFacebookMessenger } from "react-icons/fa";
-import { PHONE_HREF, BOOKSY_URL, MESSENGER_URL } from "../siteInfo";
+import { FaPhoneAlt, FaCalendarCheck, FaWhatsapp } from "react-icons/fa";
+import { PHONE_HREF, BOOKSY_URL, WHATSAPP_URL } from "../siteInfo";
 import { useLang } from "../i18n";
 
 // Pasek szybkich akcji przyklejony do dołu ekranu (widoczny na telefonach).
@@ -16,9 +16,9 @@ export default function ActionBar() {
         <FaCalendarCheck aria-hidden="true" />
         <span>{t.bar.book}</span>
       </a>
-      <a href={MESSENGER_URL} target="_blank" rel="noopener noreferrer" className="action-bar__item">
-        <FaFacebookMessenger aria-hidden="true" />
-        <span>{t.bar.write}</span>
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="action-bar__item">
+        <FaWhatsapp aria-hidden="true" />
+        <span>WhatsApp</span>
       </a>
     </div>
   );
