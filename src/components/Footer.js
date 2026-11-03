@@ -9,7 +9,7 @@ import {
   ADDRESS_LINE,
   MAPS_DIRECTIONS_URL,
   BOOKSY_URL,
-  MESSENGER_URL,
+  WHATSAPP_URL,
   PHONE_HREF,
   PHONE_DISPLAY,
   EMAIL,
@@ -68,7 +68,7 @@ export default function Footer() {
                   </li>
                   <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
                   <li>
-                    <a href={MESSENGER_URL} target="_blank" rel="noopener noreferrer">Messenger</a>
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a>
                   </li>
                   <li>
                     <button type="button" className="link-button" onClick={resetCookies}>
