@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Title from "./Title";
-import { PHONE_DISPLAY, PHONE_HREF, BOOKSY_URL, MESSENGER_URL } from "../siteInfo";
+import { PHONE_DISPLAY, PHONE_HREF, BOOKSY_URL, WHATSAPP_URL } from "../siteInfo";
 import { useLang, servicePath } from "../i18n";
 
 const ext = { target: "_blank", rel: "noopener noreferrer" };
@@ -10,7 +10,7 @@ function itemsPl(to) {
   return [
     {
       q: "Jak umówić wizytę?",
-      a: (<>Najszybciej online przez <a href={BOOKSY_URL} {...ext}>Booksy</a> – widzisz wolne terminy i wybierasz barbera. Możesz też zadzwonić: <a href={PHONE_HREF}>{PHONE_DISPLAY}</a> albo napisać na <a href={MESSENGER_URL} {...ext}>Messengerze</a>.</>),
+      a: (<>Najszybciej online przez <a href={BOOKSY_URL} {...ext}>Booksy</a> – widzisz wolne terminy i wybierasz barbera. Możesz też zadzwonić: <a href={PHONE_HREF}>{PHONE_DISPLAY}</a> albo napisać na <a href={WHATSAPP_URL} {...ext}>WhatsAppie</a>.</>),
     },
     {
       q: "Jak odwołać lub przełożyć wizytę?",
@@ -35,7 +35,7 @@ function itemsEn(to) {
   return [
     {
       q: "How do I book?",
-      a: (<>The quickest way is online on <a href={BOOKSY_URL} {...ext}>Booksy</a> – see free slots and choose your barber. You can also call <a href={PHONE_HREF}>+48 {PHONE_DISPLAY}</a> or message us on <a href={MESSENGER_URL} {...ext}>Messenger</a>.</>),
+      a: (<>The quickest way is online on <a href={BOOKSY_URL} {...ext}>Booksy</a> – see free slots and choose your barber. You can also call <a href={PHONE_HREF}>+48 {PHONE_DISPLAY}</a> or message us on <a href={WHATSAPP_URL} {...ext}>WhatsApp</a>.</>),
     },
     {
       q: "Do you speak English?",

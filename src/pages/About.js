@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import PriceList from "../components/PriceList";
 import Faq from "../components/Faq";
 import PageMeta from "../components/PageMeta";
-import { PHONE_DISPLAY, PHONE_HREF, BOOKSY_URL, MESSENGER_URL } from "../siteInfo";
+import { PHONE_DISPLAY, PHONE_HREF, BOOKSY_URL, WHATSAPP_URL } from "../siteInfo";
 import { useLang } from "../i18n";
 
 const Booking = () => {
@@ -43,7 +43,7 @@ const Booking = () => {
           <div className="booking-card">
             <Title title={b.msg} />
             <p>{b.msgText}</p>
-            <a href={MESSENGER_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">{b.msgBtn}</a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">{b.msgBtn}</a>
           </div>
         </div>
       </section>
