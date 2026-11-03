@@ -20,13 +20,13 @@ const news = [
   {
     date: "2026-11-02",
     pl: {
-      title: "Nowi barberzy w ekipie",
-      text: "Do Shamrocka dołączyli Tom Horn, Jamal i Andrzej. Poznaj całą ekipę i umów się na wizytę online.",
+      title: "Nowy barber Tom Horn",
+      text: "Do Shamrocka dołączył Tom Horn. Poznaj całą ekipę i umów się na wizytę online.",
       linkLabel: "poznaj ekipę",
     },
     en: {
-      title: "New barbers on the team",
-      text: "Tom Horn, Jamal and Andrzej have joined Shamrock. Meet the whole team and book your visit online.",
+      title: "New barber Tom Horn",
+      text: "Tom Horn has joined Shamrock. Meet the whole team and book your visit online.",
       linkLabel: "meet the team",
     },
     link: "team",

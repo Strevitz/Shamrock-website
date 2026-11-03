@@ -10,7 +10,7 @@ import {
   PHONE_HREF,
   EMAIL,
   BOOKSY_URL,
-  MESSENGER_URL,
+  WHATSAPP_URL,
   MAPS_DIRECTIONS_URL,
   MAPS_EMBED_URL,
 } from "../siteInfo";
@@ -32,8 +32,8 @@ const Kontakt = () => {
             <p><strong>{c.phone}:</strong> <a href={PHONE_HREF}>+48 {PHONE_DISPLAY}</a></p>
             <p><strong>{c.email}:</strong> <a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
             <p>
-              <strong>{c.messenger}:</strong>{" "}
-              <a href={MESSENGER_URL} target="_blank" rel="noopener noreferrer">{c.write}</a>
+              <strong>{c.whatsapp}:</strong>{" "}
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">{c.write}</a>
             </p>
             <div className="contact-buttons">
               <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">{t.bookOnline}</a>
