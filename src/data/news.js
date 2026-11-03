@@ -35,12 +35,12 @@ const news = [
     date: "2026-11-02",
     pl: {
       title: "Rezerwacja online 24/7",
-      text: "Wolne terminy sprawdzisz o każdej porze przez Booksy. Wolisz porozmawiać? Zadzwoń lub napisz na Messengerze.",
+      text: "Wolne terminy sprawdzisz o każdej porze przez Booksy. Wolisz porozmawiać? Zadzwoń lub napisz na WhatsAppie.",
       linkLabel: "zarezerwuj",
     },
     en: {
       title: "Book online 24/7",
-      text: "Check free slots on Booksy any time. Prefer to talk? Call us or send a message on Messenger.",
+      text: "Check free slots on Booksy any time. Prefer to talk? Call us or send a message on WhatsApp.",
       linkLabel: "book now",
     },
     link: "https://shamrockbarbershop.booksy.com",
