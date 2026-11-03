@@ -4,6 +4,7 @@ export const PHONE_HREF = "tel:+48884769758";
 export const EMAIL = "info@shamrockbarber.com";
 export const BOOKSY_URL = "https://shamrockbarbershop.booksy.com";
 export const MESSENGER_URL = "https://m.me/ShamrockWarszawa";
+export const WHATSAPP_URL = "https://wa.me/48519603221";
 export const INSTAGRAM_URL = "https://www.instagram.com/shamrock_barbershop";
 export const FACEBOOK_URL = "https://www.facebook.com/ShamrockWarszawa";
 
