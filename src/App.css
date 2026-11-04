@@ -1249,22 +1249,35 @@ p {
   text-decoration: none !important;
   line-height: 1.4;
 }
-.lang-switch:hover {
+.lang-switch:hover,
+.lang-switch--active {
   background: var(--primaryColor);
+}
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.lang-switcher .lang-switch {
+  padding: 0.1rem 0.35rem !important;
+  letter-spacing: 1px;
 }
 .lang-item {
   display: none;
 }
 @media screen and (min-width: 935px) {
-  .lang-switch--mobile {
+  .lang-switcher--mobile {
     display: none;
   }
   .lang-item {
     display: flex;
     align-items: center;
   }
+  .nav-links .lang-item .lang-switcher {
+    margin-left: 1rem;
+  }
   .nav-links .lang-item a.lang-switch {
-    margin: 0 0 0 1rem;
+    margin: 0;
   }
 }
 .policy-note {
@@ -1278,4 +1291,22 @@ p {
 }
 .policy-note a {
   color: var(--primaryColor);
+}
+
+/* wersja ukraińska: bez „Każdego Słowa Wielką Literą” – w ukraińskim wielka jest tylko pierwsza litera */
+html[lang="uk"] .section-title h4,
+html[lang="uk"] .services h6,
+html[lang="uk"] .room-info,
+html[lang="uk"] .desc h3,
+html[lang="uk"] .info h3,
+html[lang="uk"] .info h6,
+html[lang="uk"] .room-extras h6,
+html[lang="uk"] .loading,
+html[lang="uk"] .empty-search {
+  text-transform: none;
+}
+html[lang="uk"] .desc h3::first-letter,
+html[lang="uk"] .info h3::first-letter,
+html[lang="uk"] .info h6::first-letter {
+  text-transform: uppercase;
 }

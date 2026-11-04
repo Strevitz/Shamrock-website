@@ -10,7 +10,7 @@ export default function PriceList() {
   const { loading, featuredRooms } = useContext(RoomContext);
   const { lang, t } = useLang();
   if (loading) return <Loading />;
-  const currency = lang === "en" ? "PLN" : "zł";
+  const currency = t.currency;
   return (
     <div className="pricelist">
       {featuredRooms.map((raw) => {

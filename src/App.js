@@ -25,20 +25,20 @@ class App extends Component {
             <TransitionGroup>
               <CSSTransition key={location.key} timeout={300} classNames="fade">
                 <Switch location={location}>
-                  <Route exact path={["/", "/en"]} component={Home} />
-                  <Route exact path={["/ekipa", "/en/team"]} component={Apartments} />
-                  <Route exact path={["/rezerwacje", "/en/booking"]} component={About} />
-                  <Route exact path={["/media", "/en/media"]} component={Media} />
-                  <Route exact path={["/przyjaciele", "/en/friends"]} component={Friends} />
+                  <Route exact path={["/", "/en", "/ua"]} component={Home} />
+                  <Route exact path={["/ekipa", "/en/team", "/ua/team"]} component={Apartments} />
+                  <Route exact path={["/rezerwacje", "/en/booking", "/ua/booking"]} component={About} />
+                  <Route exact path={["/media", "/en/media", "/ua/media"]} component={Media} />
+                  <Route exact path={["/przyjaciele", "/en/friends", "/ua/friends"]} component={Friends} />
                   <Route
                     exact
-                    path={["/polityka-prywatności", "/en/privacy"]}
+                    path={["/polityka-prywatności", "/en/privacy", "/ua/privacy"]}
                     component={Polityka}
                   />
-                  <Route exact path={["/kontakt", "/en/contact"]} component={Kontakt} />
+                  <Route exact path={["/kontakt", "/en/contact", "/ua/contact"]} component={Kontakt} />
                   <Route
                     exact
-                    path={["/rezerwacje/:slug", "/en/booking/:slug"]}
+                    path={["/rezerwacje/:slug", "/en/booking/:slug", "/ua/booking/:slug"]}
                     component={SingleApartment}
                   />
                   <Route component={Error} />

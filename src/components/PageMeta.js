@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLang, switchPath } from "../i18n";
+import { useLang, switchPath, LANGS } from "../i18n";
 
 const ORIGIN = "https://shamrockbarber.com";
 
@@ -36,14 +36,12 @@ export default function PageMeta({ title, description }) {
     setMeta("name", "description", desc);
     setMeta("property", "og:title", document.title);
     setMeta("property", "og:description", desc);
-    setMeta("property", "og:locale", lang === "en" ? "en_GB" : "pl_PL");
+    setMeta("property", "og:locale", t.ogLocale);
     const path = location.pathname;
-    const pl = switchPath(path, "pl");
-    const en = switchPath(path, "en");
-    setLink("canonical", ORIGIN + encodeURI(lang === "en" ? en : pl));
-    setLink("alternate", ORIGIN + encodeURI(pl), "pl");
-    setLink("alternate", ORIGIN + encodeURI(en), "en");
-    setLink("alternate", ORIGIN + encodeURI(pl), "x-default");
+    const url = (l) => ORIGIN + encodeURI(switchPath(path, l));
+    setLink("canonical", url(lang));
+    LANGS.forEach((l) => setLink("alternate", url(l), l));
+    setLink("alternate", url("pl"), "x-default");
   }, [title, description, lang, t, location.pathname]);
   return null;
 }

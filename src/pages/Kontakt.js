@@ -17,7 +17,7 @@ import {
 import { useLang } from "../i18n";
 
 const Kontakt = () => {
-  const { lang, t } = useLang();
+  const { t } = useLang();
   const c = t.contact;
   return (
     <div className="page">
@@ -49,9 +49,9 @@ const Kontakt = () => {
             <p>
               <strong>Shamrock Barber Shop</strong>
               <br />
-              {lang === "en" ? "Widok 10" : "ul. Widok 10"} ({c.opposite})
+              {t.street} ({c.opposite})
               <br />
-              {lang === "en" ? "00-023 Warsaw, Poland" : "00-023 Warszawa"}
+              {t.city}
             </p>
             <ul className="directions">
               {c.directions.map((d) => <li key={d}>{d}</li>)}
@@ -62,7 +62,7 @@ const Kontakt = () => {
         <div className="map-wrap">
           <iframe
             title={c.mapTitle}
-            src={MAPS_EMBED_URL + (lang === "en" ? "&hl=en" : "&hl=pl")}
+            src={MAPS_EMBED_URL + "&hl=" + t.mapsHl}
             frameBorder="0"
             scrolling="no"
             loading="lazy"
