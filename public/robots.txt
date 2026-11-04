@@ -1,5 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /_pages/
 
 Sitemap: https://shamrockbarber.com/sitemap.xml

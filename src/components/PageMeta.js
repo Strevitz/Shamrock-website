@@ -27,7 +27,7 @@ function setMeta(attr, key, content) {
   el.setAttribute("content", content);
 }
 
-export default function PageMeta({ title, description }) {
+export default function PageMeta({ title, description, noindex }) {
   const { lang, t, location } = useLang();
   useEffect(() => {
     document.documentElement.setAttribute("lang", lang);
@@ -42,6 +42,13 @@ export default function PageMeta({ title, description }) {
     setLink("canonical", url(lang));
     LANGS.forEach((l) => setLink("alternate", url(l), l));
     setLink("alternate", url("pl"), "x-default");
-  }, [title, description, lang, t, location.pathname]);
+    setMeta("property", "og:url", url(lang));
+    if (noindex) {
+      setMeta("name", "robots", "noindex");
+    } else {
+      const robots = document.querySelector('meta[name="robots"]');
+      if (robots) robots.remove();
+    }
+  }, [title, description, noindex, lang, t, location.pathname]);
   return null;
 }
