@@ -1310,3 +1310,21 @@ html[lang="uk"] .info h3::first-letter,
 html[lang="uk"] .info h6::first-letter {
   text-transform: uppercase;
 }
+
+/* Opis lokalu na stronie głównej (SEO lokalne) */
+.local-intro {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.local-intro__text {
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.local-intro__text p {
+  margin-bottom: 1rem !important;
+}
+.local-intro__links a {
+  color: var(--primaryColor);
+  white-space: nowrap;
+}

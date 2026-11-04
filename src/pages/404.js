@@ -10,7 +10,7 @@ const Error = () => {
   const { t, to } = useLang();
   return (
     <div className="page">
-      <PageMeta title={t.meta.notFound[0]} description={t.meta.notFound[1]} />
+      <PageMeta title={t.meta.notFound[0]} description={t.meta.notFound[1]} noindex />
       <Hero>
         <Banner
           title="404"

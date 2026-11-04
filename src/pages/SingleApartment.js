@@ -7,13 +7,18 @@ import StyledHero from "../components/StyledHero";
 import Footer from "../components/Footer";
 import PageMeta from "../components/PageMeta";
 import { BOOKSY_URL, PHONE_HREF, PHONE_DISPLAY } from "../siteInfo";
-import { useLang, contentfulSlugFrom, localizeService } from "../i18n";
+import { useLang, contentfulSlugFrom, localizeService, SERVICE_SLUGS } from "../i18n";
+import NotFound from "./404";
 
 export default function SingleApartment() {
   const { slug } = useParams();
   const { getRoom } = useContext(RoomContext);
   const { lang, t, to } = useLang();
-  const room = localizeService(getRoom(contentfulSlugFrom(slug)), lang);
+  const key = contentfulSlugFrom(slug);
+  const room = localizeService(getRoom(key), lang);
+
+  // Tylko znane usługi – stare wpisy demo z Contentful nie mają własnych stron.
+  if (!SERVICE_SLUGS[key]) return <NotFound />;
 
   if (!room) {
     return (
