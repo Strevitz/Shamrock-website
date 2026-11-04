@@ -6,7 +6,6 @@ import iconInstagram from "../images/icon-instagram.svg";
 import iconFacebook from "../images/icon-facebook.svg";
 import OpeningHours from "./OpeningHours";
 import {
-  ADDRESS_LINE,
   MAPS_DIRECTIONS_URL,
   BOOKSY_URL,
   WHATSAPP_URL,
@@ -26,7 +25,7 @@ const resetCookies = () => {
 };
 
 export default function Footer() {
-  const { lang, t, to } = useLang();
+  const { t, to } = useLang();
   const f = t.footer;
   return (
     <footer>
@@ -42,7 +41,7 @@ export default function Footer() {
               <div className={"about"}>
                 <p>
                   <a href={MAPS_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer">
-                    {lang === "en" ? "Widok 10, 00-023 Warsaw, Poland" : ADDRESS_LINE}
+                    {t.addressLine}
                   </a>
                 </p>
                 <OpeningHours short className="footer-hours" />
@@ -63,7 +62,7 @@ export default function Footer() {
                   <li><Link to={to("privacy")}>{f.privacy}</Link></li>
                   <li>
                     <a href={PHONE_HREF}>
-                      {f.phone} {lang === "en" ? "+48 " : ""}{PHONE_DISPLAY}
+                      {f.phone} {t.phonePrefix}{PHONE_DISPLAY}
                     </a>
                   </li>
                   <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>

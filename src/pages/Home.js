@@ -10,7 +10,7 @@ import { PHONE_DISPLAY, PHONE_HREF, BOOKSY_URL } from "../siteInfo";
 import { useLang } from "../i18n";
 
 const Home = () => {
-  const { lang, t } = useLang();
+  const { t } = useLang();
   return (
     <div className="page">
       <PageMeta />
@@ -21,7 +21,7 @@ const Home = () => {
               {t.bookOnline}
             </a>
             <a href={PHONE_HREF} className="btn-primary btn-outline">
-              {t.call} {lang === "en" ? "+48 " : ""}{PHONE_DISPLAY}
+              {t.call} {t.phonePrefix}{PHONE_DISPLAY}
             </a>
           </div>
         </Banner>

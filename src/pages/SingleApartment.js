@@ -28,7 +28,7 @@ export default function SingleApartment() {
 
   const { name, description, size, price, images } = room;
   const [mainImg, ...otherImg] = images;
-  const currency = lang === "en" ? "PLN" : "zł";
+  const currency = t.currency;
   const [metaTitle, metaDesc] = t.meta.service(name, price, size);
 
   return (
@@ -41,7 +41,7 @@ export default function SingleApartment() {
               {t.bookNow}
             </a>
             <a href={PHONE_HREF} className="btn-primary btn-outline">
-              {t.call} {lang === "en" ? "+48 " : ""}{PHONE_DISPLAY}
+              {t.call} {t.phonePrefix}{PHONE_DISPLAY}
             </a>
           </div>
         </Banner>

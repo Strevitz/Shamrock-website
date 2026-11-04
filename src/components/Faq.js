@@ -60,9 +60,40 @@ function itemsEn(to) {
   ];
 }
 
+function itemsUk(to) {
+  return [
+    {
+      q: "Як записатися?",
+      a: (<>Найшвидше – онлайн у <a href={BOOKSY_URL} {...ext}>Booksy</a>: бачиш вільні години й обираєш барбера. Можна також зателефонувати <a href={PHONE_HREF}>+48 {PHONE_DISPLAY}</a> або написати нам у <a href={WHATSAPP_URL} {...ext}>WhatsApp</a>.</>),
+    },
+    {
+      q: "Чи можна написати українською?",
+      a: (<>Так – пиши нам у <a href={WHATSAPP_URL} {...ext}>WhatsApp</a> українською, ми відповімо. Також можна спілкуватися польською або англійською.</>),
+    },
+    {
+      q: "Як скасувати або перенести візит?",
+      a: (<>Запис, зроблений у Booksy, можна змінити або скасувати в застосунку. Можна також зателефонувати – просимо повідомити якомога раніше, щоб цей час міг зайняти інший клієнт.</>),
+    },
+    {
+      q: "Чи можна прийти без запису?",
+      a: (<>Будемо раді, але не гарантуємо вільного місця. Найкраще зателефонувати трохи заздалегідь: <a href={PHONE_HREF}>+48 {PHONE_DISPLAY}</a>.</>),
+    },
+    {
+      q: "Чи стрижете дітей?",
+      a: (<>Так – маємо послугу <Link to={servicePath("apartment-neilson", "uk")}>Стрижка «Тато і син»</Link> для хлопчиків від 3 до 8 років.</>),
+    },
+    {
+      q: "Як до вас дістатися?",
+      a: (<>Ми знаходимося на вул. Widok 10, біля Ротонди й навпроти готелю PURO – кілька хвилин пішки від станції метро Centrum. Деталі та карта – на сторінці <Link to={to("contact")}>Контакти</Link>.</>),
+    },
+  ];
+}
+
+const ITEMS = { pl: itemsPl, en: itemsEn, uk: itemsUk };
+
 export default function Faq() {
   const { lang, t, to } = useLang();
-  const items = lang === "en" ? itemsEn(to) : itemsPl(to);
+  const items = (ITEMS[lang] || itemsPl)(to);
   return (
     <section className="faq">
       <Title title={t.bookingPage.faq} />

@@ -1,27 +1,30 @@
-// Wersje językowe strony: polska (domyślna) i angielska pod /en.
+// Wersje językowe strony: polska (domyślna), angielska pod /en i ukraińska pod /ua.
+// Kod języka ukraińskiego to "uk" (ISO 639-1), a adresy zaczynają się od /ua.
 import { useLocation } from "react-router-dom";
 
+export const LANGS = ["pl", "en", "uk"];
+
 export const ROUTES = {
-  home: { pl: "/", en: "/en" },
-  team: { pl: "/ekipa", en: "/en/team" },
-  booking: { pl: "/rezerwacje", en: "/en/booking" },
-  media: { pl: "/media", en: "/en/media" },
-  friends: { pl: "/przyjaciele", en: "/en/friends" },
-  contact: { pl: "/kontakt", en: "/en/contact" },
-  privacy: { pl: "/polityka-prywatności", en: "/en/privacy" },
+  home: { pl: "/", en: "/en", uk: "/ua" },
+  team: { pl: "/ekipa", en: "/en/team", uk: "/ua/team" },
+  booking: { pl: "/rezerwacje", en: "/en/booking", uk: "/ua/booking" },
+  media: { pl: "/media", en: "/en/media", uk: "/ua/media" },
+  friends: { pl: "/przyjaciele", en: "/en/friends", uk: "/ua/friends" },
+  contact: { pl: "/kontakt", en: "/en/contact", uk: "/ua/contact" },
+  privacy: { pl: "/polityka-prywatności", en: "/en/privacy", uk: "/ua/privacy" },
 };
 
 // Adresy podstron usług. Wartość = slug w Contentful.
 export const SERVICE_SLUGS = {
-  "strzyżenie": { pl: "strzyżenie", en: "haircut" },
-  broda: { pl: "broda", en: "beard-trim" },
-  komplet: { pl: "komplet", en: "haircut-and-beard" },
-  "strzyżenie-maszynką": { pl: "strzyżenie-maszynką", en: "clipper-cut" },
-  "wąsy": { pl: "wąsy", en: "moustache" },
-  "repigmentacja-brody": { pl: "repigmentacja-brody", en: "beard-repigmentation" },
-  "apartment-neilson": { pl: "ojciec-i-syn", en: "father-and-son" },
-  "apartment-bedford": { pl: "golenie-brzytwa", en: "razor-shave" },
-  maska: { pl: "maska", en: "black-mask" },
+  "strzyżenie": { pl: "strzyżenie", en: "haircut", uk: "haircut" },
+  broda: { pl: "broda", en: "beard-trim", uk: "beard-trim" },
+  komplet: { pl: "komplet", en: "haircut-and-beard", uk: "haircut-and-beard" },
+  "strzyżenie-maszynką": { pl: "strzyżenie-maszynką", en: "clipper-cut", uk: "clipper-cut" },
+  "wąsy": { pl: "wąsy", en: "moustache", uk: "moustache" },
+  "repigmentacja-brody": { pl: "repigmentacja-brody", en: "beard-repigmentation", uk: "beard-repigmentation" },
+  "apartment-neilson": { pl: "ojciec-i-syn", en: "father-and-son", uk: "father-and-son" },
+  "apartment-bedford": { pl: "golenie-brzytwa", en: "razor-shave", uk: "razor-shave" },
+  maska: { pl: "maska", en: "black-mask", uk: "black-mask" },
 };
 
 // Tłumaczenia nazw i opisów usług z Contentful.
@@ -71,13 +74,62 @@ export const SERVICE_EN = {
   },
 };
 
+// Tłumaczenia ukraińskie nazw i opisów usług z Contentful.
+export const SERVICE_UK = {
+  "strzyżenie": {
+    name: "Стрижка",
+    description:
+      "Класичні та сучасні стрижки для короткого, середнього й довгого волосся. Миття голови з кондиціонером, стрижка та укладка.",
+  },
+  broda: {
+    name: "Стрижка бороди",
+    description:
+      "Стрижка, підрівнювання та оформлення контуру бороди. Завершуємо гарячим рушником, небезпечною бритвою та живильними оліями.",
+  },
+  komplet: {
+    name: "Стрижка + борода",
+    description:
+      "Класична або сучасна чоловіча стрижка для короткого, середнього чи довгого волосся, а також стрижка, підрівнювання й контур бороди. Завершуємо гарячим рушником, небезпечною бритвою та живильними оліями.",
+  },
+  "strzyżenie-maszynką": {
+    name: "Стрижка машинкою",
+    description: "Стрижка машинкою під одну довжину або з плавним переходом (buzz cut).",
+  },
+  "wąsy": {
+    name: "Догляд за вусами",
+    description: "Підрівнювання, оформлення контуру та укладка вусів воском.",
+  },
+  "repigmentacja-brody": {
+    name: "Камуфляж бороди",
+    description:
+      "Тонування (репігментація) бороди професійними засобами. Завершуємо гарячим рушником, небезпечною бритвою та живильними оліями.",
+  },
+  "apartment-neilson": {
+    name: "Стрижка «Тато і син» (3–8 років)",
+    description:
+      "Класичні та сучасні стрижки для тата й сина. Миття голови з кондиціонером, стрижка та укладка.",
+  },
+  "apartment-bedford": {
+    name: "Традиційне гоління обличчя або голови",
+    description:
+      "Гоління небезпечною бритвою з гарячим рушником і живильними оліями або подвійне гоління обличчя чи голови з гарячим і холодним рушником та доглядом за шкірою.",
+  },
+  maska: {
+    name: "Чорна очищувальна маска",
+    description:
+      "Чорна маска для обличчя, що глибоко очищує шкіру. Розслаблююча й освіжаюча процедура, яка чудово доповнює гоління.",
+  },
+};
+
+const SERVICE_TEXT = { en: SERVICE_EN, uk: SERVICE_UK };
+
 export const serviceSlug = (contentfulSlug, lang) =>
   (SERVICE_SLUGS[contentfulSlug] && SERVICE_SLUGS[contentfulSlug][lang]) ||
   contentfulSlug;
 
 export const contentfulSlugFrom = (urlSlug) => {
   const key = Object.keys(SERVICE_SLUGS).find(
-    (k) => SERVICE_SLUGS[k].pl === urlSlug || SERVICE_SLUGS[k].en === urlSlug
+    (k) => LANGS.some((l) => SERVICE_SLUGS[k][l] === urlSlug)
   );
   return key || urlSlug;
 };
@@ -86,8 +138,9 @@ export const servicePath = (contentfulSlug, lang) =>
   `${ROUTES.booking[lang]}/${serviceSlug(contentfulSlug, lang)}`;
 
 export const localizeService = (room, lang) => {
-  if (!room || lang !== "en" || !SERVICE_EN[room.slug]) return room;
-  return { ...room, ...SERVICE_EN[room.slug] };
+  const texts = SERVICE_TEXT[lang];
+  if (!room || !texts || !texts[room.slug]) return room;
+  return { ...room, ...texts[room.slug] };
 };
 
 const decode = (p) => {
@@ -98,10 +151,14 @@ const decode = (p) => {
   }
 };
 
-export const langFromPath = (pathname) =>
-  /^\/en(\/|$)/.test(pathname || "") ? "en" : "pl";
+export const langFromPath = (pathname) => {
+  const p = pathname || "";
+  if (/^\/en(\/|$)/.test(p)) return "en";
+  if (/^\/ua(\/|$)/.test(p)) return "uk";
+  return "pl";
+};
 
-// Odpowiednik bieżącej strony w drugim języku.
+// Odpowiednik bieżącej strony w innym języku.
 export const switchPath = (pathname, toLang) => {
   const path = decode(pathname).replace(/\/+$/, "") || "/";
   const fromLang = langFromPath(path);
@@ -277,6 +334,14 @@ export const STRINGS = {
       ],
     },
     dateLocale: "pl-PL",
+    ogLocale: "pl_PL",
+    mapsHl: "pl",
+    currency: "zł",
+    phonePrefix: "",
+    street: "ul. Widok 10",
+    city: "00-023 Warszawa",
+    addressLine: "ul. Widok 10, 00-023 Warszawa",
+    privacyTitle: "Polityka Prywatności",
   },
   en: {
     nav: {
@@ -438,7 +503,191 @@ export const STRINGS = {
       ],
     },
     dateLocale: "en-GB",
+    ogLocale: "en_GB",
+    mapsHl: "en",
+    currency: "PLN",
+    phonePrefix: "+48 ",
+    street: "Widok 10",
+    city: "00-023 Warsaw, Poland",
+    addressLine: "Widok 10, 00-023 Warsaw, Poland",
+    privacyTitle: "Privacy Policy",
   },
+  uk: {
+    nav: {
+      home: "Головна",
+      team: "Команда",
+      booking: "Запис",
+      media: "Медіа",
+      friends: "Друзі",
+      contact: "Контакти",
+    },
+    langSwitch: "UA",
+    langSwitchLabel: "Українська версія",
+    bookOnline: "записатися онлайн",
+    book: "записатися",
+    bookNow: "записатися зараз",
+    call: "дзвінок",
+    details: "детальніше",
+    min: "хв",
+    bar: { call: "Дзвінок", book: "Запис", write: "Написати", aria: "Швидкий зв'язок" },
+    home: {
+      title: "Хочеш записатися?",
+      subtitle: "Обери вільний час онлайн або зателефонуй – ми знайдемо для тебе місце.",
+      about: "Про нас",
+      services: "Послуги",
+      news: "Новини",
+      more: "більше",
+      features: [
+        {
+          title: "Пристрасть",
+          info: "Барберинг для нас – це стиль життя. Ми займаємося ним багато років і постійно вдосконалюємо майстерність для тебе. Спеціалізуємося як на класичних стрижках, так і на сучасному барберингу. Запрошуємо також на розслаблююче гоління з гарячим рушником.",
+        },
+        {
+          title: "Розташування",
+          info: "Shamrock Barber Shop знаходиться в самому серці Варшави, на вул. Widok 10, біля Ротонди та за кілька хвилин від станції метро Centrum. Усі дороги ведуть до нас!",
+        },
+        {
+          title: "Напої",
+          info: "Захотілося пити під час візиту? Пригощаємо смачною кавою, віскі, а для водіїв – безалкогольним пивом.",
+        },
+        {
+          title: "Запис за хвилину",
+          info: "Вільні години можна перевірити онлайн у Booksy будь-коли. Хочеш поговорити? Зателефонуй або напиши у WhatsApp – ми з радістю порадимо.",
+        },
+      ],
+    },
+    bookingPage: {
+      title: "Запис",
+      subtitle: "Запишися на найближчий час",
+      online: "Онлайн 24/7",
+      onlineText: "Обери послугу, барбера та час у Booksy. Нагадування прийде SMS-повідомленням.",
+      onlineBtn: "записатися в booksy",
+      phone: "Телефоном",
+      phoneText: "Зателефонуй, і ми знайдемо зручний для тебе час.",
+      msg: "Повідомлення",
+      msgText: "Маєш питання? Напиши нам у WhatsApp.",
+      msgBtn: "написати нам",
+      priceList: "Ціни",
+      faq: "Часті питання",
+    },
+    service: {
+      details: "детальніше",
+      info: "інформація",
+      price: "ціна",
+      time: "тривалість",
+      allPrices: "переглянути всі ціни →",
+      loading: "сторінка завантажується довше, ніж зазвичай – розслабся і запишися на візит...",
+    },
+    team: {
+      title: "Команда",
+      subtitle: "Познайомся з нашою командою",
+      cta: "Обери свого барбера в Booksy та запишися на зручний час.",
+      ctaBtn: "записатися",
+      join: "Приєднуйся до нас!",
+      joinText: "Якщо ти барбер, сповнений енергії та пристрасті до своєї справи, – ми шукаємо саме тебе!",
+      joinContact: "Не зволікай і зв'яжися з нами:",
+      role: "Барбер",
+    },
+    contact: {
+      title: "Контакти",
+      subtitle: "Зв'яжися з нами",
+      card: "Контакти",
+      phone: "Телефон",
+      email: "E-mail",
+      whatsapp: "WhatsApp",
+      write: "написати нам",
+      hours: "Години роботи",
+      address: "Адреса та як дістатися",
+      opposite: "навпроти готелю PURO",
+      directions: [
+        "Кілька хвилин пішки від станції метро Centrum (M1) та Ротонди.",
+        "Трамвайні й автобусні зупинки «Centrum» зовсім поруч.",
+        "Паркування: платна зона паркування на сусідніх вулицях.",
+      ],
+      navigate: "прокласти маршрут",
+      mapTitle: "Карта – як дістатися до Shamrock Barber Shop",
+    },
+    media: {
+      title: "Медіа",
+      subtitle: "Зазирни за лаштунки",
+      insta: "Ми в Instagram",
+      fb: "Ми у Facebook",
+      alt: "Shamrock Barber Shop – фото з Instagram",
+    },
+    friends: {
+      title: "Друзі",
+      subtitle: "Бо найкраще – серед друзів",
+      heading: "Ми співпрацюємо з найкращими",
+      alt: "партнер Shamrock Barber Shop",
+    },
+    notFound: {
+      subtitle: "Такої сторінки не існує – розслабся і запишися на стрижку!",
+      back: "повернутися на головну",
+    },
+    footer: {
+      customer: "Обслуговування клієнтів",
+      privacy: "Політика конфіденційності",
+      phone: "тел.",
+      cookies: "Налаштування cookies",
+      home: "Головна",
+      rights:
+        "Shamrock Barber Shop ® і продукти Shamrock Barber Shop ® є зареєстрованими торговельними марками компанії Sassy Company Arthur Oliver Strzewiczek",
+      rightsEnd: ". Усі права захищено.",
+    },
+    cookie: {
+      text: "Ми використовуємо файли cookies, щоб вимірювати ефективність нашої реклами (Facebook Pixel). Детальніше – у",
+      link: "політиці конфіденційності",
+      deny: "Лише необхідні",
+      accept: "Погоджуюсь",
+      aria: "Згода на файли cookies",
+    },
+    hours: [
+      { day: "Понеділок", hours: "9:00 – 21:00" },
+      { day: "Вівторок", hours: "9:00 – 21:00" },
+      { day: "Середа", hours: "9:00 – 21:00" },
+      { day: "Четвер", hours: "9:00 – 21:00" },
+      { day: "П'ятниця", hours: "9:00 – 21:00" },
+      { day: "Субота", hours: "9:00 – 18:00" },
+      { day: "Неділя", hours: "вихідний" },
+    ],
+    hoursShort: [
+      { day: "Пн – Пт", hours: "9:00 – 21:00" },
+      { day: "Субота", hours: "9:00 – 18:00" },
+      { day: "Неділя", hours: "вихідний" },
+    ],
+    meta: {
+      siteTitle: "Shamrock Barber Shop – барбершоп у центрі Варшави, вул. Widok 10",
+      suffix: "Shamrock Barber Shop Варшава",
+      desc: "Shamrock Barber Shop – барбершоп у центрі Варшави, вул. Widok 10, біля Ротонди. Чоловічі стрижки, догляд за бородою, гоління небезпечною бритвою з гарячим рушником. Запис онлайн у Booksy або за тел. +48 884 769 758.",
+      booking: ["Запис і ціни", "Ціни Shamrock Barber Shop Варшава: стрижки, борода, гоління бритвою. Запишися онлайн у Booksy або зателефонуй +48 884 769 758."],
+      contact: ["Контакти та як дістатися", "Shamrock Barber Shop, вул. Widok 10, 00-023 Варшава (біля Ротонди, навпроти готелю PURO). Години роботи, телефон +48 884 769 758, маршрут і карта."],
+      team: ["Команда", "Познайомся з барберами Shamrock Barber Shop у Варшаві та запишися на візит онлайн."],
+      media: ["Медіа", "Фото та новини Shamrock Barber Shop – стеж за нами в Instagram і Facebook."],
+      friends: ["Друзі", "Бренди та партнери, з якими співпрацює Shamrock Barber Shop Варшава."],
+      privacy: ["Політика конфіденційності", "Політика конфіденційності та файлів cookies сайту shamrockbarber.com."],
+      notFound: ["Сторінку не знайдено", "Такої сторінки не існує. Повернися на головну сторінку Shamrock Barber Shop."],
+      service: (name, price, size) => [
+        `${name} – ${price} zł`,
+        `${name} у Shamrock Barber Shop Варшава (вул. Widok 10). Ціна ${price} zł, тривалість близько ${size} хв. Запис онлайн у Booksy.`,
+      ],
+    },
+    dateLocale: "uk-UA",
+    ogLocale: "uk_UA",
+    mapsHl: "uk",
+    currency: "zł",
+    phonePrefix: "+48 ",
+    street: "вул. Widok 10",
+    city: "00-023 Варшава, Польща",
+    addressLine: "вул. Widok 10, 00-023 Варшава, Польща",
+    privacyTitle: "Політика конфіденційності",
+  },
+};
+
+// Etykiety przełącznika języka (kolejność jak na stronie).
+export const LANG_LABELS = {
+  pl: { short: "PL", name: "Polski" },
+  en: { short: "EN", name: "English" },
+  uk: { short: "UA", name: "Українська" },
 };
 
 export function useLang() {

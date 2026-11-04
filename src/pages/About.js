@@ -10,9 +10,9 @@ import { PHONE_DISPLAY, PHONE_HREF, BOOKSY_URL, WHATSAPP_URL } from "../siteInfo
 import { useLang } from "../i18n";
 
 const Booking = () => {
-  const { lang, t } = useLang();
+  const { t } = useLang();
   const b = t.bookingPage;
-  const phone = (lang === "en" ? "+48 " : "") + PHONE_DISPLAY;
+  const phone = t.phonePrefix + PHONE_DISPLAY;
   return (
     <div className="page">
       <PageMeta title={t.meta.booking[0]} description={t.meta.booking[1]} />

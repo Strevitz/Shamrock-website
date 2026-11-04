@@ -2,15 +2,35 @@ import React, { useState } from "react";
 import logo from "../images/logo_white.png";
 import { HamburgerCollapse } from "react-animated-burgers";
 import { Link, NavLink } from "react-router-dom";
-import { useLang, switchPath } from "../i18n";
+import { useLang, switchPath, LANGS, LANG_LABELS } from "../i18n";
 
 const active = { fontWeight: "bold", color: "#40d181" };
 const KEYS = ["home", "team", "booking", "media", "friends", "contact"];
 
+function LangSwitch({ lang, pathname, className, onClick }) {
+  return (
+    <div className={`lang-switcher ${className || ""}`} role="group" aria-label="Język / Language / Мова">
+      {LANGS.map((l) => (
+        <Link
+          key={l}
+          to={switchPath(pathname, l)}
+          className={l === lang ? "lang-switch lang-switch--active" : "lang-switch"}
+          hrefLang={l}
+          lang={l}
+          title={LANG_LABELS[l].name}
+          aria-current={l === lang ? "true" : undefined}
+          onClick={onClick}
+        >
+          {LANG_LABELS[l].short}
+        </Link>
+      ))}
+    </div>
+  );
+}
+
 export default function Navbar() {
   const [isActive, setActive] = useState(false);
   const { lang, t, to, location } = useLang();
-  const other = lang === "en" ? "pl" : "en";
   const close = () => setActive(false);
   return (
     <nav className="navbar">
@@ -20,15 +40,12 @@ export default function Navbar() {
             <img src={logo} alt="Shamrock Barber Shop" />
           </Link>
           <div className="nav-header-right">
-            <Link
-              to={switchPath(location.pathname, other)}
-              className="lang-switch lang-switch--mobile"
-              hrefLang={other}
-              title={t.langSwitchLabel}
+            <LangSwitch
+              lang={lang}
+              pathname={location.pathname}
+              className="lang-switcher--mobile"
               onClick={close}
-            >
-              {t.langSwitch}
-            </Link>
+            />
             <button type="button" className="nav-btn">
               <HamburgerCollapse
                 isActive={isActive}
@@ -49,14 +66,7 @@ export default function Navbar() {
             </li>
           ))}
           <li className="lang-item">
-            <Link
-              to={switchPath(location.pathname, other)}
-              className="lang-switch"
-              hrefLang={other}
-              title={t.langSwitchLabel}
-            >
-              {t.langSwitch}
-            </Link>
+            <LangSwitch lang={lang} pathname={location.pathname} />
           </li>
         </ul>
       </div>

@@ -13,7 +13,7 @@ const About = () => {
     <div className="page">
       <PageMeta title={t.meta.privacy[0]} description={t.meta.privacy[1]} />
       <Hero hero="roomsHero">
-        <Banner title={lang === "en" ? "Privacy Policy" : "Polityka Prywatności"}></Banner>
+        <Banner title={t.privacyTitle}></Banner>
       </Hero>
       <section className="services">
         <Title title="Polityka prywatności i Plików Cookies" />
@@ -31,6 +31,26 @@ const About = () => {
               privacy policy. For any privacy questions write to{" "}
               <a href="mailto:contact@sassy.company">contact@sassy.company</a>.
               The legally binding full policy is below in Polish.
+            </p>
+            <br />
+          </article>
+        )}
+        {lang === "uk" && (
+          <article className="policy-note" lang="uk">
+            <h3>Політика конфіденційності – короткий виклад українською</h3>
+            <p>
+              Оператором цього сайту та адміністратором персональних даних є
+              Sassy Company Arthur Oliver Strzewiczek (ul. Bolesława Chrobrego
+              40/28, 02-479 Warszawa, Польща). Ми використовуємо файли cookies,
+              необхідні для роботи сайту, а Facebook Pixel – лише за твоєю
+              згодою, щоб вимірювати ефективність реклами. Свій вибір можна
+              змінити будь-коли за допомогою «Налаштування cookies» внизу
+              сторінки. Онлайн-записи обробляє Booksy згідно з власною
+              політикою конфіденційності. З питань щодо персональних даних
+              пиши на{" "}
+              <a href="mailto:contact@sassy.company">contact@sassy.company</a>.
+              Юридично обов'язковою є повна версія політики польською мовою,
+              наведена нижче.
             </p>
             <br />
           </article>
