@@ -304,7 +304,7 @@ a {
 }
 .roomsHero7 {
   min-height: 75vh;
-  background: url("./images/hero7.jpg") center/cover no-repeat;
+  background: url("./images/hero-rezerwacje.jpg") center 15%/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -327,8 +327,14 @@ a {
 }
 
 .roomsHero5 {
-  background-image: url("./images/hero5.jpg");
+  background-image: url("./images/hero-ekipa.jpg");
+  background-position: center 35%;
   min-height: 75vh;
+}
+
+.defaultHero {
+  background-image: url("./images/hero-home.jpg");
+  background-position: 62% 40%;
 }
 /* End of Hero */
 /* Banner */
