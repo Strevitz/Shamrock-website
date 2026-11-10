@@ -322,7 +322,8 @@ a {
 }
 
 .roomsHero2 {
-  background-image: url("./images/hero2.jpg");
+  background-image: url("./images/hero-home.jpg");
+  background-position: 62% 40%;
   min-height: 75vh;
 }
 
@@ -333,8 +334,8 @@ a {
 }
 
 .defaultHero {
-  background-image: url("./images/hero-home.jpg");
-  background-position: 62% 40%;
+  background-image: url("./images/hero2.jpg");
+  background-position: center;
 }
 /* End of Hero */
 /* Banner */
