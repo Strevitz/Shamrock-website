@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useLang, switchPath, LANGS, LANG_LABELS } from "../i18n";
 
 const active = { fontWeight: "bold", color: "#40d181" };
-const KEYS = ["home", "team", "booking", "media", "friends", "contact"];
+const KEYS = ["home", "team", "booking", "media", "friends", "contact", "membership"];
 
 function LangSwitch({ lang, pathname, className, onClick }) {
   return (
