@@ -22,7 +22,7 @@ function MemberCard({ m, profile, active, lang, until }) {
     QRCode.toDataURL(`${SITE_ORIGIN}/membership/admin?c=${encodeURIComponent(code)}`, {
       margin: 1,
       width: 240,
-      color: { dark: "#0b2a1d", light: "#f5efe0" },
+      color: { dark: "#000000", light: "#ffffff" },
     }).then(setQr).catch(() => setQr(""));
   }, [code]);
   return (
