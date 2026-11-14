@@ -7,6 +7,9 @@ import Friends from "./pages/Friends";
 import Polityka from "./pages/Polityka";
 import Media from "./pages/Media";
 import Kontakt from "./pages/Kontakt";
+import Membership from "./pages/Membership";
+import MemberAccount from "./pages/MemberAccount";
+import MemberAdmin from "./pages/MemberAdmin";
 import SingleApartment from "./pages/SingleApartment";
 import Error from "./pages/404";
 import { Route, Switch } from "react-router-dom";
@@ -35,6 +38,9 @@ class App extends Component {
                     path={["/polityka-prywatności", "/en/privacy", "/ua/privacy"]}
                     component={Polityka}
                   />
+                  <Route exact path={["/membership", "/en/membership", "/ua/membership"]} component={Membership} />
+                  <Route exact path={["/membership/account", "/en/membership/account", "/ua/membership/account"]} component={MemberAccount} />
+                  <Route exact path={["/membership/admin", "/en/membership/admin", "/ua/membership/admin"]} component={MemberAdmin} />
                   <Route exact path={["/kontakt", "/en/contact", "/ua/contact"]} component={Kontakt} />
                   <Route
                     exact

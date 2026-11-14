@@ -105,7 +105,7 @@ async function main() {
     services = Object.assign({}, FALLBACK_SERVICES, services || {});
   }
 
-  const pageKeys = ["home", "team", "booking", "media", "friends", "contact", "privacy"];
+  const pageKeys = ["home", "team", "booking", "media", "friends", "contact", "membership", "privacy"];
   const routes = [];
 
   pageKeys.forEach((key) => {

@@ -11,6 +11,7 @@ export const ROUTES = {
   media: { pl: "/media", en: "/en/media", uk: "/ua/media" },
   friends: { pl: "/przyjaciele", en: "/en/friends", uk: "/ua/friends" },
   contact: { pl: "/kontakt", en: "/en/contact", uk: "/ua/contact" },
+  membership: { pl: "/membership", en: "/en/membership", uk: "/ua/membership" },
   privacy: { pl: "/polityka-prywatności", en: "/en/privacy", uk: "/ua/privacy" },
 };
 
@@ -165,6 +166,8 @@ export const switchPath = (pathname, toLang) => {
   for (const key of Object.keys(ROUTES)) {
     if (ROUTES[key][fromLang] === path) return ROUTES[key][toLang];
   }
+  const mPrefix = ROUTES.membership[fromLang] + "/";
+  if (path.startsWith(mPrefix)) return ROUTES.membership[toLang] + "/" + path.slice(mPrefix.length);
   const prefix = ROUTES.booking[fromLang] + "/";
   if (path.startsWith(prefix)) {
     const slug = contentfulSlugFrom(path.slice(prefix.length));
@@ -182,6 +185,7 @@ export const STRINGS = {
       media: "Media",
       friends: "Przyjaciele",
       contact: "Kontakt",
+      membership: "Klub",
     },
     langSwitch: "EN",
     langSwitchLabel: "English version",
@@ -335,6 +339,7 @@ export const STRINGS = {
       team: ["Barberzy – nasza ekipa", "Poznaj barberów Shamrock Barber Shop w centrum Warszawy (ul. Widok 10). Wybierz swojego barbera i umów się online w Booksy."],
       media: ["Media", "Zdjęcia i nowości z Shamrock Barber Shop – zobacz nas na Instagramie i Facebooku."],
       friends: ["Przyjaciele", "Marki i partnerzy, z którymi współpracuje Shamrock Barber Shop Warszawa."],
+      membership: ["Klub Szamrokersów – członkostwo Shamrock Barber Shop", "Klub członkowski Shamrock Barber Shop w Warszawie: 10% rabatu na usługi i kosmetyki, Priority Booking, Personal Concierge i oferty tylko dla członków. Dołącz do Szamrokersów."],
       privacy: ["Polityka prywatności", "Polityka prywatności i plików cookies serwisu shamrockbarber.com."],
       notFound: ["Nie znaleziono strony", "Ta strona nie istnieje. Wróć na stronę główną Shamrock Barber Shop."],
       service: (name, price, size) => [
@@ -360,6 +365,7 @@ export const STRINGS = {
       media: "Media",
       friends: "Friends",
       contact: "Contact",
+      membership: "Club",
     },
     langSwitch: "PL",
     langSwitchLabel: "Wersja polska",
@@ -513,6 +519,7 @@ export const STRINGS = {
       team: ["Our barbers", "Meet the barbers at Shamrock Barber Shop in central Warsaw (Widok 10). Choose your barber and book online on Booksy."],
       media: ["Media", "Photos and news from Shamrock Barber Shop – follow us on Instagram and Facebook."],
       friends: ["Friends", "Brands and partners working with Shamrock Barber Shop Warsaw."],
+      membership: ["Szamrokers Club – Shamrock Barber Shop Membership", "Shamrock Barber Shop members club in Warsaw: 10% off services and products, Priority Booking, Personal Concierge and members-only offers. Join the Szamrokers."],
       privacy: ["Privacy policy", "Privacy and cookie policy of shamrockbarber.com."],
       notFound: ["Page not found", "This page doesn't exist. Go back to the Shamrock Barber Shop home page."],
       service: (name, price, size) => [
@@ -538,6 +545,7 @@ export const STRINGS = {
       media: "Медіа",
       friends: "Друзі",
       contact: "Контакти",
+      membership: "Клуб",
     },
     langSwitch: "UA",
     langSwitchLabel: "Українська версія",
@@ -691,6 +699,7 @@ export const STRINGS = {
       team: ["Наші барбери", "Познайомся з барберами Shamrock Barber Shop у центрі Варшави (вул. Widok 10). Обери свого барбера та запишися онлайн у Booksy."],
       media: ["Медіа", "Фото та новини Shamrock Barber Shop – стеж за нами в Instagram і Facebook."],
       friends: ["Друзі", "Бренди та партнери, з якими співпрацює Shamrock Barber Shop Варшава."],
+      membership: ["Клуб Шамрокерів – членство Shamrock Barber Shop", "Клуб учасників Shamrock Barber Shop у Варшаві: знижка 10% на послуги й косметику, Priority Booking, Personal Concierge та пропозиції лише для учасників."],
       privacy: ["Політика конфіденційності", "Політика конфіденційності та файлів cookies сайту shamrockbarber.com."],
       notFound: ["Сторінку не знайдено", "Такої сторінки не існує. Повернися на головну сторінку Shamrock Barber Shop."],
       service: (name, price, size) => [
