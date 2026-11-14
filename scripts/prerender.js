@@ -232,6 +232,10 @@ async function main() {
     html = setMetaTag(html, "property", "og:description", desc);
     html = setMetaTag(html, "property", "og:url", canonical);
     html = setMetaTag(html, "property", "og:locale", t.ogLocale);
+    if (r.kind === "page" && r.key === "membership") {
+      html = setMetaTag(html, "property", "og:image", ORIGIN + "/og-klub.jpg");
+      html = setMetaTag(html, "name", "twitter:image", ORIGIN + "/og-klub.jpg");
+    }
     html = html.replace("</head>", links + extraLd.map(jsonLd).join("") + "</head>");
     html = html.replace(/<noscript>[\s\S]*?<\/noscript>/, noscript);
 
