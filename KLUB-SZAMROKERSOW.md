@@ -1,8 +1,8 @@
-# Klub Szamrokersów – uruchomienie (koszt stały: 0 zł)
+# Klub Szamrokersów – uruchomienie
 
 Strona `/membership` działa od razu w trybie „zapisy wkrótce” (przycisk WhatsApp). Formularz, płatności i panele włączają się po dodaniu kluczy poniżej.
 
-Koszty: Netlify, Supabase i skrzynka Zoho w planach darmowych. Stripe nie ma opłaty miesięcznej – pobiera tylko prowizję od każdej udanej płatności.
+Przed uruchomieniem sprawdź limity wybranych planów Netlify, Supabase i dostawcy poczty oraz opłaty Stripe Payments i Billing.
 
 ## 1. Supabase (darmowy plan)
 1. Załóż projekt na supabase.com.
@@ -27,8 +27,10 @@ Zobacz `.env.example`. Po zapisaniu zmiennych uruchom ponowne wdrożenie.
 - Ustaw `SITE_URL` na adres testowego podglądu. Skieruj webhook z sandboxa Stripe na `/.netlify/functions/stripe-webhook` tego podglądu, nie na domenę produkcyjną. Nie publikuj formularza w produkcji, dopóki nowe członkostwo nie przejdzie testu od zakupu po status aktywny w aplikacji.
 - W Supabase pozostaw wyłączony automatyczny dostęp do nowych tabel przez Data API. Schemat nadaje zalogowanym użytkownikom i funkcjom serwerowym tylko niezbędne uprawnienia.
 
-## 4. E-mail z info@shamrockbarber.com
-W Zoho utwórz hasło aplikacji i wpisz je jako `SMTP_PASS` (host `smtp.zoho.eu`, port 465, jeśli są właściwe dla skrzynki). To są powiadomienia Klubu wysyłane przez funkcje Netlify; Supabase Auth ma własną, odrębną konfigurację SMTP. Zobacz [konfigurację SMTP w Supabase](https://supabase.com/docs/guides/auth/auth-smtp).
+## 4. E-maile transakcyjne Klubu
+- Użyj osobnego dostawcy maili transakcyjnych, np. Resend. Zweryfikuj subdomenę nadawczą, np. `mail.shamrockbarber.com`, bez zmieniania poczty przychodzącej głównej domeny. Zwykła skrzynka Zoho Mail nie służy do automatycznej wysyłki zgodnie z [zasadami Zoho](https://www.zoho.com/mail/help/usage-policy.html).
+- Skonfiguruj SMTP w dwóch miejscach: w [Supabase Auth](https://supabase.com/docs/guides/auth/auth-smtp) do potwierdzeń i resetów oraz w zmiennych Netlify (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM`) do wiadomości Klubu. Nie używaj danych logowania do skrzynki salonu.
+- Ustaw `MAIL_TO=info@shamrockbarber.com` jako adres obsługi. Przed publikacją potwierdź dostarczenie testowej rejestracji, resetu i wiadomości Klubu. Jeśli dostawca śledzi linki, wyłącz śledzenie dla poczty Auth.
 
 ## Jak to działa
 - Rejestracja → Supabase Auth; zakup → Stripe Checkout; status i płatności zapisuje webhook.
