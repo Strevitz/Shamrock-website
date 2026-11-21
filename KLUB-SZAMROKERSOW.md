@@ -22,6 +22,11 @@ Koszty: Netlify, Supabase i skrzynka Zoho w planach darmowych. Stripe nie ma op�
 ## 3. Netlify – zmienne środowiskowe
 Zobacz `.env.example`. Po zapisaniu zmiennych uruchom ponowne wdrożenie.
 
+### Test przed uruchomieniem zapisów
+- Użyj odrębnego projektu Supabase do testów i ceny miesięcznej z sandboxa Stripe. W Netlify ustaw testowe wartości wyłącznie dla **Deploy Previews**, a nie dla Production. Oznacz klucz serwerowy Supabase, klucz Stripe i sekret webhooka jako sekrety.
+- Ustaw `SITE_URL` na adres testowego podglądu. Skieruj webhook z sandboxa Stripe na `/.netlify/functions/stripe-webhook` tego podglądu, nie na domenę produkcyjną. Nie publikuj formularza w produkcji, dopóki nowe członkostwo nie przejdzie testu od zakupu po status aktywny w aplikacji.
+- W Supabase pozostaw wyłączony automatyczny dostęp do nowych tabel przez Data API. Schemat nadaje zalogowanym użytkownikom i funkcjom serwerowym tylko niezbędne uprawnienia.
+
 ## 4. E-mail z info@shamrockbarber.com
 W Zoho utwórz hasło aplikacji i wpisz je jako `SMTP_PASS` (host `smtp.zoho.eu`, port 465).
 
