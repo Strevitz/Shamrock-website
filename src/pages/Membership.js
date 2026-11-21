@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { FaPercent, FaShoppingBag, FaBolt, FaConciergeBell, FaGem } from "react-icons/fa";
 import Footer from "../components/Footer";
 import PageMeta from "../components/PageMeta";
@@ -36,7 +36,8 @@ function PriceBlock({ m }) {
 }
 
 function JoinForm({ m, lang, to }) {
-  const [mode, setMode] = useState("signup");
+  const { search } = useLocation();
+  const [mode, setMode] = useState(() => new URLSearchParams(search).get("auth") === "login" ? "login" : "signup");
   const [f, setF] = useState({ fullName: "", email: "", phone: "", password: "", consent: false });
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState(null);
@@ -57,7 +58,10 @@ function JoinForm({ m, lang, to }) {
     setBusy(true);
     try {
       if (mode === "signup") {
-        const r = await signUp({ email: f.email.trim(), password: f.password, fullName: f.fullName.trim(), phone: f.phone.trim() });
+        const r = await signUp({
+          email: f.email.trim(), password: f.password, fullName: f.fullName.trim(), phone: f.phone.trim(),
+          redirectTo: `${window.location.origin}${prefix}/membership/confirm`,
+        });
         if (r.needsConfirmation) {
           setMsg({ ok: m.confirmEmail });
           setBusy(false);
@@ -81,7 +85,7 @@ function JoinForm({ m, lang, to }) {
   const forgot = async () => {
     if (!f.email) return;
     try {
-      await resetPassword(f.email.trim());
+      await resetPassword(f.email.trim(), `${window.location.origin}${prefix}/membership/reset`);
       setMsg({ ok: m.resetSent });
     } catch (e) {
       setMsg({ err: m.errGeneric });

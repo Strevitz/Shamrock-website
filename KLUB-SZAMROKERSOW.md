@@ -7,8 +7,8 @@ Koszty: Netlify, Supabase i skrzynka Zoho w planach darmowych. Stripe nie ma op�
 ## 1. Supabase (darmowy plan)
 1. Załóż projekt na supabase.com.
 2. SQL Editor → wklej `supabase/schema.sql` → Run.
-3. Authentication → Providers → Email: dla płynnego zakupu wyłącz „Confirm email” (albo zostaw – wtedy klient najpierw potwierdza e-mail).
-4. Authentication → URL Configuration: Site URL `https://shamrockbarber.com`.
+3. Authentication → Providers → Email: zostaw włączone „Confirm email”. Przed otwarciem zapisów skonfiguruj własny SMTP dla Supabase Auth i sprawdź dostarczenie wiadomości rejestracyjnej oraz linku do zmiany hasła na adres spoza zespołu Supabase.
+4. Authentication → URL Configuration: Site URL `https://shamrockbarber.com`. W Redirect URLs dodaj dokładne adresy `https://shamrockbarber.com/membership/confirm` i `https://shamrockbarber.com/membership/reset` oraz odpowiedniki ze ścieżkami `/en/membership` i `/ua/membership`. W projekcie testowym użyj tych samych ścieżek na odrębnej domenie podglądu. Zachowaj `{{ .ConfirmationURL }}` w szablonach potwierdzenia i resetu.
 5. Zarejestruj własne konto na stronie, potem w SQL Editor: `update public.profiles set role = 'admin' where email = '<twój e-mail>';` Barberom nadaj `'barber'` tak samo.
 6. Settings → API: skopiuj Project URL, anon key i service_role key.
 
@@ -28,7 +28,7 @@ Zobacz `.env.example`. Po zapisaniu zmiennych uruchom ponowne wdrożenie.
 - W Supabase pozostaw wyłączony automatyczny dostęp do nowych tabel przez Data API. Schemat nadaje zalogowanym użytkownikom i funkcjom serwerowym tylko niezbędne uprawnienia.
 
 ## 4. E-mail z info@shamrockbarber.com
-W Zoho utwórz hasło aplikacji i wpisz je jako `SMTP_PASS` (host `smtp.zoho.eu`, port 465).
+W Zoho utwórz hasło aplikacji i wpisz je jako `SMTP_PASS` (host `smtp.zoho.eu`, port 465, jeśli są właściwe dla skrzynki). To są powiadomienia Klubu wysyłane przez funkcje Netlify; Supabase Auth ma własną, odrębną konfigurację SMTP. Zobacz [konfigurację SMTP w Supabase](https://supabase.com/docs/guides/auth/auth-smtp).
 
 ## Jak to działa
 - Rejestracja → Supabase Auth; zakup → Stripe Checkout; status i płatności zapisuje webhook.
