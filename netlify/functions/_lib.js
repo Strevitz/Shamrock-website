@@ -11,14 +11,16 @@ const json = (statusCode, body) => ({
   body: JSON.stringify(body),
 });
 
-// --- Supabase (klucz service_role – tylko po stronie serwera) ---
+// --- Supabase (sb_secret lub legacy service_role; tylko po stronie serwera) ---
 async function sb(path, { method = "GET", body, prefer } = {}) {
   const key = env("SUPABASE_SERVICE_ROLE_KEY");
+  if (!key) throw new Error("missing Supabase server key");
   const res = await fetch(`${SB_URL()}/rest/v1/${path}`, {
     method,
     headers: {
       apikey: key,
-      Authorization: `Bearer ${key}`,
+      // Współczesny klucz nie jest JWT; bramka Supabase autoryzuje go przez apikey.
+      ...(key.startsWith("sb_secret_") ? {} : { Authorization: `Bearer ${key}` }),
       "Content-Type": "application/json",
       ...(prefer ? { Prefer: prefer } : {}),
     },
@@ -54,12 +56,13 @@ function encode(obj, prefix, out = []) {
   return out;
 }
 
-async function stripe(path, params, method) {
+async function stripe(path, params, method, idempotencyKey) {
   const res = await fetch(`https://api.stripe.com/v1${path}`, {
     method: method || (params ? "POST" : "GET"),
     headers: {
       Authorization: `Bearer ${env("STRIPE_SECRET_KEY")}`,
       "Content-Type": "application/x-www-form-urlencoded",
+      ...(idempotencyKey ? { "Idempotency-Key": idempotencyKey } : {}),
     },
     body: params ? encode(params).join("&") : undefined,
   });
@@ -67,6 +70,9 @@ async function stripe(path, params, method) {
   if (!res.ok) throw new Error(`stripe ${res.status}: ${(data.error && data.error.message) || ""}`);
   return data;
 }
+
+const isClubSubscription = (sub) => Boolean(env("STRIPE_PRICE_ID") &&
+  Array.isArray(sub.items?.data) && sub.items.data.some((item) => item.price && item.price.id === env("STRIPE_PRICE_ID")));
 
 function verifyStripeSignature(rawBody, header, secret, toleranceSec = 300) {
   if (!header || !secret) return false;
@@ -76,7 +82,7 @@ function verifyStripeSignature(rawBody, header, secret, toleranceSec = 300) {
     (parts[k] = parts[k] || []).push(v);
   });
   const t = parts.t && parts.t[0];
-  if (!t || !parts.v1) return false;
+  if (!t || !/^\d+$/.test(t) || !parts.v1) return false;
   if (Math.abs(Date.now() / 1000 - Number(t)) > toleranceSec) return false;
   const expected = crypto.createHmac("sha256", secret).update(`${t}.${rawBody}`).digest("hex");
   return parts.v1.some((sig) => {
@@ -86,8 +92,24 @@ function verifyStripeSignature(rawBody, header, secret, toleranceSec = 300) {
   });
 }
 
-// --- E-mail przez SMTP skrzynki info@shamrockbarber.com (np. Zoho) ---
-async function sendMail({ to, subject, text, replyTo }) {
+// --- E-mail transakcyjny: Resend HTTPS w produkcji lub opcjonalny SMTP ---
+async function sendMail({ to, subject, text, replyTo, idempotencyKey }) {
+  const resendKey = env("RESEND_API_KEY");
+  if (resendKey) {
+    const from = env("MAIL_FROM");
+    if (!from) throw new Error("missing MAIL_FROM");
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendKey}`,
+        "Content-Type": "application/json",
+        ...(idempotencyKey ? { "Idempotency-Key": idempotencyKey } : {}),
+      },
+      body: JSON.stringify({ from: `Shamrock Barber Shop <${from}>`, to: [to], subject, text, reply_to: replyTo }),
+    });
+    if (!res.ok) throw new Error(`Resend send failed (${res.status})`);
+    return true;
+  }
   if (!env("SMTP_HOST") || !env("SMTP_USER") || !env("SMTP_PASS")) {
     console.log("[mail] brak konfiguracji SMTP – pomijam:", subject);
     return false;
@@ -113,4 +135,4 @@ async function sendMail({ to, subject, text, replyTo }) {
 const STAFF_EMAIL = () => env("MAIL_TO", "info@shamrockbarber.com");
 const prefixFor = (lang) => (lang === "uk" ? "/ua" : lang === "en" ? "/en" : "");
 
-module.exports = { env, SITE, json, sb, getUser, stripe, verifyStripeSignature, sendMail, STAFF_EMAIL, prefixFor };
+module.exports = { env, SITE, json, sb, getUser, stripe, isClubSubscription, verifyStripeSignature, sendMail, STAFF_EMAIL, prefixFor };

@@ -10,14 +10,15 @@ Przed uruchomieniem sprawdź limity wybranych planów Netlify, Supabase i dostaw
 3. Authentication → Providers → Email: zostaw włączone „Confirm email”. Przed otwarciem zapisów skonfiguruj własny SMTP dla Supabase Auth i sprawdź dostarczenie wiadomości rejestracyjnej oraz linku do zmiany hasła na adres spoza zespołu Supabase.
 4. Authentication → URL Configuration: Site URL `https://shamrockbarber.com`. W Redirect URLs dodaj dokładne adresy `https://shamrockbarber.com/membership/confirm` i `https://shamrockbarber.com/membership/reset` oraz odpowiedniki ze ścieżkami `/en/membership` i `/ua/membership`. W projekcie testowym użyj tych samych ścieżek na odrębnej domenie podglądu. Zachowaj `{{ .ConfirmationURL }}` w szablonach potwierdzenia i resetu.
 5. Zarejestruj własne konto na stronie, potem w SQL Editor: `update public.profiles set role = 'admin' where email = '<twój e-mail>';` Barberom nadaj `'barber'` tak samo.
-6. Settings → API: skopiuj Project URL, anon key i service_role key.
+6. Settings → API Keys: użyj klucza publicznego `sb_publishable_…` oraz odrębnego klucza serwerowego `sb_secret_…`. Nazwy zmiennych Netlify nadal zawierają `ANON_KEY` i `SERVICE_ROLE_KEY` dla zgodności; sekret nie może dostać prefiksu `REACT_APP_`. Klucze legacy nadal działają w izolowanym środowisku testowym.
 
 ## 2. Stripe
 1. Product catalog → Add product „Klub Szamrokersów” → cena cykliczna miesięczna 19,00 PLN → skopiuj `price_...`.
 2. Settings → Billing → Customer portal: włącz anulowanie subskrypcji, zmianę karty i faktury.
 3. Settings → Billing → Subscriptions and emails: włącz ponawianie nieudanych płatności (Smart Retries) i e-maile o nieudanej płatności.
 4. Developers → Webhooks → endpoint `https://shamrockbarber.com/.netlify/functions/stripe-webhook`, zdarzenia: `checkout.session.completed`, `customer.subscription.created`, `customer.subscription.updated`, `customer.subscription.deleted`, `invoice.paid`, `invoice.payment_failed`. Skopiuj `whsec_...`.
-5. Po końcu promocji: dodaj cenę 29 zł, podmień `STRIPE_PRICE_ID` i ustaw `PRICE_PROMO = null` w `src/membership/config.js`.
+5. Nie podmieniaj wprost `STRIPE_PRICE_ID` przy zmianie ceny. Webhook musi nadal rozpoznawać wszystkie ceny Klubu ze starszymi aktywnymi subskrypcjami. Zmianę ceny wdrażaj oddzielnie, bez automatycznego podnoszenia opłat obecnym członkom.
+6. Ograniczony klucz Stripe w Netlify potrzebuje uprawnień: Customers Write, Checkout Sessions Write, Subscriptions Read i Customer Portal Write. Nie używaj klucza z pełnym dostępem na produkcji.
 
 ## 3. Netlify – zmienne środowiskowe
 Zobacz `.env.example`. Po zapisaniu zmiennych uruchom ponowne wdrożenie.
@@ -29,7 +30,7 @@ Zobacz `.env.example`. Po zapisaniu zmiennych uruchom ponowne wdrożenie.
 
 ## 4. E-maile transakcyjne Klubu
 - Użyj osobnego dostawcy maili transakcyjnych, np. Resend. Zweryfikuj subdomenę nadawczą, np. `mail.shamrockbarber.com`, bez zmieniania poczty przychodzącej głównej domeny. Zwykła skrzynka Zoho Mail nie służy do automatycznej wysyłki zgodnie z [zasadami Zoho](https://www.zoho.com/mail/help/usage-policy.html).
-- Skonfiguruj SMTP w dwóch miejscach: w [Supabase Auth](https://supabase.com/docs/guides/auth/auth-smtp) do potwierdzeń i resetów oraz w zmiennych Netlify (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM`) do wiadomości Klubu. Nie używaj danych logowania do skrzynki salonu.
+- Skonfiguruj SMTP w [Supabase Auth](https://supabase.com/docs/guides/auth/auth-smtp) do potwierdzeń i resetów. Do wiadomości Klubu ustaw w Netlify osobny klucz Resend ograniczony do wysyłki z subdomeny (`RESEND_API_KEY`, `MAIL_FROM`). Funkcje wysyłają przez [Resend HTTPS](https://resend.com/docs/api-reference/emails/send-email). Opcjonalnie obsługują też `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER` i `SMTP_PASS`. Nie używaj danych logowania do skrzynki salonu ani klucza z Supabase.
 - Ustaw `MAIL_TO=info@shamrockbarber.com` jako adres obsługi. Przed publikacją potwierdź dostarczenie testowej rejestracji, resetu i wiadomości Klubu. Jeśli dostawca śledzi linki, wyłącz śledzenie dla poczty Auth.
 
 ## Jak to działa

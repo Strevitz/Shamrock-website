@@ -152,7 +152,7 @@ export default function MemberAccount() {
             <button className="mb-link" onClick={signOut}>{a.logout}</button>
           </div>
         </div>
-        {justPaid && <p className="mb-msg mb-msg--ok">{a.successMsg}</p>}
+        {justPaid && !active && <p className="mb-msg mb-msg--ok">{a.successMsg}</p>}
         {error && <p className="mb-msg mb-msg--err">{error}</p>}
 
         <div className="mb-account__grid">
@@ -167,7 +167,7 @@ export default function MemberAccount() {
             )}
             {active && mem.cancel_at_period_end && <p>{a.cancelScheduled}</p>}
             {status === "past_due" && <p className="mb-msg mb-msg--err">{a.pastDueHelp}</p>}
-            {!active && status !== "past_due" && (
+            {!active && !["past_due", "incomplete"].includes(status) && (
               <button className="mb-btn" disabled={busy} onClick={() => go("checkout")}>{a.join}</button>
             )}
             {mem && mem.stripe_customer_id && (

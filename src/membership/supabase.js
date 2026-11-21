@@ -94,7 +94,7 @@ export async function rest(path, { method = "GET", body, prefer } = {}) {
     method,
     headers: {
       apikey: SUPABASE_ANON_KEY,
-      Authorization: `Bearer ${token || SUPABASE_ANON_KEY}`,
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       "Content-Type": "application/json",
       ...(prefer ? { Prefer: prefer } : {}),
     },
