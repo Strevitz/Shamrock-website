@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import PageMeta from "../components/PageMeta";
 import { useLang } from "../i18n";
 import { MEMBERSHIP } from "../membership/strings";
+import agreement from "../membership/agreement.json";
+import ClubTerms from "../membership/ClubTerms";
 import { SITE_ORIGIN } from "../membership/config";
 import { rest, callFn, signOut, useSession } from "../membership/supabase";
 import { WHATSAPP_URL } from "../siteInfo";
@@ -56,6 +58,8 @@ export default function MemberAccount() {
   const [requests, setRequests] = useState([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [acceptTerms, setAcceptTerms] = useState(false);
+  const [startNow, setStartNow] = useState(false);
   const [req, setReq] = useState({ type: "booking", message: "" });
   const [reqMsg, setReqMsg] = useState(null);
   const justPaid = /checkout=success/.test(window.location.search);
@@ -102,7 +106,9 @@ export default function MemberAccount() {
     setBusy(true);
     setError("");
     try {
-      const { url } = await callFn(fn, { lang });
+      const { url } = await callFn(fn, fn === "checkout"
+        ? { lang, termsVersion: agreement.version, acceptTerms, startNow }
+        : { lang });
       window.location.href = url;
     } catch (e) {
       setError(m.errGeneric);
@@ -152,7 +158,7 @@ export default function MemberAccount() {
             <button className="mb-link" onClick={signOut}>{a.logout}</button>
           </div>
         </div>
-        {justPaid && <p className="mb-msg mb-msg--ok">{a.successMsg}</p>}
+        {justPaid && !active && <p className="mb-msg mb-msg--ok">{a.successMsg}</p>}
         {error && <p className="mb-msg mb-msg--err">{error}</p>}
 
         <div className="mb-account__grid">
@@ -167,8 +173,20 @@ export default function MemberAccount() {
             )}
             {active && mem.cancel_at_period_end && <p>{a.cancelScheduled}</p>}
             {status === "past_due" && <p className="mb-msg mb-msg--err">{a.pastDueHelp}</p>}
-            {!active && status !== "past_due" && (
-              <button className="mb-btn" disabled={busy} onClick={() => go("checkout")}>{a.join}</button>
+            {!active && !["past_due", "incomplete"].includes(status) && (
+              <>
+                <p>{agreement[lang].price}</p>
+                <ClubTerms lang={lang} />
+                <label className="mb-check">
+                  <input type="checkbox" checked={acceptTerms} onChange={(e) => setAcceptTerms(e.target.checked)} />
+                  <span>{agreement[lang].accept}</span>
+                </label>
+                <label className="mb-check">
+                  <input type="checkbox" checked={startNow} onChange={(e) => setStartNow(e.target.checked)} />
+                  <span>{agreement[lang].startNow}</span>
+                </label>
+                <button className="mb-btn" disabled={busy || !acceptTerms || !startNow} onClick={() => go("checkout")}>{a.join}</button>
+              </>
             )}
             {mem && mem.stripe_customer_id && (
               <>

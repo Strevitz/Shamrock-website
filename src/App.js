@@ -10,6 +10,7 @@ import Kontakt from "./pages/Kontakt";
 import Membership from "./pages/Membership";
 import MemberAccount from "./pages/MemberAccount";
 import MemberAdmin from "./pages/MemberAdmin";
+import MemberAuthLink from "./pages/MemberAuthLink";
 import SingleApartment from "./pages/SingleApartment";
 import Error from "./pages/404";
 import { Route, Switch } from "react-router-dom";
@@ -41,6 +42,7 @@ class App extends Component {
                   <Route exact path={["/membership", "/en/membership", "/ua/membership"]} component={Membership} />
                   <Route exact path={["/membership/account", "/en/membership/account", "/ua/membership/account"]} component={MemberAccount} />
                   <Route exact path={["/membership/admin", "/en/membership/admin", "/ua/membership/admin"]} component={MemberAdmin} />
+                  <Route exact path={["/membership/confirm", "/en/membership/confirm", "/ua/membership/confirm", "/membership/reset", "/en/membership/reset", "/ua/membership/reset"]} component={MemberAuthLink} />
                   <Route exact path={["/kontakt", "/en/contact", "/ua/contact"]} component={Kontakt} />
                   <Route
                     exact

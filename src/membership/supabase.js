@@ -31,9 +31,9 @@ function normalize(data) {
   };
 }
 
-async function auth(path, body, token) {
+async function auth(path, body, token, method = "POST") {
   const res = await fetch(`${SUPABASE_URL}/auth/v1${path}`, {
-    method: "POST",
+    method,
     headers: {
       apikey: SUPABASE_ANON_KEY,
       "Content-Type": "application/json",
@@ -50,8 +50,8 @@ async function auth(path, body, token) {
   return data;
 }
 
-export async function signUp({ email, password, fullName, phone }) {
-  const data = await auth("/signup", { email, password, data: { full_name: fullName, phone } });
+export async function signUp({ email, password, fullName, phone, redirectTo }) {
+  const data = await auth(`/signup?redirect_to=${encodeURIComponent(redirectTo)}`, { email, password, data: { full_name: fullName, phone } });
   const s = normalize(data);
   if (s) setSession(s);
   return { session: s, needsConfirmation: !s };
@@ -62,8 +62,12 @@ export async function signIn(email, password) {
   setSession(normalize(data));
 }
 
-export async function resetPassword(email) {
-  await auth("/recover", { email });
+export async function resetPassword(email, redirectTo) {
+  await auth(`/recover?redirect_to=${encodeURIComponent(redirectTo)}`, { email });
+}
+
+export async function updatePassword(password, recoveryToken) {
+  return auth("/user", { password }, recoveryToken, "PUT");
 }
 
 export function signOut() {
@@ -90,7 +94,7 @@ export async function rest(path, { method = "GET", body, prefer } = {}) {
     method,
     headers: {
       apikey: SUPABASE_ANON_KEY,
-      Authorization: `Bearer ${token || SUPABASE_ANON_KEY}`,
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       "Content-Type": "application/json",
       ...(prefer ? { Prefer: prefer } : {}),
     },

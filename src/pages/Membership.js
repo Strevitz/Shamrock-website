@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { FaPercent, FaShoppingBag, FaBolt, FaConciergeBell, FaGem } from "react-icons/fa";
 import Footer from "../components/Footer";
 import PageMeta from "../components/PageMeta";
 import { useLang } from "../i18n";
 import { MEMBERSHIP } from "../membership/strings";
+import ClubTerms from "../membership/ClubTerms";
 import { IS_CONFIGURED, PRICE_PROMO, PRICE_REGULAR } from "../membership/config";
-import { signUp, signIn, resetPassword, callFn, useSession } from "../membership/supabase";
+import { signUp, signIn, resetPassword, useSession } from "../membership/supabase";
 import { WHATSAPP_URL } from "../siteInfo";
 import "../membership/membership.css";
 
@@ -19,7 +20,6 @@ function PriceBlock({ m }) {
         <>
           <span className="mb-badge">{m.promoBadge}</span>
           <div className="mb-price__row">
-            <s className="mb-price__old">{PRICE_REGULAR} zł</s>
             <span className="mb-price__now">{PRICE_PROMO}</span>
             <span className="mb-price__unit">{m.perMonth}</span>
           </div>
@@ -36,18 +36,14 @@ function PriceBlock({ m }) {
 }
 
 function JoinForm({ m, lang, to }) {
-  const [mode, setMode] = useState("signup");
+  const { search } = useLocation();
+  const [mode, setMode] = useState(() => new URLSearchParams(search).get("auth") === "login" ? "login" : "signup");
   const [f, setF] = useState({ fullName: "", email: "", phone: "", password: "", consent: false });
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState(null);
   const history = useHistory();
   const prefix = lang === "pl" ? "" : lang === "uk" ? "/ua" : "/en";
   const set = (k) => (e) => setF({ ...f, [k]: e.target.type === "checkbox" ? e.target.checked : e.target.value });
-
-  const startCheckout = async () => {
-    const { url } = await callFn("checkout", { lang });
-    window.location.href = url;
-  };
 
   const submit = async (e) => {
     e.preventDefault();
@@ -57,13 +53,16 @@ function JoinForm({ m, lang, to }) {
     setBusy(true);
     try {
       if (mode === "signup") {
-        const r = await signUp({ email: f.email.trim(), password: f.password, fullName: f.fullName.trim(), phone: f.phone.trim() });
+        const r = await signUp({
+          email: f.email.trim(), password: f.password, fullName: f.fullName.trim(), phone: f.phone.trim(),
+          redirectTo: `${window.location.origin}${prefix}/membership/confirm`,
+        });
         if (r.needsConfirmation) {
           setMsg({ ok: m.confirmEmail });
           setBusy(false);
           return;
         }
-        await startCheckout();
+        history.push(`${prefix}/membership/account`);
       } else {
         await signIn(f.email.trim(), f.password);
         history.push(`${prefix}/membership/account`);
@@ -81,7 +80,7 @@ function JoinForm({ m, lang, to }) {
   const forgot = async () => {
     if (!f.email) return;
     try {
-      await resetPassword(f.email.trim());
+      await resetPassword(f.email.trim(), `${window.location.origin}${prefix}/membership/reset`);
       setMsg({ ok: m.resetSent });
     } catch (e) {
       setMsg({ err: m.errGeneric });
@@ -183,10 +182,7 @@ export default function Membership() {
             <details key={q}><summary>{q}</summary><p>{a}</p></details>
           ))}
         </div>
-        <details className="mb-terms">
-          <summary>{m.terms.title}</summary>
-          <ul>{m.terms.items.map((i) => <li key={i}>{i}</li>)}</ul>
-        </details>
+        <ClubTerms lang={lang} />
       </section>
       <Footer />
     </div>

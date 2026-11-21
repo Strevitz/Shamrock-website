@@ -71,12 +71,19 @@ create policy "płatności: własne lub obsługa" on public.payments for select 
 create policy "concierge: własne lub obsługa" on public.concierge_requests for select using (user_id = auth.uid() or public.is_staff());
 create policy "concierge: obsługa aktualizuje" on public.concierge_requests for update using (public.is_staff());
 
--- Zapisy do memberships/payments wykonuje tylko serwer (klucz service_role).
--- Użytkownik może zmieniać wyłącznie imię i telefon (nie rolę ani kod).
-revoke update on public.profiles from authenticated, anon;
+-- Jawne uprawnienia działają również z wyłączonym automatycznym dostępem do nowych
+-- tabel przez Data API. Reguły RLS nadal ograniczają dostęp do poszczególnych wierszy.
+revoke all on public.profiles, public.memberships, public.payments, public.concierge_requests
+  from public, anon, authenticated, service_role;
+grant select on public.profiles, public.memberships, public.payments, public.concierge_requests
+  to authenticated;
 grant update (full_name, phone) on public.profiles to authenticated;
-revoke insert, update, delete on public.memberships, public.payments from authenticated, anon;
-revoke insert, delete on public.concierge_requests from authenticated, anon;
+grant update (status) on public.concierge_requests to authenticated;
+
+-- Tylko funkcje serwerowe zapisują płatności i status członkostwa.
+grant select on public.profiles to service_role;
+grant select, insert, update on public.memberships, public.payments to service_role;
+grant insert on public.concierge_requests to service_role;
 
 -- Nadanie roli (po rejestracji konta barbera/administratora):
 -- update public.profiles set role = 'admin'  where email = 'arthur.strzewiczek@gmail.com';

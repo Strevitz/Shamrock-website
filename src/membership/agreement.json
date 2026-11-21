@@ -1,0 +1,73 @@
+{
+  "version": "2026-11-21",
+  "pricePln": 19,
+  "seller": "Sassy Company Arthur Oliver Strzewiczek, ul. Bolesława Chrobrego 40/28, 02-479 Warszawa",
+  "email": "info@shamrockbarber.com",
+  "phone": "+48 884 769 758",
+  "pl": {
+    "title": "Regulamin Klubu Szamrokersów",
+    "price": "19,00 zł co miesiąc. Subskrypcja odnawia się automatycznie bez minimalnej liczby miesięcy. Anuluj w panelu przed odnowieniem, aby uniknąć następnej opłaty.",
+    "checkoutText": "Klub Szamrokersów: 19,00 zł miesięcznie, automatyczne odnowienie. Członkostwo daje 10% rabatu na usługi i kosmetyki, pierwszeństwo przy rezerwacji oraz pomoc concierge. Bez minimalnego okresu. Anuluj w panelu przed kolejnym odnowieniem.",
+    "accept": "Akceptuję regulamin Klubu i potwierdzam, że członkostwo jest płatne i odnawia się co miesiąc.",
+    "startNow": "Wyraźnie żądam aktywacji członkostwa od razu po płatności, przed upływem 14 dni. W razie odstąpienia mogę zapłacić proporcjonalnie za wykonaną część usługi. Rozumiem, że po pełnym wykonaniu usługi tracę prawo odstąpienia.",
+    "confirmSubject": "Potwierdzenie zawarcia umowy: Klub Szamrokersów",
+    "confirmIntro": "Potwierdzamy zawarcie umowy o członkostwo w Klubie Szamrokersów. Poniżej znajdziesz jej warunki oraz wzór odstąpienia. Zachowaj tę wiadomość.",
+    "memberCode": "Kod członka",
+    "account": "Panel członka",
+    "agreementDate": "Data zawarcia umowy",
+    "items": [
+      "Klub prowadzi wskazany poniżej przedsiębiorca. Salon działa przy ul. Widok 10, 00-023 Warszawa. Do korzystania z panelu potrzebujesz aktualnej przeglądarki, dostępu do internetu i adresu e-mail. Konto jest bezpłatne. Umowę o płatne członkostwo zawierasz z chwilą pierwszej udanej płatności w Stripe.",
+      "Członkostwo daje 10% rabatu na usługi barberskie i kosmetyki dostępne w salonie, pierwszeństwo w dostępie do terminów, pomoc concierge i dostęp do ofert członkowskich. Rabaty nie łączą się z innymi rabatami, chyba że wyraźnie wskazano inaczej. Do skorzystania z rabatu pokaż aktywną kartę QR. Rezerwacje zależą od dostępności; usługi i produkty opłacasz osobno.",
+      "Całkowita opłata to 19,00 zł za miesiąc. Płacisz kartą przez Stripe. Umowa jest bezterminowa i odnawia się co miesiąc. Możesz anulować kolejne odnowienie w panelu członka albo kontaktując się z salonem; dostęp zachowujesz do końca opłaconego okresu. Jeśli nie uda się pobrać opłaty za kolejny okres, przywileje są wstrzymane do czasu uregulowania płatności.",
+      "Jako konsument możesz odstąpić od umowy w ciągu 14 dni od jej zawarcia, bez podawania przyczyny. Wystarczy wysłać jednoznaczne oświadczenie przed upływem tego terminu na e-mail lub adres przedsiębiorcy. Możesz użyć wzoru poniżej, ale nie musisz. Odstąpienie to co innego niż anulowanie kolejnego odnowienia.",
+      "Jeżeli na Twoje wyraźne żądanie usługa zacznie się przed upływem terminu odstąpienia, po odstąpieniu może być należna tylko proporcjonalna zapłata za część usługi wykonaną do tej chwili, zgodnie z ustawą. Zwracamy należne środki bez zbędnej zwłoki, najpóźniej w 14 dni od otrzymania oświadczenia, tą samą metodą płatności, chyba że bez dodatkowych kosztów uzgodnisz inną.",
+      "Reklamację dotyczącą Klubu możesz wysłać na e-mail lub adres przedsiębiorcy. Opisz problem i podaj dane pozwalające ustalić członkostwo; nie przesyłaj numeru karty ani hasła. Na reklamację konsumenta odpowiemy w ciągu 14 dni. Możesz też skorzystać z pomocy rzecznika konsumentów lub pozasądowego rozwiązania sporu przy Inspekcji Handlowej. Regulamin nie ogranicza ustawowych praw konsumenta."
+    ],
+    "formTitle": "Wzór oświadczenia o odstąpieniu",
+    "form": "Do: Sassy Company Arthur Oliver Strzewiczek. Ja, [imię i nazwisko], informuję o odstąpieniu od umowy członkostwa w Klubie Szamrokersów zawartej dnia [data]. Mój adres: [adres]. Adres e-mail konta: [e-mail]. Data: [data]. Podpis: [tylko przy wersji papierowej]."
+  },
+  "en": {
+    "title": "Shamrock Club terms",
+    "price": "PLN 19.00 per month. The subscription renews automatically with no minimum number of months. Cancel in your account before renewal to avoid the next charge.",
+    "checkoutText": "Shamrock Club: PLN 19.00 per month, automatically renewed. It includes 10% off barber services and products, booking priority and concierge help. No minimum term. Cancel from your account before the next renewal.",
+    "accept": "I accept the Club terms and confirm that membership is paid and renews monthly.",
+    "startNow": "I expressly request activation immediately after payment, before the 14-day withdrawal period ends. If I withdraw, I may owe a proportionate amount for the service already provided. I understand that I lose the right to withdraw once the service has been fully performed.",
+    "confirmSubject": "Your Shamrock Club membership agreement",
+    "confirmIntro": "We confirm that you have entered into a Shamrock Club membership agreement. The terms and model withdrawal form are below. Please keep this email.",
+    "memberCode": "Member code",
+    "account": "Member account",
+    "agreementDate": "Agreement date",
+    "items": [
+      "The Club is run by the business named below. The shop is at ul. Widok 10, 00-023 Warsaw. You need a current web browser, internet access and an email address. The account is free. The paid membership agreement is formed on the first successful Stripe payment.",
+      "Membership includes 10% off barber services and products stocked at the shop, booking priority, concierge help and member offers. Discounts do not stack unless explicitly stated. Show your active QR card to claim a discount. Bookings are subject to availability; services and products are paid for separately.",
+      "The total membership price is PLN 19.00 per month, payable by card through Stripe. The agreement has no fixed end date and automatically renews each month. Cancel the next renewal in your member account or by contacting the shop. You retain access until the paid period ends. If renewal payment fails, benefits are suspended until payment is made.",
+      "Consumers may withdraw within 14 days of entering into the agreement without giving a reason. Send a clear statement to the business by email or post before the deadline. The model form below is optional. Withdrawal is different from canceling the next renewal.",
+      "If you expressly requested that service start early and then withdraw, you may only owe a statutory proportionate amount for service already provided. We refund the amount due without undue delay and within 14 days after receipt of your notice, using the original payment method unless you agree to another at no extra cost.",
+      "Send membership complaints to the business by email or post. Describe the issue and give information that identifies your membership; do not send card numbers or passwords. We reply to consumer complaints within 14 days. You may seek help from a Polish consumer ombudsman or out-of-court resolution through the Trade Inspection. Nothing here restricts statutory consumer rights."
+    ],
+    "formTitle": "Model withdrawal form",
+    "form": "To: Sassy Company Arthur Oliver Strzewiczek. I, [full name], give notice that I withdraw from my Shamrock Club membership agreement entered into on [date]. My address is [address]. Account email: [email]. Date: [date]. Signature: [only for paper notices]."
+  },
+  "uk": {
+    "title": "Правила Клубу Szamrokersów",
+    "price": "19,00 злотих щомісяця. Підписка подовжується автоматично без мінімального строку. Скасуй її в кабінеті до подовження, щоб уникнути наступної оплати.",
+    "checkoutText": "Клуб Szamrokersów: 19,00 злотих щомісяця з автоматичним подовженням. Членство дає знижку 10% на послуги й товари, пріоритет у записі та допомогу консьєржа. Без мінімального строку. Скасуй у кабінеті до подовження.",
+    "accept": "Я приймаю правила Клубу та підтверджую, що членство є платним і подовжується щомісяця.",
+    "startNow": "Я прямо прошу активувати членство одразу після оплати, до завершення 14-денного строку відмови. У разі відмови я можу сплатити пропорційну суму за вже надану послугу. Розумію, що після повного надання послуги право на відмову втрачається.",
+    "confirmSubject": "Підтвердження договору про членство в Клубі Szamrokersów",
+    "confirmIntro": "Підтверджуємо укладення договору про членство в Клубі Szamrokersów. Нижче наведено умови та зразок заяви про відмову. Збережи цей лист.",
+    "memberCode": "Код учасника",
+    "account": "Кабінет учасника",
+    "agreementDate": "Дата укладення договору",
+    "items": [
+      "Клубом керує вказаний нижче підприємець. Салон розташований за адресою: ul. Widok 10, 00-023 Варшава. Для кабінету потрібні актуальний браузер, інтернет та електронна пошта. Обліковий запис безкоштовний. Договір про платне членство укладається після першої успішної оплати у Stripe.",
+      "Членство дає знижку 10% на барберські послуги й товари в салоні, пріоритет у записі, допомогу консьєржа та пропозиції для учасників. Знижки не сумуються, якщо не зазначено інше. Для знижки покажи активну QR-картку. Запис залежить від наявності часу; послуги та товари оплачуються окремо.",
+      "Повна вартість становить 19,00 злотих на місяць. Оплата карткою через Stripe. Договір безстроковий і автоматично подовжується щомісяця. Скасуй наступне подовження в кабінеті або звернувшись до салону. Доступ діятиме до кінця оплаченого періоду. Якщо оплата не пройде, привілеї призупиняються до її здійснення.",
+      "Споживач може відмовитися від договору протягом 14 днів після його укладення без пояснення причин. До завершення строку надішли однозначну заяву підприємцю електронною або звичайною поштою. Наведений нижче зразок необов’язковий. Відмова від договору відрізняється від скасування подовження.",
+      "Якщо послугу розпочато достроково на твою пряму вимогу, у разі відмови може бути належною лише пропорційна оплата за вже надану частину. Ми повертаємо належні кошти без зайвої затримки, не пізніше ніж через 14 днів після отримання заяви, початковим способом оплати, якщо ти не погодиш інший без додаткових витрат.",
+      "Скаргу можна надіслати підприємцю електронною або звичайною поштою. Опиши питання та надай дані для ідентифікації членства, але не номер картки чи пароль. На скарги споживачів відповідаємо протягом 14 днів. Допомогу можна отримати в польського уповноваженого із захисту прав споживачів або в Торговій інспекції. Правила не обмежують законних прав споживачів."
+    ],
+    "formTitle": "Зразок заяви про відмову",
+    "form": "Кому: Sassy Company Arthur Oliver Strzewiczek. Я, [ім’я та прізвище], повідомляю про відмову від договору про членство в Клубі Szamrokersów, укладеного [дата]. Моя адреса: [адреса]. Електронна пошта облікового запису: [пошта]. Дата: [дата]. Підпис: [лише для паперової заяви]."
+  }
+}
