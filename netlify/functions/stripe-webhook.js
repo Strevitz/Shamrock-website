@@ -1,6 +1,7 @@
 // Webhook Stripe: synchronizuje status członkostwa i historię płatności z bazą Supabase
 // oraz obsługuje nieudane płatności (status past_due + e-mail do członka i salonu).
-const { env, json, sb, stripe, isClubSubscription, verifyStripeSignature, sendMail, STAFF_EMAIL, SITE } = require("./_lib");
+const { env, json, sb, stripe, isClubSubscription, verifyStripeSignature, sendMail, STAFF_EMAIL, SITE, prefixFor } = require("./_lib");
+const agreement = require("../../src/membership/agreement.json");
 
 const mapStatus = (s) =>
   ({ active: "active", trialing: "trialing", past_due: "past_due", unpaid: "past_due", canceled: "canceled", incomplete: "incomplete", incomplete_expired: "canceled" }[s] || "none");
@@ -70,13 +71,30 @@ exports.handler = async (event) => {
           const uid = await syncSubscription(sub, membership);
           const prof = uid && (await sb(`profiles?id=eq.${uid}&select=full_name,email,member_code`))[0];
           if (prof && prof.email && ["active", "trialing"].includes(sub.status)) {
-            await sendMail({
+            const lang = ["pl", "en", "uk"].includes(obj.metadata?.club_language) ? obj.metadata.club_language : "pl";
+            const terms = agreement[lang];
+            const date = new Date((ev.created || obj.created) * 1000);
+            const confirmations = obj.metadata?.club_terms_version === agreement.version
+              ? [terms.accept, terms.startNow] : [];
+            const sent = await sendMail({
               to: prof.email,
-              subject: "Witaj w Klubie Szamrokersów ☘",
-              text: `Cześć ${prof.full_name || ""}!\n\nTwoje członkostwo jest aktywne. Kod członka: ${prof.member_code}.\nKartę z kodem QR znajdziesz w panelu: ${SITE()}/membership/account\n\nShamrock Barber Shop`,
+              subject: terms.confirmSubject,
+              text: [
+                terms.confirmIntro,
+                Number.isNaN(date.getTime()) ? null : `${terms.agreementDate}: ${date.toISOString().slice(0, 10)}`,
+                `${terms.memberCode}: ${prof.member_code || "—"}`,
+                `${terms.account}: ${SITE()}${prefixFor(lang)}/membership/account`,
+                `${terms.title} (${obj.metadata?.club_terms_version || agreement.version})`,
+                `${agreement.seller}\n${agreement.email}\n${agreement.phone}`,
+                ...terms.items,
+                ...confirmations,
+                `${terms.formTitle}:\n${terms.form}`,
+              ].filter(Boolean).join("\n\n"),
               replyTo: STAFF_EMAIL(),
               idempotencyKey: `club-welcome-${obj.id}`,
-            }).catch((e) => console.error(e));
+            });
+            // Testowy podgląd może działać bez poczty, produkcja ma ponowić wysyłkę.
+            if (!sent && obj.livemode) throw new Error("Club confirmation mail is not configured");
           }
         }
         break;

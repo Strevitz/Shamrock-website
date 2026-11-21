@@ -28,7 +28,9 @@ const About = () => {
               you accept them – the Facebook Pixel to measure our ads. You can
               change your choice at any time with “Cookie settings” in the
               footer. Online bookings are handled by Booksy under its own
-              privacy policy. For any privacy questions write to{" "}
+              privacy policy. For Club memberships we use Supabase for accounts, Stripe
+              for payments and Resend for service emails. Card details are entered
+              on Stripe, not stored in the member account. For any privacy questions write to{" "}
               <a href="mailto:contact@sassy.company">contact@sassy.company</a>.
               The legally binding full policy is below in Polish.
             </p>
@@ -46,7 +48,10 @@ const About = () => {
               згодою, щоб вимірювати ефективність реклами. Свій вибір можна
               змінити будь-коли за допомогою «Налаштування cookies» внизу
               сторінки. Онлайн-записи обробляє Booksy згідно з власною
-              політикою конфіденційності. З питань щодо персональних даних
+              політикою конфіденційності. Для Клубу ми використовуємо Supabase
+              для акаунтів, Stripe для оплати та Resend для службових листів.
+              Дані картки вводяться у Stripe і не зберігаються в кабінеті Клубу.
+              З питань щодо персональних даних
               пиши на{" "}
               <a href="mailto:contact@sassy.company">contact@sassy.company</a>.
               Юридично обов'язковою є повна версія політики польською мовою,
@@ -137,9 +142,31 @@ const About = () => {
             polegające na zautomatyzowanym podejmowaniu decyzji, w tym
             profilowaniu w celu świadczenia usług w ramach zawartej umowy oraz w
             celu prowadzenia przez Administratora marketingu bezpośredniego.
-            Dane osobowe nie są przekazywane od krajów trzecich w rozumieniu
-            przepisów o ochronie danych osobowych. Oznacza to, że nie przesyłamy
-            ich poza teren Unii Europejskiej.
+          </p>
+          <br />
+          <h3>Dane członków Klubu Szamrokersów</h3>
+          <p>
+            Przetwarzamy imię i nazwisko, e-mail, numer telefonu, identyfikator
+            członkostwa, status i historię płatności oraz treść próśb concierge,
+            jeśli je wysyłasz. Używamy ich do założenia konta, realizacji umowy,
+            potwierdzeń, rozliczeń, weryfikacji rabatu i obsługi zgłoszeń
+            (art. 6 ust. 1 lit. b RODO), do wykonania obowiązków podatkowych
+            i księgowych (lit. c) oraz dla bezpieczeństwa i obsługi roszczeń
+            (lit. f). Podanie danych wymaganych w formularzu jest dobrowolne,
+            ale konieczne do prowadzenia konta i obsługi członkostwa.
+          </p>
+          <p>
+            Dane są udostępniane w niezbędnym zakresie dostawcom hostingu
+            (Netlify), kont i bazy (Supabase), płatności (Stripe), wysyłki
+            wiadomości (Resend) i uprawnionemu personelowi salonu. Dane karty
+            podajesz Stripe; nie zapisujemy ich w panelu Klubu. Dane konta
+            przechowujemy przez okres obsługi konta, a potem tylko w zakresie i
+            przez okres potrzebny do rozliczeń, realizacji obowiązków prawnych
+            lub dochodzenia roszczeń. Jeśli w związku z usługami dostawców dochodzi
+            do przekazania poza EOG, zastosowanie mają mechanizmy przewidziane
+            w rozdziale V RODO. Informację o zabezpieczeniach i swoich prawach
+            uzyskasz pod adresem{" "}
+            <a href="mailto:contact@sassy.company">contact@sassy.company</a>.
           </p>
           <br />
           <h3>5. Informacje w formularzach</h3>

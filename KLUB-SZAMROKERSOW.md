@@ -33,6 +33,11 @@ Zobacz `.env.example`. Po zapisaniu zmiennych uruchom ponowne wdrożenie.
 - Skonfiguruj SMTP w [Supabase Auth](https://supabase.com/docs/guides/auth/auth-smtp) do potwierdzeń i resetów. Do wiadomości Klubu ustaw w Netlify osobny klucz Resend ograniczony do wysyłki z subdomeny (`RESEND_API_KEY`, `MAIL_FROM`). Funkcje wysyłają przez [Resend HTTPS](https://resend.com/docs/api-reference/emails/send-email). Opcjonalnie obsługują też `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER` i `SMTP_PASS`. Nie używaj danych logowania do skrzynki salonu ani klucza z Supabase.
 - Ustaw `MAIL_TO=info@shamrockbarber.com` jako adres obsługi. Przed publikacją potwierdź dostarczenie testowej rejestracji, resetu i wiadomości Klubu. Jeśli dostawca śledzi linki, wyłącz śledzenie dla poczty Auth.
 
+## Dane i warunki przed otwarciem sprzedaży
+- Porównaj dane sprzedawcy w `src/membership/agreement.json` z aktualnym wpisem firmy. Potwierdź obsługę reklamacji i odstąpień przez `info@shamrockbarber.com` oraz operacyjnie ustal, kto anuluje subskrypcję i rozlicza zwrot po skutecznym odstąpieniu.
+- Sprawdź warunki przetwarzania i zabezpieczenia ewentualnych transferów u dostawców oraz sposób wystawiania dokumentów sprzedaży. Uzupełnij politykę prywatności i proces księgowy zgodnie z faktyczną konfiguracją przedsiębiorcy.
+- Konto i zakup są odrębnymi krokami. Checkout zapisuje wersję regulaminu i żądanie natychmiastowego rozpoczęcia usługi w metadanych Stripe. E-mail po zawarciu umowy zawiera warunki oraz wzór odstąpienia. Porównaj treść z [listą obowiązków informacyjnych UOKiK](https://prawakonsumenta.uokik.gov.pl/pytania-i-odpowiedzi/prawo-do-informacji/) i [zasadami wcześniejszego rozpoczęcia usługi](https://prawakonsumenta.uokik.gov.pl/prawo-odstapienia-od-umowy/umowy-szczegolne/).
+
 ## Jak to działa
 - Rejestracja → Supabase Auth; zakup → Stripe Checkout; status i płatności zapisuje webhook.
 - Karta z QR: kod `SZ-XXXXXXXX` w panelu członka. Skan QR otwiera `/membership/admin?c=KOD` – barber po zalogowaniu widzi status i czy naliczyć 10%.

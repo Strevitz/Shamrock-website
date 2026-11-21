@@ -129,6 +129,8 @@
 }
 .mb-check { flex-direction: row !important; align-items: flex-start; gap: .6rem !important; text-transform: none !important; letter-spacing: 0 !important; font-size: .85rem !important; }
 .mb-check a { color: var(--mb-green-600); }
+.mb-account .mb-check { display: flex; margin: .8rem 0; }
+.mb-account .mb-check input { flex: none; margin-top: .2rem; }
 .mb-tabs { display: flex; border-bottom: 1px solid #bbbbbb; margin-bottom: .4rem; }
 .mb-tabs button { flex: 1; padding: .7rem; background: none; border: 0; border-bottom: 3px solid transparent; cursor: pointer; font-size: .85rem; color: #666; }
 .mb-tabs .is-on { border-bottom-color: var(--mb-gold); color: var(--mb-green-800); font-weight: 700; }

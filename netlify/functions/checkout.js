@@ -1,12 +1,17 @@
 // Tworzy sesję Stripe Checkout (subskrypcja miesięczna) dla zalogowanego użytkownika.
 const { env, SITE, json, sb, getUser, stripe, prefixFor, isClubSubscription } = require("./_lib");
+const agreement = require("../../src/membership/agreement.json");
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "method" });
   try {
     const user = await getUser(event);
     if (!user) return json(401, { error: "unauthorized" });
-    const { lang } = JSON.parse(event.body || "{}");
+    const { lang: rawLang, termsVersion, acceptTerms, startNow } = JSON.parse(event.body || "{}");
+    if (termsVersion !== agreement.version || acceptTerms !== true || startNow !== true) {
+      return json(400, { error: "agreement_required" });
+    }
+    const lang = ["pl", "en", "uk"].includes(rawLang) ? rawLang : "pl";
 
     const rows = await sb(`memberships?user_id=eq.${user.id}&select=*`);
     const m = rows[0];
@@ -34,7 +39,10 @@ exports.handler = async (event) => {
     const customerQuery = `customer=${encodeURIComponent(customer)}`;
     const { data: previous } = await stripe(`/checkout/sessions?${customerQuery}&limit=1`);
     const latest = previous[0];
-    if (latest && latest.status === "open" && latest.url) return json(200, { url: latest.url });
+    if (latest && latest.status === "open" && latest.url) {
+      if (latest.metadata?.club_terms_version === agreement.version) return json(200, { url: latest.url });
+      await stripe(`/checkout/sessions/${latest.id}/expire`, {}, "POST", `club-expire-${latest.id}`);
+    }
 
     // Stripe jest źródłem prawdy także przed zapisaniem zdarzenia w Supabase.
     const { data: subscriptions } = await stripe(`/subscriptions?${customerQuery}&limit=100`);
@@ -53,8 +61,10 @@ exports.handler = async (event) => {
       payment_method_types: ["card"],
       success_url: `${SITE()}${p}/membership/account?checkout=success`,
       cancel_url: `${SITE()}${p}/membership`,
-      locale: ["pl", "en", "uk"].includes(lang) ? lang : "pl",
-      subscription_data: { metadata: { user_id: user.id } },
+      locale: lang,
+      custom_text: { submit: { message: agreement[lang].checkoutText } },
+      metadata: { club_terms_version: termsVersion, club_start_now: "yes", club_language: lang },
+      subscription_data: { metadata: { user_id: user.id, club_terms_version: termsVersion, club_start_now: "yes", club_language: lang } },
     }, "POST", `club-checkout-${customer}-${latest ? latest.id : "first"}`);
     return json(200, { url: session.url });
   } catch (e) {

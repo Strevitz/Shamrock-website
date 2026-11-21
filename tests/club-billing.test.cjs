@@ -4,6 +4,7 @@ const { test } = require("node:test");
 const checkout = require("../netlify/functions/checkout").handler;
 const webhook = require("../netlify/functions/stripe-webhook").handler;
 const { sb } = require("../netlify/functions/_lib");
+const agreement = require("../src/membership/agreement.json");
 
 Object.assign(process.env, {
   SITE_URL: "https://example.test",
@@ -20,7 +21,10 @@ Object.assign(process.env, {
 const customer = "cus_club";
 const membership = { user_id: "member", stripe_customer_id: customer, stripe_subscription_id: "sub_club" };
 const subscription = { id: "sub_club", customer, status: "active", items: { data: [{ price: { id: "price_club" } }] } };
-const checkoutRequest = { httpMethod: "POST", headers: { authorization: "Bearer member-token" }, body: '{"lang":"pl"}' };
+const checkoutRequest = {
+  httpMethod: "POST", headers: { authorization: "Bearer member-token" },
+  body: JSON.stringify({ lang: "pl", termsVersion: agreement.version, acceptTerms: true, startNow: true }),
+};
 
 function signedEvent(type, object) {
   const body = JSON.stringify({ id: "evt_synthetic", type, data: { object } });
@@ -51,6 +55,18 @@ test("an existing unpaid subscription cannot be replaced by a second checkout", 
   assert.equal((await checkout(checkoutRequest)).statusCode, 409);
 });
 
+test("checkout requires both declarations on the current terms version", async (t) => {
+  mock(t, (url) => {
+    assert.equal(url.pathname, "/auth/v1/user");
+    return { id: "member" };
+  });
+  assert.equal((await checkout({ ...checkoutRequest, body: '{"acceptTerms":true,"startNow":true}' })).statusCode, 400);
+  assert.equal((await checkout({
+    ...checkoutRequest,
+    body: JSON.stringify({ acceptTerms: true, startNow: false, termsVersion: agreement.version }),
+  })).statusCode, 400);
+});
+
 test("reopening an unpaid checkout reuses the session already open", async (t) => {
   mock(t, (url, options) => {
     if (url.pathname === "/auth/v1/user") return { id: "member" };
@@ -58,7 +74,7 @@ test("reopening an unpaid checkout reuses the session already open", async (t) =
     assert.equal(url.pathname, "/v1/checkout/sessions");
     assert.equal(url.searchParams.get("customer"), customer);
     assert.equal(options.method, "GET");
-    return { data: [{ status: "open", url: "https://checkout.example.test/open" }] };
+    return { data: [{ status: "open", url: "https://checkout.example.test/open", metadata: { club_terms_version: agreement.version } }] };
   });
   assert.deepEqual(JSON.parse((await checkout(checkoutRequest)).body), { url: "https://checkout.example.test/open" });
 });
@@ -84,6 +100,8 @@ test("concurrent new checkout attempts use the same idempotency key", async (t) 
     const body = new URLSearchParams(options.body);
     assert.equal(body.get("line_items[0][price]"), "price_club");
     assert.equal(body.get("adaptive_pricing[enabled]"), "false");
+    assert.equal(body.get("subscription_data[metadata][club_terms_version]"), agreement.version);
+    assert.equal(body.get("custom_text[submit][message]"), agreement.pl.checkoutText);
     keys.push(options.headers["Idempotency-Key"]);
     return { url: "https://checkout.example.test/new" };
   });
@@ -114,6 +132,7 @@ test("verified paid checkout activates the membership and sends a deduplicated R
     assert.equal(url.hostname, "api.resend.com");
     assert.equal(options.headers["Idempotency-Key"], "club-welcome-cs_synthetic");
     assert.deepEqual(JSON.parse(options.body).to, ["delivered@resend.dev"]);
+    assert.ok(JSON.parse(options.body).text.includes(agreement.pl.form));
     sent = true;
     return { id: "email_synthetic" };
   });
