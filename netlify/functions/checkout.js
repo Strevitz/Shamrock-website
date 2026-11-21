@@ -35,6 +35,9 @@ exports.handler = async (event) => {
       customer,
       client_reference_id: user.id,
       line_items: [{ price: env("STRIPE_PRICE_ID"), quantity: 1 }],
+      // Cena klubu jest podana w PLN; nie zmieniaj waluty na podstawie lokalizacji klienta.
+      adaptive_pricing: { enabled: false },
+      payment_method_types: ["card"],
       success_url: `${SITE()}${p}/membership/account?checkout=success`,
       cancel_url: `${SITE()}${p}/membership`,
       locale: ["pl", "en", "uk"].includes(lang) ? lang : "pl",
